@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyles from './GlobalStyles'
-
 import Header from './components/home/Header'
 import Search from './components/home/Search'
 import Cards from './components/home/Cards'
@@ -14,7 +14,7 @@ const theme = {
   }
 }
 
-function App() {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
