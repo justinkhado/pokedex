@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyles from './GlobalStyles'
@@ -15,13 +14,15 @@ const theme = {
 }
 
 const App = () => {
+  const [search, setSearch] = useState('')  
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <div>
         <Header />
-        <Search />
-        <Cards />
+        <Search search={search} setSearch={setSearch} />
+        <Cards search={search} />
       </div>
     </ThemeProvider>
   )
