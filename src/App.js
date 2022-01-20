@@ -11,14 +11,12 @@ import Header from './components/Header'
 import Home from './components/home/Home'
 
 const theme = {
-  colors: {
-    primary: '#AB1E00',
-    primaryLight: '#b65741',
-    white: '#FFFFFF',
-    grey: '#F0F0F0',
-    black: '#000000',
-    blackLight: '#1d1d1d'
-  }
+  primary: '#AB1E00',
+  primaryLight: '#b65741',
+  white: '#FFFFFF',
+  grey: '#F0F0F0',
+  black: '#000000',
+  blackLight: '#1d1d1d'
 }
 
 const App = () => {

@@ -3,13 +3,18 @@ import styled from 'styled-components'
 const StyledBackground = styled.div`
   background-image: linear-gradient(
     135deg,
-    ${({ theme }) => theme.colors.primaryLight} 0%,
-    ${({ theme }) => theme.colors.primaryLight} 59%,
-    ${({ theme }) => theme.colors.blackLight} 59%,
-    ${({ theme }) => theme.colors.blackLight} 60%,
-    ${({ theme }) => theme.colors.grey} 60%
+    ${props => props.theme.primaryLight}b1 0%,
+    ${props => props.theme.primaryLight}50 59%,
+    ${props => props.theme.blackLight}70 59%,
+    ${props => props.theme.blackLight}70 60%,
+    ${props => props.theme.white} 60%,
+    ${props => props.theme.grey}
   );
   background-attachment: fixed; 
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export default StyledBackground
