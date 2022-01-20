@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const StyledHeader = styled.div`
   background-color: ${props => props.theme.white}c1;
   align-self: center;
-  height: 9rem;
+  height: 10rem;
   width: 95%;
   margin-bottom: 4rem;
   box-shadow: 0 .5rem 2rem;

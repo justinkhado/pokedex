@@ -6,18 +6,10 @@ import {
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './GlobalStyles'
 import StyledBackground from './Background.styled'
+import { theme } from './Theme'
 
 import Header from './components/Header'
 import Home from './components/home/Home'
-
-const theme = {
-  primary: '#AB1E00',
-  primaryLight: '#b65741',
-  white: '#FFFFFF',
-  grey: '#F0F0F0',
-  black: '#000000',
-  blackLight: '#1d1d1d'
-}
 
 const App = () => {
   const [search, setSearch] = useState('')  
@@ -29,7 +21,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route path='/' element={<Home search={search} setSearch={setSearch} />} />
-          <Route path='/pokemon/:id' element={<div></div>} />
+          <Route path='/pokemon' element={<div>a</div>} />
         </Routes>      
       </StyledBackground>
     </ThemeProvider>

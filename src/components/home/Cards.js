@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import pokemonService from '../../services/pokemon'
+import { 
+  Number,
+  StyledCards,
+  StyledCard,
+  Type,
+  Types
+} from './Cards.styled'
 
 const Card = ({ pokemon }) => {
   return (
-    <div>
-      <div>{`${pokemon.dexNumber}: ${pokemon.name}`}</div>
-      <div>
+    <StyledCard to='' type={pokemon.type}>
+      <Number>{`${pokemon.dexNumber}`}</Number> 
+      <Types>
         {pokemon.type.map((type, index) => 
-          <div key={index}>{type}</div>  
-        )}
-      </div>
+          <Type type={type} key={index}>{type}</Type>  
+          )}
+      </Types>
       <img src={require(`../../assets/images/${pokemon.url.split('/')[6]}.png`)} alt={`${pokemon.name}`} />
-    </div>
+      <div>{`${pokemon.name}`}</div>
+    </StyledCard>
   )
 }
 
@@ -22,7 +30,7 @@ const Cards = ({ search }) => {
     pokemonService
       .getAll()
       .then(returnedPokemon => {
-        setPokemons(returnedPokemon.pokemons.slice(0, 20).map((pokemon, index) => (
+        setPokemons(returnedPokemon.pokemons.slice(0, 30).map((pokemon, index) => (
           { ...pokemon, dexNumber: index + 1 }
         )))
       })
@@ -33,11 +41,11 @@ const Cards = ({ search }) => {
   )
 
   return (
-    <div>
+    <StyledCards>
       {filteredPokemons.map(pokemon =>
         <Card key={pokemon.name} pokemon={pokemon} />
       )}
-    </div>
+    </StyledCards>
   )
 }
 
