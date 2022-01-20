@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
-    //background: ${({ theme }) => theme.colors.primary}
+    padding: 3rem;   
   }
 `
 export default GlobalStyles

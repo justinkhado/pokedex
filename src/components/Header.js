@@ -1,10 +1,11 @@
 import React from 'react'
+import StyledHeader from './Header.styled'
 
 const Header = () => {
   return (
-    <div>
+    <StyledHeader>
       <h1>Pokedex</h1>
-    </div>
+    </StyledHeader>
   )
 }
 

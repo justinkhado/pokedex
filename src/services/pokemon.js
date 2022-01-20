@@ -1,11 +1,10 @@
 import axios from 'axios'
 
-const baseUrl = 'https://pokeapi.co/api/v2/pokemon'
-const maxPokemonCount = 10//1118
+const baseUrl = 'https://raw.githubusercontent.com/justinkhado/pokedex-data/master'
 
 const getAll = async () => {
-  const request = await axios.get(`${baseUrl}/?limit=${maxPokemonCount}`)
-  return request.data.results
+  const request = await axios.get(`${baseUrl}/pokemons.json`)
+  return request.data
 }
 
 const pokemonService = {

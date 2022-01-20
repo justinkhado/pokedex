@@ -1,15 +1,23 @@
 import React, { useState } from 'react'
+import {
+  Routes,
+  Route
+} from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
-
 import GlobalStyles from './GlobalStyles'
-import Header from './components/home/Header'
-import Search from './components/home/Search'
-import Cards from './components/home/Cards'
+import StyledBackground from './Background.styled'
+
+import Header from './components/Header'
+import Home from './components/home/Home'
 
 const theme = {
   colors: {
     primary: '#AB1E00',
-    secondary: '#F0F0F0'
+    primaryLight: '#b65741',
+    white: '#FFFFFF',
+    grey: '#F0F0F0',
+    black: '#000000',
+    blackLight: '#1d1d1d'
   }
 }
 
@@ -19,11 +27,13 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <div>
+      <StyledBackground>        
         <Header />
-        <Search search={search} setSearch={setSearch} />
-        <Cards search={search} />
-      </div>
+        <Routes>
+          <Route path='/' element={<Home search={search} setSearch={setSearch} />} />
+          <Route path='/pokemon/:id' element={<div></div>} />
+        </Routes>      
+      </StyledBackground>
     </ThemeProvider>
   )
 }
