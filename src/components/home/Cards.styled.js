@@ -12,9 +12,9 @@ const StyledCards = styled.div`
 
 const StyledCard = styled(Link)`
   position: relative;
-  height: 25.6rem;
-  width: 20.2rem;
-  border: 1px solid white;
+  height: 27rem;
+  width: 22rem;
+  border: 1rem solid ${props => props.theme.white};
   border-radius: 0.5rem;
 
   background: ${props => props.theme.grey}a1;
