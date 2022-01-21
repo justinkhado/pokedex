@@ -7,10 +7,10 @@ const StyledBackground = styled.div`
     135deg,
     ${props => props.theme.primary}b1 0%,
     ${props => props.theme.primary}50 59%,
-    ${props => props.theme.blackLight}70 59%,
-    ${props => props.theme.blackLight}70 60%,
+    ${props => props.theme.blackLight}a1 59%,
+    ${props => props.theme.blackLight}a1 60%,
     ${props => props.theme.white} 60%,
-    ${props => props.theme.greyLight}
+    ${props => props.theme.grey}c1
   );
   background-attachment: fixed; 
 

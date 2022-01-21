@@ -17,12 +17,12 @@ const StyledCard = styled(Link)`
   border: 1px solid white;
   border-radius: 0.5rem;
 
-  background: ${props => props.theme.grey};
+  background: ${props => props.theme.grey}a1;
   background-image: linear-gradient(
     to right,
-    ${props => props.theme[props.type[0]]}70 0%,
-    ${props => props.theme[props.type[0]]}70 50%,
-    ${props => props.type.length > 1 ? props.theme[props.type[1]] : props.theme[props.type[0]]}70 50%
+    ${props => props.theme[props.types[0]]}70 0%,
+    ${props => props.theme[props.types[0]]}70 50%,
+    ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}70 50%
   );
   
   text-decoration: none;

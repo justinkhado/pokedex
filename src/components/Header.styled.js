@@ -6,7 +6,7 @@ const StyledHeader = styled.div`
   z-index: 99;
   background-color: ${props => props.theme.white}c1;
   align-self: center;
-  height: 10rem;
+  height: 9.5rem;
   width: 95%;
   margin-bottom: 4rem;
   box-shadow: 0 .5rem 2rem;

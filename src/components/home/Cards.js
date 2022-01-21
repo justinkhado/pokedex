@@ -11,14 +11,14 @@ import {
 
 const Card = ({ pokemon }) => {
   return (
-    <StyledCard to='' type={pokemon.type}>
+    <StyledCard to='' types={pokemon.types}>
       <Number>{`${pokemon.dexNumber}`}</Number> 
       <Types>
-        {pokemon.type.map((type, index) => 
+        {pokemon.types.map((type, index) => 
           <Type type={type} key={index}>{type}</Type>  
           )}
       </Types>
-      <img src={require(`../../assets/images/${pokemon.url.split('/')[6]}.png`)} alt={`${pokemon.name}`} />
+      <img src={require(`../../assets/images/${pokemon.id}.png`)} alt={`${pokemon.name}`} />
       <Name>{`${pokemon.name}`}</Name>
     </StyledCard>
   )
