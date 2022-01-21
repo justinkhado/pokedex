@@ -4,7 +4,7 @@ const StyledHeader = styled.div`
   position: sticky;
   top: 0;
   z-index: 99;
-  background-color: ${props => props.theme.white}c1;
+  background-color: ${props => props.theme.white}e1;
   align-self: center;
   height: 9.5rem;
   width: 95%;

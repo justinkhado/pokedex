@@ -10,13 +10,17 @@ const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%;
+    scroll-behavior: smooth;
   }
   
   body {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.6rem;
-    //padding: 0 5rem 5rem;
+    font-size: 1.6rem;    
     margin: 0;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `
 export default GlobalStyles

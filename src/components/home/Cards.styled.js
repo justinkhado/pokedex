@@ -27,7 +27,7 @@ const StyledCard = styled(Link)`
   
   text-decoration: none;
   box-shadow: 0.3rem 0.5rem 1rem ${props => props.theme.blackLight};
-  transition: all .2s;
+  transition: all .1s;
 
   display: flex;
   flex-direction: column;
@@ -69,6 +69,7 @@ const Types = styled.div`
   align-self: flex-end;
   margin-top: 1rem;
   margin-right: 1rem;
+  height: 2rem;
 `
 
 const Type = styled.span`
