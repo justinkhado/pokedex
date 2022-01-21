@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const StyledCards = styled.div`
-  margin: 0 3rem 5rem;
+  margin: 0 10rem 5rem;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 5rem;
 `
 
 const StyledCard = styled(Link)`
@@ -15,24 +16,14 @@ const StyledCard = styled(Link)`
   width: 20.2rem;
   border: 1px solid white;
   border-radius: 0.5rem;
-  margin: 2rem;
 
-  //background: ${props => props.theme.white}e1;
-
-  //background: ${props => props.theme[props.type]}70;
-
-  background: white;
+  background: ${props => props.theme.grey};
   background-image: linear-gradient(
     to right,
     ${props => props.theme[props.type[0]]}70 0%,
     ${props => props.theme[props.type[0]]}70 50%,
     ${props => props.type.length > 1 ? props.theme[props.type[1]] : props.theme[props.type[0]]}70 50%
   );
-  /* background-image: linear-gradient(
-    to right,
-    ${props => props.theme[props.type[0]]}70,
-    ${props => props.type.length > 1 ? props.theme[props.type[1]] : props.theme[props.type[0]]}70
-  ); */
   
   text-decoration: none;
   box-shadow: 0.3rem 0.5rem 1rem ${props => props.theme.blackLight};
@@ -49,7 +40,7 @@ const StyledCard = styled(Link)`
   }
 
   &:hover {
-    transform: scale(1.06);
+    transform: scale(1.04);
     box-shadow: 0.5rem 0.7rem 1.3rem ${props => props.theme.blackLight};
   }
 
@@ -59,19 +50,19 @@ const StyledCard = styled(Link)`
   }
 
   img {
-    height: 18rem;
+    height: 16.8rem;
     padding: 0 1rem;
+    z-index: 1;
   }
 `
 
 const Number = styled.div`
   position: absolute;
   top: 0rem;
-  left: .7rem;
-  font-size: 4.2rem;
+  left: 1rem;
+  font-size: 6rem;
   font-weight: 900;
-  color: white;
-  //text-shadow: 0 0 .3rem ${props => props.theme.blackLight};
+  color: ${props => props.theme.greyLight};
 `
 
 const Types = styled.div`
@@ -87,6 +78,7 @@ const Type = styled.span`
 
   height: 1.8rem;
   width: 6rem;
+  border: 1px solid ${props => props.theme.greyDark};
   border-radius: 0.5rem;
   background: ${props => props.theme[props.type]};
   
@@ -96,12 +88,25 @@ const Type = styled.span`
   font-weight: 600;
   letter-spacing: 0.05rem;
 
+  box-shadow: inset .15rem .1rem ${props => props.theme.white}a1;
+
   &:not(:last-child) {
     margin-bottom: .2rem;
   }
 `
 
+const Name = styled.div`
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  //text-shadow: 0 .05rem .3rem ${props => props.theme.black};
+  padding-bottom: 1rem;
+`
+
 export {
+  Name,
   Number,
   StyledCards,
   StyledCard,

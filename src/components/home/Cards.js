@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import pokemonService from '../../services/pokemon'
 import { 
+  Name,
   Number,
   StyledCards,
   StyledCard,
@@ -18,7 +19,7 @@ const Card = ({ pokemon }) => {
           )}
       </Types>
       <img src={require(`../../assets/images/${pokemon.url.split('/')[6]}.png`)} alt={`${pokemon.name}`} />
-      <div>{`${pokemon.name}`}</div>
+      <Name>{`${pokemon.name}`}</Name>
     </StyledCard>
   )
 }
@@ -30,7 +31,7 @@ const Cards = ({ search }) => {
     pokemonService
       .getAll()
       .then(returnedPokemon => {
-        setPokemons(returnedPokemon.pokemons.slice(0, 30).map((pokemon, index) => (
+        setPokemons(returnedPokemon.pokemons.slice(0, 50).map((pokemon, index) => (
           { ...pokemon, dexNumber: index + 1 }
         )))
       })

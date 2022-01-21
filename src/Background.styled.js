@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 const StyledBackground = styled.div`
+  min-height: 100vh;
+
   background-image: linear-gradient(
     135deg,
     ${props => props.theme.primary}b1 0%,
@@ -8,7 +10,7 @@ const StyledBackground = styled.div`
     ${props => props.theme.blackLight}70 59%,
     ${props => props.theme.blackLight}70 60%,
     ${props => props.theme.white} 60%,
-    ${props => props.theme.grey}
+    ${props => props.theme.greyLight}
   );
   background-attachment: fixed; 
 

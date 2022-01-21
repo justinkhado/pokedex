@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 const StyledHeader = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 99;
   background-color: ${props => props.theme.white}c1;
   align-self: center;
   height: 10rem;
@@ -15,7 +18,7 @@ const StyledHeader = styled.div`
   h1 {
     font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 1.2rem;
+    letter-spacing: 1.5rem;
     text-transform: uppercase;
 
     &::first-letter {
