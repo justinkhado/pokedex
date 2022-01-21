@@ -12,7 +12,7 @@ import {
 const Card = ({ pokemon }) => {
   return (
     <StyledCard to='' types={pokemon.types}>
-      <Number>{`${pokemon.dexNumber}`}</Number> 
+      <Number>{`${pokemon.id}`}</Number> 
       <Types>
         {pokemon.types.map((type, index) => 
           <Type type={type} key={index}>{type}</Type>  
@@ -31,9 +31,7 @@ const Cards = ({ search }) => {
     pokemonService
       .getAll()
       .then(returnedPokemon => {
-        setPokemons(returnedPokemon.pokemons.slice(0, 50).map((pokemon, index) => (
-          { ...pokemon, dexNumber: index + 1 }
-        )))
+        setPokemons(returnedPokemon.pokemons.slice(386, 493))
       })
   }, [])
 
