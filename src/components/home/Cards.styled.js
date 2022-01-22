@@ -14,7 +14,7 @@ const StyledCard = styled(Link)`
   position: relative;
   height: 27rem;
   width: 22rem;
-  border: 1rem solid ${props => props.theme.white};
+  border: .7rem solid ${props => props.theme.white};
   border-radius: 0.5rem;
 
   background: ${props => props.theme.grey}a1;
@@ -72,37 +72,12 @@ const Types = styled.div`
   height: 2rem;
 `
 
-const Type = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 1.8rem;
-  width: 6rem;
-  border: 1px solid ${props => props.theme.greyDark};
-  border-radius: 0.5rem;
-  background: ${props => props.theme[props.type]};
-  
-  color: ${props => props.theme.white};
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  font-weight: 600;
-  letter-spacing: 0.05rem;
-
-  box-shadow: inset .15rem .1rem ${props => props.theme.white}a1;
-
-  &:not(:last-child) {
-    margin-bottom: .2rem;
-  }
-`
-
 const Name = styled.div`
   color: white;
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: .1rem;
   text-transform: uppercase;
-  //text-shadow: 0 .05rem .3rem ${props => props.theme.black};
   padding-bottom: 1rem;
 `
 
@@ -111,6 +86,5 @@ export {
   Number,
   StyledCards,
   StyledCard,
-  Type,
   Types
 }

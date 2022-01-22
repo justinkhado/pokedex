@@ -5,9 +5,9 @@ import {
   Number,
   StyledCards,
   StyledCard,
-  Type,
   Types
 } from './Cards.styled'
+import { Type } from '../../sharedStyles/Type.styled'
 
 const Card = ({ pokemon }) => {
   return (
@@ -18,7 +18,7 @@ const Card = ({ pokemon }) => {
           <Type type={type} key={index}>{type}</Type>  
           )}
       </Types>
-      <img src={require(`../../assets/images/${pokemon.id}.png`)} alt={`${pokemon.name}`} />
+      <img src={require(`../../assets/images/${pokemon.id}.png`)} alt={`${pokemon.name}`} loading='lazy' />
       <Name>{`${pokemon.name}`}</Name>
     </StyledCard>
   )

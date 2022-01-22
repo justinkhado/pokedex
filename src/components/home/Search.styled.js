@@ -27,7 +27,7 @@ const SearchBox = styled.div`
     //box-shadow: .5rem .6rem .6rem ${props => props.theme.blackLight};
     border: none;
     border-radius: 10rem;
-    outline: 2px solid ${props => props.theme.primaryLight};
+    outline: 2px solid ${props => props.theme.blackLight};
     outline-offset: .4rem;
     padding: .6rem 1.5rem;
     font-size: 1.8rem;
