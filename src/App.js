@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Routes,
   Route
@@ -10,9 +10,20 @@ import { theme } from './Theme'
 
 import Header from './components/Header'
 import Home from './components/home/Home'
+import Pokemon from './components/pokemon/Pokemon'
+
+import pokemonService from './services/pokemon'
 
 const App = () => {
-  const [search, setSearch] = useState('')  
+  const [pokemons, setPokemons] = useState([])
+
+  useEffect(() => {
+    pokemonService
+      .getAll()
+      .then(returnedPokemon => {
+        setPokemons(returnedPokemon.pokemons.slice(386, 493))
+      })
+  }, [])
 
   return (
     <ThemeProvider theme={theme}>
@@ -20,8 +31,8 @@ const App = () => {
       <StyledBackground>        
         <Header />
         <Routes>
-          <Route path='/' element={<Home search={search} setSearch={setSearch} />} />
-          <Route path='/pokemon' element={<div>a</div>} />
+          <Route path='/' element={<Home pokemons={pokemons} />} />
+          <Route path='/pokemon/:id' element={<Pokemon />} />
         </Routes>      
       </StyledBackground>
     </ThemeProvider>

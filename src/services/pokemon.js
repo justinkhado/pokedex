@@ -7,8 +7,14 @@ const getAll = async () => {
   return request.data
 }
 
+const getPokemon = async (id) => {
+  const request = await axios.get(`${baseUrl}/pokemon/${id}.json`)
+  return request.data 
+}
+
 const pokemonService = {
-  getAll
+  getAll,
+  getPokemon
 }
 
 export default pokemonService

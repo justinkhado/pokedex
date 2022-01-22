@@ -11,7 +11,7 @@ import { Type } from '../../sharedStyles/Type.styled'
 
 const Card = ({ pokemon }) => {
   return (
-    <StyledCard to='' types={pokemon.types}>
+    <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types}>
       <Number>{`${pokemon.id}`}</Number> 
       <Types>
         {pokemon.types.map((type, index) => 
@@ -24,17 +24,7 @@ const Card = ({ pokemon }) => {
   )
 }
 
-const Cards = ({ search }) => {
-  const [pokemons, setPokemons] = useState([])
-
-  useEffect(() => {
-    pokemonService
-      .getAll()
-      .then(returnedPokemon => {
-        setPokemons(returnedPokemon.pokemons.slice(386, 493))
-      })
-  }, [])
-
+const Cards = ({ pokemons, search }) => { 
   const filteredPokemons = pokemons.filter(pokemon =>
     pokemon.name.toLowerCase().includes(search.toLowerCase())  
   )
