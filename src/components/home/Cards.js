@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import pokemonService from '../../services/pokemon'
+import React from 'react'
+import LazyLoad from 'react-lazyload'
 import { 
   Name,
   Number,
@@ -11,16 +11,18 @@ import { Type } from '../../sharedStyles/Type.styled'
 
 const Card = ({ pokemon }) => {
   return (
-    <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types}>
-      <Number>{`${pokemon.id}`}</Number> 
-      <Types>
-        {pokemon.types.map((type, index) => 
-          <Type type={type} key={index}>{type}</Type>  
-          )}
-      </Types>
-      <img src={require(`../../assets/images/${pokemon.id}.png`)} alt={`${pokemon.name}`} loading='lazy' />
-      <Name>{`${pokemon.name}`}</Name>
-    </StyledCard>
+    <LazyLoad height={260} offset={100}>
+      <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types}>
+        <Number>{`${pokemon.id}`}</Number> 
+        <Types>
+          {pokemon.types.map((type, index) => 
+            <Type type={type} key={index}>{type}</Type>  
+            )}
+        </Types>
+          <img src={require(`../../assets/images/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>
+        <Name>{`${pokemon.name}`}</Name>
+      </StyledCard>
+    </LazyLoad>
   )
 }
 

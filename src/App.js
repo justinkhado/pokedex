@@ -21,7 +21,7 @@ const App = () => {
     pokemonService
       .getAll()
       .then(returnedPokemon => {
-        setPokemons(returnedPokemon.pokemons.slice(386, 493))
+        setPokemons(returnedPokemon.pokemons)//.slice(386, 493))
       })
   }, [])
 
