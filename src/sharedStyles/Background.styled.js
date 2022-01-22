@@ -5,12 +5,12 @@ const StyledBackground = styled.div`
 
   background-image: linear-gradient(
     135deg,
-    ${props => props.theme.primary}b1 0%,
-    ${props => props.theme.primary}50 59%,
-    ${props => props.theme.blackLight}a1 59%,
-    ${props => props.theme.blackLight}a1 60%,
+    ${props => props.theme.primary}c5 0%,
+    ${props => props.theme.primary}70 59%,
+    ${props => props.theme.blackLight}b1 59%,
+    ${props => props.theme.blackLight}b1 60%,
     ${props => props.theme.white} 60%,
-    ${props => props.theme.grey}c1
+    ${props => props.theme.grey}b1
   );
   background-attachment: fixed; 
 

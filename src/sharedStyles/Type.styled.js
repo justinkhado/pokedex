@@ -6,7 +6,7 @@ export const Type = styled.span`
   align-items: center;
 
   height: 1.8rem;
-  width: 6rem;
+  width: 6.2rem;
   border: 1px solid ${props => props.theme.greyDark};
   border-radius: 0.5rem;
   background: ${props => props.theme[props.type]};

@@ -5,9 +5,9 @@ import {
 } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './GlobalStyles'
-import StyledBackground from './Background.styled'
 import { theme } from './Theme'
 
+import StyledBackground from './sharedStyles/Background.styled'
 import Header from './components/Header'
 import Home from './components/home/Home'
 import Pokemon from './components/pokemon/Pokemon'
