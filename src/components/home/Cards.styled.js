@@ -12,9 +12,9 @@ const StyledCards = styled.div`
 
 const StyledCard = styled(Link)`
   position: relative;
-  height: 27rem;
+  height: 26rem;
   width: 22rem;
-  border: .7rem solid ${props => props.theme.white};
+  //border: .7rem solid ${props => props.theme.white};
   border-radius: 0.5rem;
 
   background: ${props => props.theme.grey}a1;
@@ -50,8 +50,7 @@ const StyledCard = styled(Link)`
   }
 
   img {
-    height: 16.8rem;
-    padding: 0 1rem;
+    height: 18rem;
     z-index: 1;
   }
 `

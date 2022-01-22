@@ -17,9 +17,26 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;    
     margin: 0;
-    
-    &::-webkit-scrollbar {
-      //display: none;
+
+    overflow-y: scroll;
+
+    ::-webkit-scrollbar {
+      width: .8em;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: ${props => props.theme.white};
+      border-radius: 100vw;
+      margin-top: .5rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: ${props => props.theme.grey};
+      border-radius: 100vw;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: ${props => props.theme.greyDark};
     }
   }
 `

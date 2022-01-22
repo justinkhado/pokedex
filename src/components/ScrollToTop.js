@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ScrollButton } from '../sharedStyles/ScrollToTop.styled'
+import { default as upArrow } from '../assets/icons/up-arrow.svg'
 
 const ScrollToTop = () => {  
   const [visible, setVisible] = useState(false)
@@ -25,7 +26,7 @@ const ScrollToTop = () => {
 
   return (
     <ScrollButton onClick={scrollToTop} visible={visible}>
-      &rarr;
+      <img src={upArrow} alt='up arrow' />
     </ScrollButton>
   )
 }
