@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import LazyLoad from 'react-lazyload'
+
 import { 
   Name,
   Number,
@@ -9,9 +10,9 @@ import {
 } from './Cards.styled'
 import { Type } from '../../sharedStyles/Type.styled'
 
-const Card = ({ pokemon }) => {
+const Card = ({ pokemon }) => {  
   return (
-    <LazyLoad height={260} offset={100}>
+    <LazyLoad height={260} offset={150} once>
       <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types}>
         <Number>{`${pokemon.id}`}</Number> 
         <Types>
@@ -26,7 +27,13 @@ const Card = ({ pokemon }) => {
   )
 }
 
-const Cards = ({ pokemons, search }) => { 
+const Cards = ({ pokemons, search }) => {
+  useEffect(() => {
+    // lazyload doesn't react to non-scroll event, so force scroll to trigger
+    window.scroll({ top: 1 })
+    window.scroll({ top: 0 })
+  }, [search])
+
   const filteredPokemons = pokemons.filter(pokemon =>
     pokemon.name.toLowerCase().includes(search.toLowerCase())  
   )
@@ -34,7 +41,7 @@ const Cards = ({ pokemons, search }) => {
   return (
     <StyledCards>
       {filteredPokemons.map(pokemon =>
-        <Card key={pokemon.name} pokemon={pokemon} />
+        <Card key={pokemon.id} pokemon={pokemon} />
       )}
     </StyledCards>
   )
