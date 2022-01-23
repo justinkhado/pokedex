@@ -8,7 +8,7 @@ const StyledHeader = styled.div`
   align-self: center;
   height: 9.5rem;
   width: 95%;
-  margin-bottom: 4rem;
+  margin-bottom: 7rem;
   box-shadow: 0 .5rem 2rem;
 
   display: flex;

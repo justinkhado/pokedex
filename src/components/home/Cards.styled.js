@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 const StyledCards = styled.div`
   margin: 0 10rem 5rem;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -14,7 +13,6 @@ const StyledCard = styled(Link)`
   position: relative;
   height: 26rem;
   width: 22rem;
-  //border: .7rem solid ${props => props.theme.white};
   border-radius: 0.5rem;
 
   background: ${props => props.theme.grey}a1;
@@ -31,7 +29,7 @@ const StyledCard = styled(Link)`
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 
   &:link,
@@ -39,9 +37,21 @@ const StyledCard = styled(Link)`
     color: ${props => props.theme.blackLight}
   }
 
-  &:hover {
-    transform: scale(1.04);
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
     box-shadow: 0.5rem 0.7rem 1.3rem ${props => props.theme.blackLight};
+    background: ${props => props.theme.grey};
+    background-image: linear-gradient(
+      to right,
+      ${props => props.theme[props.types[0]]}90 0%,
+      ${props => props.theme[props.types[0]]}90 50%,
+      ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}90 50%
+    );
+  }
+
+  &:focus {
+    outline: none;
   }
 
   &:active {
@@ -65,10 +75,9 @@ const Number = styled.div`
 `
 
 const Types = styled.div`
-  align-self: flex-end;
-  margin-top: 1rem;
-  margin-right: 1rem;
-  height: 2rem;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
 `
 
 const Name = styled.div`
@@ -77,7 +86,7 @@ const Name = styled.div`
   font-weight: 700;
   letter-spacing: .1rem;
   text-transform: uppercase;
-  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
 `
 
 export {

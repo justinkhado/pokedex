@@ -23,11 +23,9 @@ export const ScrollButton = styled.button`
   }
 
   &:hover {
-    transform: scale(1.15);
     cursor: pointer;
     background-color: ${props => props.theme.primary};
     outline: 2px solid ${props => props.theme.greyLight};
-    box-shadow: .3rem .4em 1rem ${props => props.theme.blackLight};
 
     img {
       filter: invert(95%);

@@ -1,17 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Cards from './Cards'
 import Search from './Search'
 import ScrollToTop from '../ScrollToTop'
 
-const Home = ({ pokemons }) => {
-  const [search, setSearch] = useState('')
-
+const Home = ({ pokemons, search, setSearch }) => { 
   return (
-    <div>
+    <>
       <Search search={search} setSearch={setSearch} />
       <Cards pokemons={pokemons} search={search} />
       <ScrollToTop />
-    </div>
+    </>
   )
 }
 

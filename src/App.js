@@ -16,12 +16,13 @@ import pokemonService from './services/pokemon'
 
 const App = () => {
   const [pokemons, setPokemons] = useState([])
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     pokemonService
       .getAll()
       .then(returnedPokemon => {
-        setPokemons(returnedPokemon.pokemons)//.slice(386, 493))
+        setPokemons(returnedPokemon.pokemons)
       })
   }, [])
 
@@ -31,7 +32,7 @@ const App = () => {
       <StyledBackground>        
         <Header />
         <Routes>
-          <Route path='/' element={<Home pokemons={pokemons} />} />
+          <Route path='/' element={<Home pokemons={pokemons} search={search} setSearch={setSearch} />} />
           <Route path='/pokemon/:id' element={<Pokemon />} />
         </Routes>      
       </StyledBackground>

@@ -1,21 +1,22 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-  position: sticky;
-  top: 3.3rem;
+  position: fixed;
+  top: 1rem;
+  right: 7vw;
   z-index: 999;
   height: 7rem;
-  width: 30rem;
-  margin: 0 auto 3rem;
+  width: 20rem;
+  //margin: 0 auto 3rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  transition: all .7s;
+  /* transition: all .7s;
   ${props => props.isScrolling && `
-    transform: translate(30vw, -2.5vh);
-  `}
+    transform: translate(0, 0);
+  `} */
 `
 
 const SearchBox = styled.div`
@@ -23,24 +24,27 @@ const SearchBox = styled.div`
   height: 3.3rem; 
   
   input {
-    width: 15rem;
-    //box-shadow: .5rem .6rem .6rem ${props => props.theme.blackLight};
+    width: 17.5rem;
     border: none;
     border-radius: 10rem;
-    outline: 2px solid ${props => props.theme.blackLight};
-    outline-offset: .4rem;
-    padding: .6rem 1.5rem;
+    outline: 2px solid ${props => props.theme.blackLight};    
+    padding: .6rem 0 .6rem 4rem;
     font-size: 1.8rem;
-    color: ${props => props.theme.greyDark};
+    color: ${props => props.theme.blackLight};
     transition: all .2s;
+
+    &:hover {
+      outline-offset: .4rem;
+    }
 
     &:focus {
       outline: 2px solid ${props => props.theme.primary};
+      outline-offset: .4rem;
       width: 20rem;
     }
 
     &::placeholder {
-      color: ${props => props.theme.grey}
+      color: ${props => props.theme.grey};
     }
   }
 
@@ -51,10 +55,10 @@ const SearchBox = styled.div`
     height: inherit;
     top: 50%;
     transform: translateY(-50%);
-    right: .3rem;
+    left: .5rem;
 
     img {
-      height: 80%;
+      height: 78%;
       transition: rotate 5s;
     }
   }
@@ -68,7 +72,22 @@ const SearchBox = styled.div`
   }
 `
 
+const Clear = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: .5rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: ${props => props.theme.blackLight};
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+`
+
 export {
+  Clear,
   Container,
   SearchBox
 }

@@ -1,35 +1,50 @@
-import React, { useEffect, useState} from 'react'
-import { Container, SearchBox } from './Search.styled'
+import React, { useEffect, useRef } from 'react'
+import { Container, Clear, SearchBox } from './Search.styled'
 import pokeball from '../../assets/icons/pokeball.png'
 
-const Search = (props) => {
-  const [offset, setOffset] = useState(0);
+const Search = ({ search, setSearch }) => {
+  const inputRef = useRef(null)
 
   useEffect(() => {
-    const onScroll = () => setOffset(window.scrollY)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    const handleEscPress = (event) => {
+      if (event.key === 'Escape') {
+        inputRef.current.blur()
+      }
+    }    
+    window.addEventListener('keydown', handleEscPress)
+    return () => window.removeEventListener('keydown', handleEscPress)
   }, [])
 
   const handleSearchChange = (event) => {
-    props.setSearch(event.target.value)
+    setSearch(event.target.value)
+  }
+
+  const onClearButtonClick = () => {
+    setSearch('')
   }
 
   return (
-    <Container isScrolling={offset > 40}>
+    <Container>
       <SearchBox >
         <input
-          value={props.search}
+          ref={inputRef}
+          value={search}
           onChange={handleSearchChange}
+          maxLength={15}
           placeholder='Search'
         />
         <div>
           <img src={pokeball} alt='pokeball' />
-        </div>          
-      </SearchBox>      
-      <div>
-        
-      </div>
+        </div>
+        {search && 
+          <Clear 
+            onClick={onClearButtonClick}
+            onMouseDown={(event) => event.preventDefault()}
+          >
+            &#9932;
+          </Clear>
+        }
+      </SearchBox>
     </Container>
   )
 }
