@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import LazyLoad from 'react-lazyload'
-
 import { 
   Name,
   Number,
+  Placeholder,
   StyledCards,
   StyledCard,
   Types
@@ -13,10 +13,8 @@ import { Type } from '../../sharedStyles/Type.styled'
 const Card = ({ pokemon }) => {  
   return (
     <LazyLoad 
-      offset={200}
-      placeholder={
-        <div style={{ width: '220px', height: '260px' }}></div>
-      }
+      offset={500}
+      placeholder={<Placeholder></Placeholder>}
     >
       <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types}>
         <Number>{`${pokemon.id}`}</Number>      

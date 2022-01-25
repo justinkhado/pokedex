@@ -26,6 +26,14 @@ const Search = ({ search, setSearch }) => {
   return (
     <Container>
       <SearchBox >
+        {search && 
+          <Clear 
+            onClick={onClearButtonClick}
+            onMouseDown={(event) => event.preventDefault()}
+          >
+            &#9932;
+          </Clear>
+        }
         <input
           ref={inputRef}
           value={search}
@@ -36,14 +44,6 @@ const Search = ({ search, setSearch }) => {
         <div>
           <img src={pokeball} alt='pokeball' />
         </div>
-        {search && 
-          <Clear 
-            onClick={onClearButtonClick}
-            onMouseDown={(event) => event.preventDefault()}
-          >
-            &#9932;
-          </Clear>
-        }
       </SearchBox>
     </Container>
   )

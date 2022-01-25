@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import pokemonService from '../../services/pokemon'
+import {
+  Container
+} from './Pokemon.styled'
 
 const Pokemon = () => {
   const location = useLocation()
@@ -21,11 +24,11 @@ const Pokemon = () => {
   console.log(pokemon)
 
   return (
-    <div>
+    <Container>
       {pokemon.name}
       {pokemon.id}
       <img src={require(`../../assets/images/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>      
-    </div>
+    </Container>
   )
 }
 

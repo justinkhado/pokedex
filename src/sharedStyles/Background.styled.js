@@ -12,11 +12,7 @@ const StyledBackground = styled.div`
     ${props => props.theme.white} 60%,
     ${props => props.theme.grey}b1
   );
-  background-attachment: fixed; 
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-attachment: fixed;
 `
 
 export default StyledBackground

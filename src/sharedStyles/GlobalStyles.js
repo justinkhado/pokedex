@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.6rem;    
+    font-size: 1.6rem;
     margin: 0;
 
     overflow-y: scroll;
@@ -30,12 +30,12 @@ const GlobalStyles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-thumb {
-      background: ${props => props.theme.grey};
+      background: ${props => props.theme.primaryLight};
       border-radius: 100vw;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: ${props => props.theme.greyDark};
+      background: ${props => props.theme.primary};
     }
   }
 `

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { ScrollButton } from '../sharedStyles/ScrollToTop.styled'
-import { default as upArrow } from '../assets/icons/up-arrow.svg'
+import { ScrollButton } from './ScrollToTop.styled'
+import { default as upArrow } from '../../assets/icons/up-arrow.svg'
 
 const ScrollToTop = () => {  
   const [visible, setVisible] = useState(false)

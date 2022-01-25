@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
-import GlobalStyles from './GlobalStyles'
+import GlobalStyles from './sharedStyles/GlobalStyles'
 import { theme } from './Theme'
 
 import StyledBackground from './sharedStyles/Background.styled'

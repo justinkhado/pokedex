@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'https://raw.githubusercontent.com/justinkhado/pokedex-data/master'
+const baseUrl = 'https://raw.githubusercontent.com/justinkhado/pokedex-data/master/data'
 
 const getAll = async () => {
   const request = await axios.get(`${baseUrl}/pokemons.json`)

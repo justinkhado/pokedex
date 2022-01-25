@@ -1,22 +1,25 @@
 import styled from 'styled-components'
+import { device } from '../../sharedStyles/breakpoints'
 
 const Container = styled.div`
-  position: fixed;
-  top: 1rem;
-  right: 7vw;
-  z-index: 999;
-  height: 7rem;
-  width: 20rem;
-  //margin: 0 auto 3rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
 
-  /* transition: all .7s;
-  ${props => props.isScrolling && `
-    transform: translate(0, 0);
-  `} */
+  position: fixed;
+  top: 1.9rem;
+  right: .3rem;
+  z-index: 999;
+  width: 20rem;
+
+  @media only screen and (${device.sm}) {
+    top: 3.1rem;
+    right: 1rem;
+  }
+
+  @media only screen and (${device.md}) {
+    right: 7vw;
+  }
 `
 
 const SearchBox = styled.div`
@@ -40,7 +43,10 @@ const SearchBox = styled.div`
     &:focus {
       outline: 2px solid ${props => props.theme.primary};
       outline-offset: .4rem;
-      width: 20rem;
+      
+      @media only screen and (${device.md}) {
+        width: 20rem;
+      }
     }
 
     &::placeholder {
@@ -81,9 +87,23 @@ const Clear = styled.button`
   border-radius: 50%;
   background: transparent;
   color: ${props => props.theme.blackLight};
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 900;
   cursor: pointer;
+
+  @media only screen and (${device.md}) {
+    font-size: 1.2rem;
+  }
+
+  &:active,
+  &:hover {
+    background-color: ${props => props.theme.greyLight};
+  }
+
+  &:hover + input {
+    outline-offset: .4rem;
+  }
+
 `
 
 export {

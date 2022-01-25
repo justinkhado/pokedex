@@ -1,25 +1,35 @@
 import styled from 'styled-components'
+import { device } from './breakpoints'
 
-export const Type = styled.span`
+export const Type = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  height: 1.8rem;
-  width: 6.2rem;
+  aspect-ratio: 3.2 / 1;
+  width: 5.1em;
   border: 1px solid ${props => props.theme.greyDark};
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   background: ${props => props.theme[props.type]};
   
   color: ${props => props.theme.white};
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: .8rem;
   font-weight: 600;
   letter-spacing: 0.05rem;
-
-  box-shadow: inset .15rem .1rem ${props => props.theme.white}a1;
+  box-shadow: inset 1px 1px ${props => props.theme.white}a1;
 
   &:not(:last-child) {
-    margin-bottom: .2rem;
+    margin-bottom: 1px;
   }
+
+  @media only screen and (${device.sm}) {
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    box-shadow: inset 1.5px 1px ${props => props.theme.white}a1;
+
+    &:not(:last-child) {
+      margin-bottom: .2rem;
+    }
+  }  
 `
