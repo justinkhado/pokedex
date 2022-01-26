@@ -16,6 +16,17 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     margin: 0;
+    background-image: linear-gradient(
+      135deg,
+      ${props => props.theme.primary}c1 0%,
+      ${props => props.theme.primary}80 59%,
+      ${props => props.theme.blackLight}b1 59%,
+      ${props => props.theme.blackLight}b1 60%,
+      ${props => props.theme.white} 60%,
+      ${props => props.theme.grey}b1
+    );
+    background-attachment: fixed;
+    min-height: 100vh;
 
     overflow-y: scroll;
 
@@ -24,14 +35,13 @@ const GlobalStyles = createGlobalStyle`
     }
 
     ::-webkit-scrollbar-track {
-      background: ${props => props.theme.white};
-      border-radius: 100vw;
+      background: ${props => props.theme.white};      
       margin-top: .5rem;
     }
 
     ::-webkit-scrollbar-thumb {
       background: ${props => props.theme.primaryLight};
-      border-radius: 100vw;
+      border-radius: .5rem;
     }
 
     ::-webkit-scrollbar-thumb:hover {

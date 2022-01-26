@@ -90,6 +90,7 @@ const Clear = styled.button`
   font-size: 2rem;
   font-weight: 900;
   cursor: pointer;
+  transition: all .2s;
 
   @media only screen and (${device.md}) {
     font-size: 1.2rem;
@@ -97,7 +98,7 @@ const Clear = styled.button`
 
   &:active,
   &:hover {
-    background-color: ${props => props.theme.greyLight};
+    background-color: ${props => props.theme.grey};
   }
 
   &:hover + input {

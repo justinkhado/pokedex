@@ -23,6 +23,10 @@ export const Type = styled.div`
     margin-bottom: 1px;
   }
 
+  span {
+    margin-top: 1px;
+  }
+
   @media only screen and (${device.sm}) {
     font-size: 1.2rem;
     border-radius: 0.5rem;

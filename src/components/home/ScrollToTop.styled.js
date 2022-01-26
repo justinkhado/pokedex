@@ -39,3 +39,8 @@ export const ScrollButton = styled.button`
     }
   }
 `
+
+export const ScrollCheck = styled.div`
+  position: absolute;
+  top: 50vh;
+`

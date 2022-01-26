@@ -7,11 +7,9 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './sharedStyles/GlobalStyles'
 import { theme } from './Theme'
 
-import StyledBackground from './sharedStyles/Background.styled'
 import Header from './components/Header'
 import Home from './components/home/Home'
 import Pokemon from './components/pokemon/Pokemon'
-
 import pokemonService from './services/pokemon'
 
 const App = () => {
@@ -29,13 +27,11 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <StyledBackground>        
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home pokemons={pokemons} search={search} setSearch={setSearch} />} />
-          <Route path='/pokemon/:id' element={<Pokemon />} />
-        </Routes>      
-      </StyledBackground>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home pokemons={pokemons} search={search} setSearch={setSearch} />} />
+        <Route path='/pokemon/:id' element={<Pokemon />} />
+      </Routes>
     </ThemeProvider>
   )
 }

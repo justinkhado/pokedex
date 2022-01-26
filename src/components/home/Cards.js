@@ -13,14 +13,14 @@ import { Type } from '../../sharedStyles/Type.styled'
 const Card = ({ pokemon }) => {  
   return (
     <LazyLoad 
-      offset={500}
+      offset={1000}
       placeholder={<Placeholder></Placeholder>}
     >
       <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types}>
         <Number>{`${pokemon.id}`}</Number>      
         <Types>
           {pokemon.types.map((type, index) => 
-            <Type type={type} key={index}>{type}</Type>  
+            <Type type={type} key={index}><span>{type}</span></Type>  
             )}
         </Types>
         <img src={require(`../../assets/images/${pokemon.id}.png`)} alt={`${pokemon.name}`} />      

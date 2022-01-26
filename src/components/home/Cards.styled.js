@@ -19,7 +19,7 @@ const StyledCards = styled.div`
     gap: 2rem;
   }
 
-  @media only screen and (${device.lg}) {
+  @media only screen and (${device.md}) {
     margin: 0 10rem;
     gap: 3rem;
   }
