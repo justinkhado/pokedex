@@ -29,13 +29,24 @@ export const ScrollButton = styled.button`
     height: 2.6rem;
   }
 
-  &:hover {
-    cursor: pointer;
+  &:active {
     background-color: ${props => props.theme.primary};
     outline: 2px solid ${props => props.theme.greyLight};
 
     img {
       filter: invert(95%);
+    }
+  }
+
+  @media only screen and (${device.sm}) {
+    &:hover {
+      cursor: pointer;
+      background-color: ${props => props.theme.primary};
+      outline: 2px solid ${props => props.theme.greyLight};
+
+      img {
+        filter: invert(95%);
+      }
     }
   }
 `

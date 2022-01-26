@@ -5,6 +5,9 @@ import { device } from '../../sharedStyles/breakpoints'
 const Placeholder = styled.div`
   aspect-ratio: 11 / 13;
   width: min(29vw, 22rem);
+  background: ${props => props.theme.grey};
+  box-shadow: .3rem .5rem 1rem ${props => props.theme.blackLight};
+  border-radius: .5rem;
 `
 
 const StyledCards = styled.div`
@@ -34,10 +37,10 @@ const StyledCard = styled(Link)`
   position: relative;
   width: min(29vw, 22rem);
   aspect-ratio: 11 / 13;
-  border-radius: 0.5rem;
+  border-radius: .5rem;
   font-size: min(2vw, 1.6rem);   // this adjusts the font size of children b/c they're em
   text-decoration: none;
-  box-shadow: 0.3rem 0.5rem 1rem ${props => props.theme.blackLight};
+  box-shadow: .3rem .5rem 1rem ${props => props.theme.blackLight};
   transition: all .1s;
 
   background: ${props => props.theme.grey}a1;
@@ -54,15 +57,17 @@ const StyledCard = styled(Link)`
   }
 
   &:hover {
-    transform: scale(1.05);
-    box-shadow: 0.5rem 0.7rem 1.3rem ${props => props.theme.blackLight};
-    background-color: ${props => props.theme.grey};
-    background-image: linear-gradient(
-      to right,
-      ${props => props.theme[props.types[0]]}90 0%,
-      ${props => props.theme[props.types[0]]}90 50%,
-      ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}90 50%
-    );
+    @media only screen and (${device.md}) {
+      transform: scale(1.05);
+      box-shadow: 0.5rem 0.7rem 1.3rem ${props => props.theme.blackLight};
+      background-color: ${props => props.theme.grey};
+      background-image: linear-gradient(
+        to right,
+        ${props => props.theme[props.types[0]]}90 0%,
+        ${props => props.theme[props.types[0]]}90 50%,
+        ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}90 50%
+      );
+    }
   }
 
   &:active {

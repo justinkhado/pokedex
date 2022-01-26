@@ -23,7 +23,7 @@ const Card = ({ pokemon }) => {
             <Type type={type} key={index}><span>{type}</span></Type>  
             )}
         </Types>
-        <img src={require(`../../assets/images/${pokemon.id}.png`)} alt={`${pokemon.name}`} />      
+        <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>      
         <Name>{`${pokemon.name}`}</Name>
       </StyledCard>
     </LazyLoad>

@@ -27,7 +27,7 @@ const Pokemon = () => {
     <Container>
       {pokemon.name}
       {pokemon.id}
-      <img src={require(`../../assets/images/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>      
+      <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>      
     </Container>
   )
 }
