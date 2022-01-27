@@ -1,20 +1,14 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import InfiniteScroll from 'react-infinite-scroll-component'
 import { device } from '../../sharedStyles/breakpoints'
 
-const Placeholder = styled.div`
-  aspect-ratio: 11 / 13;
-  width: min(29vw, 22rem);
-  background: ${props => props.theme.grey}90;
-  border-radius: .5rem;
-`
-
-const StyledCards = styled.div`
+export const StyledCards = styled(InfiniteScroll)`
   display: grid;
   grid-template-columns: repeat(auto-fill, min(29vw, 22rem));
   justify-content: space-around;
   padding-bottom: 10rem;
-  margin: 0 1rem;
+  margin: 0 1rem;  
   gap: 1.5rem 1rem;
 
   @media only screen and (${device.sm}) {
@@ -27,7 +21,7 @@ const StyledCards = styled.div`
   }
 `
 
-const StyledCard = styled(Link)`
+export const StyledCard = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -73,14 +67,14 @@ const StyledCard = styled(Link)`
     transform: scale(0.98);
     box-shadow: 0.2rem 0.2rem 0.8rem ${props => props.theme.blackLight};
   }
- 
+
   & > img {
     z-index: 1;
     width: 80%;
   }
 `
 
-const Number = styled.div`
+export const Number = styled.div`
   position: absolute;
   top: .1em;
   left: .3em;
@@ -95,7 +89,7 @@ const Number = styled.div`
   }
 `
 
-const Types = styled.div`
+export const Types = styled.div`
   position: absolute;
   top: .5rem;
   right: .5rem;
@@ -106,7 +100,7 @@ const Types = styled.div`
   }
 `
 
-const Name = styled.div`
+export const Name = styled.div`
   color: white;
   font-size: 1.7em;
   font-weight: 700;
@@ -114,12 +108,3 @@ const Name = styled.div`
   text-transform: uppercase;
   margin-bottom: .5em;
 `
-
-export {
-  Name,
-  Number,
-  Placeholder,
-  StyledCards,
-  StyledCard,
-  Types
-}

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { device } from '../sharedStyles/breakpoints'
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   display: flex;
   align-items: center;
 

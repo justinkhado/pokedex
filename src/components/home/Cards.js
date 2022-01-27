@@ -1,46 +1,83 @@
-import React, { useEffect } from 'react'
-import LazyLoad from 'react-lazyload'
-import { 
+import React, { useEffect, useState } from 'react'
+import {
   Name,
   Number,
-  Placeholder,
   StyledCards,
   StyledCard,
   Types
 } from './Cards.styled'
 import { Type } from '../../sharedStyles/Type.styled'
 
-const Card = ({ pokemon }) => {  
+const Card = ({ pokemon }) => {
   return (
-    <LazyLoad offset={500} placeholder={<Placeholder></Placeholder>}>
-      <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types}>
-        <Number>{`${pokemon.id}`}</Number>      
-        <Types>
-          {pokemon.types.map((type, index) => 
-            <Type type={type} key={index}><span>{type}</span></Type>  
-            )}
-        </Types>
-        <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`} />
-        <Name>{`${pokemon.name}`}</Name>
-      </StyledCard>
-    </LazyLoad>
+    <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types}>
+      <Number>{`${pokemon.id}`}</Number>      
+      <Types>
+          <Type type={pokemon.types[0]}><span>{pokemon.types[0]}</span></Type>
+          {pokemon.types[1] && 
+            <Type type={pokemon.types[1]}><span>{pokemon.types[1]}</span></Type>
+          }
+      </Types>
+      <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`} loading='lazy' />
+      <Name>{`${pokemon.name}`}</Name>
+    </StyledCard>
   )
 }
 
-const Cards = ({ pokemons, search }) => {
+const Cards = ({ pokemons, search }) => {  
+  const [filteredPokemons, setFilteredPokemons] = useState([])  
+  const [pokemonChunk, setPokemonChunk] = useState({
+    items: [],
+    hasMore: true
+  })  
+
   useEffect(() => {
-    // lazyload doesn't react to non-scroll event, so force scroll to trigger
-    window.dispatchEvent(new Event('scroll'))
+    setFilteredPokemons(pokemons.filter(pokemon =>
+      pokemon.name.toLowerCase().includes(search.toLowerCase())  
+    ))
+  }, [pokemons])
+  
+  useEffect(() => {
+    setPokemonChunk({
+      ...pokemonChunk,
+      items: filteredPokemons.slice(0, 18)
+    })
+  }, [filteredPokemons])
+
+  useEffect(() => {
+    setFilteredPokemons(pokemons.filter(pokemon =>
+      pokemon.name.toLowerCase().includes(search.toLowerCase())  
+    ))
   }, [search])
 
-  const filteredPokemons = pokemons.filter(pokemon =>
-    pokemon.name.toLowerCase().includes(search.toLowerCase())  
-  )
+  if (!pokemons.length) {
+    return (<div></div>)
+  }
+
+  const fetchMoreData = () => {
+    if (filteredPokemons.length !== 0 && pokemonChunk.items.length >= filteredPokemons.length) {
+      setPokemonChunk({ ...pokemonChunk, hasMore: false })
+      return
+    }
+    
+    setPokemonChunk({
+      ...pokemonChunk,
+      items: pokemonChunk.items.concat(
+        filteredPokemons.slice(pokemonChunk.items.length, pokemonChunk.items.length + 12)
+      )
+    })
+  }
 
   return (
-    <StyledCards>
-      {filteredPokemons.map(pokemon =>
-        <Card key={pokemon.id} pokemon={pokemon} />
+    <StyledCards
+      dataLength={pokemonChunk.items.length}
+      next={fetchMoreData}
+      hasMore={pokemonChunk.hasMore}
+      scrollThreshold={.9}
+      style={{ height: 'initial', overflow: 'initial' }}
+    >
+      {pokemonChunk.items.map(pokemon =>
+        <Card key={pokemon.id} pokemon={pokemon} />  
       )}
     </StyledCards>
   )
