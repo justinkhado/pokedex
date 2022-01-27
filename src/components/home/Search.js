@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Container, Clear, SearchBox } from './Search.styled'
-import pokeball from '../../assets/icons/pokeball.png'
+import { ReactComponent as Pokeball } from '../../assets/icons/pokeball.svg'
 
 const Search = ({ search, setSearch }) => {
   const inputRef = useRef(null)
@@ -42,7 +42,7 @@ const Search = ({ search, setSearch }) => {
           placeholder='Search'
         />
         <div>
-          <img src={pokeball} alt='pokeball' />
+          <Pokeball />
         </div>
       </SearchBox>
     </Container>

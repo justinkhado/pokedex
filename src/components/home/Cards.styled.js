@@ -5,8 +5,7 @@ import { device } from '../../sharedStyles/breakpoints'
 const Placeholder = styled.div`
   aspect-ratio: 11 / 13;
   width: min(29vw, 22rem);
-  background: ${props => props.theme.grey};
-  box-shadow: .3rem .5rem 1rem ${props => props.theme.blackLight};
+  background: ${props => props.theme.grey}90;
   border-radius: .5rem;
 `
 
@@ -74,10 +73,10 @@ const StyledCard = styled(Link)`
     transform: scale(0.98);
     box-shadow: 0.2rem 0.2rem 0.8rem ${props => props.theme.blackLight};
   }
-
-  img {
-    width: 80%;
+ 
+  & > img {
     z-index: 1;
+    width: 80%;
   }
 `
 

@@ -63,13 +63,13 @@ const SearchBox = styled.div`
     transform: translateY(-50%);
     left: .5rem;
 
-    img {
-      height: 78%;
+    & > svg {
+      height: 80%;
       transition: rotate 5s;
     }
   }
 
-  input:focus + div img {
+  input:focus + div svg {
     animation: 2.5s spin infinite cubic-bezier(.6,0,.4,1);
   }
 
