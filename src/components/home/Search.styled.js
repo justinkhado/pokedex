@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { device } from '../../sharedStyles/breakpoints'
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@ const Container = styled.div`
   }
 `
 
-const SearchBox = styled.div`
+export const SearchBox = styled.div`
   position: relative;
   height: 3.3rem; 
   
@@ -78,11 +78,12 @@ const SearchBox = styled.div`
   }
 `
 
-const Clear = styled.button`
+export const Clear = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: .5rem;
+  aspect-ratio: 1 / 1;
   border: none;
   border-radius: 50%;
   background: transparent;
@@ -104,11 +105,4 @@ const Clear = styled.button`
   &:hover + input {
     outline-offset: .4rem;
   }
-
 `
-
-export {
-  Clear,
-  Container,
-  SearchBox
-}

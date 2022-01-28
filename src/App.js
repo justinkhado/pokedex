@@ -11,12 +11,14 @@ import pokemonService from './services/pokemon'
 import Fallback from './components/Fallback'
 import Header from './components/Header'
 
-const Home = lazy(() => import('./components/home/Home'))
+const Home = lazy(async () => {
+  await new Promise(resolve => setTimeout(resolve, 1000))
+  return import('./components/home/Home')
+})
 const Pokemon = lazy(() => import('./components/pokemon/Pokemon'))
 
 const App = () => {
-  const [pokemons, setPokemons] = useState([])
-  const [search, setSearch] = useState('')
+  const [pokemons, setPokemons] = useState([])  
 
   useEffect(() => {
     pokemonService
@@ -32,7 +34,7 @@ const App = () => {
       <Header />
       <Suspense fallback={<Fallback />}>
         <Routes>
-          <Route path='/' element={<Home pokemons={pokemons} search={search} setSearch={setSearch} />} />
+          <Route path='/' element={<Home pokemons={pokemons} />} />
           <Route path='/pokemon/:id' element={<Pokemon />} />
         </Routes>
       </Suspense>

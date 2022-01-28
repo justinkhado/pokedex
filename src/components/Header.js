@@ -4,7 +4,7 @@ import StyledHeader from './Header.styled'
 const Header = () => {
   return (
     <StyledHeader>
-      <h1>Pokedex</h1>
+      <h1>Pok&eacute;dex</h1>
     </StyledHeader>
   )
 }

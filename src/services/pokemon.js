@@ -12,9 +12,15 @@ const getPokemon = async (id) => {
   return request.data 
 }
 
+const getPokemonImage = async (id) => {
+  const request = await axios.get(`${baseUrl}/images/original/${id}.png`)
+  return request.data 
+}
+
 const pokemonService = {
   getAll,
-  getPokemon
+  getPokemon,
+  getPokemonImage
 }
 
 export default pokemonService

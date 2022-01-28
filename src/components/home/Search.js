@@ -17,10 +17,12 @@ const Search = ({ search, setSearch }) => {
 
   const handleSearchChange = (event) => {
     setSearch(event.target.value)
+    window.sessionStorage.setItem('search', event.target.value)
   }
 
   const onClearButtonClick = () => {
     setSearch('')
+    window.sessionStorage.setItem('search', '')
   }
 
   return (

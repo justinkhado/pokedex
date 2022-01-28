@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   Name,
   Number,
@@ -24,48 +24,76 @@ const Card = ({ pokemon }) => {
   )
 }
 
-const Cards = ({ pokemons, search }) => {  
+const Cards = ({ pokemons, search }) => {
   const [filteredPokemons, setFilteredPokemons] = useState([])  
   const [pokemonChunk, setPokemonChunk] = useState({
     items: [],
     hasMore: true
-  })  
+  })
+
+  const pokemonChunkRef = useRef(null)
+  pokemonChunkRef.current = pokemonChunk
+
+  const initialRender = useRef(true)
+
+  useEffect(() => {    
+    const scrollPosition = parseInt(window.sessionStorage.getItem('homeScrollPosition')) || 0
+    setTimeout(() => {window.scrollTo({ top: scrollPosition })}, 2)
+
+    const onUnload = (event) => {
+      event.preventDefault()
+      window.sessionStorage.setItem('homeScrollPosition', 0)
+    }
+    window.addEventListener('beforeunload', onUnload)
+
+    return () => {
+      window.removeEventListener('beforeunload', onUnload)
+      window.sessionStorage.setItem('pokemonChunk', JSON.stringify(pokemonChunkRef.current))
+    }
+  }, [])
 
   useEffect(() => {
     setFilteredPokemons(pokemons.filter(pokemon =>
       pokemon.name.toLowerCase().includes(search.toLowerCase())  
     ))
-  }, [pokemons])
-  
+  }, [pokemons, search])
+
   useEffect(() => {
-    setPokemonChunk({
-      ...pokemonChunk,
-      items: filteredPokemons.slice(0, 18)
-    })
+    if (initialRender.current) {
+      initialRender.current = false
+    }
+    else {
+      const storedChunk = JSON.parse(window.sessionStorage.getItem('pokemonChunk'))
+      if (storedChunk) {
+        setPokemonChunk({ ...storedChunk })
+        window.sessionStorage.removeItem('pokemonChunk')
+      }
+      else {
+        setPokemonChunk({
+          items: filteredPokemons.slice(0, 18),
+          hasMore: filteredPokemons.length > 18
+        })
+      }
+      window.scrollTo({ top: 0 })
+    }
   }, [filteredPokemons])
 
-  useEffect(() => {
-    setFilteredPokemons(pokemons.filter(pokemon =>
-      pokemon.name.toLowerCase().includes(search.toLowerCase())  
-    ))
-  }, [search])
-
-  if (!pokemons.length) {
-    return (<div></div>)
-  }
-
   const fetchMoreData = () => {
-    if (filteredPokemons.length !== 0 && pokemonChunk.items.length >= filteredPokemons.length) {
+    if (filteredPokemons.length && pokemonChunk.items.length >= filteredPokemons.length) {
       setPokemonChunk({ ...pokemonChunk, hasMore: false })
       return
     }
-    
+
     setPokemonChunk({
       ...pokemonChunk,
       items: pokemonChunk.items.concat(
         filteredPokemons.slice(pokemonChunk.items.length, pokemonChunk.items.length + 12)
       )
-    })
+    })    
+  }
+
+  const handleScrollEvent = () => {
+    window.sessionStorage.setItem('homeScrollPosition', window.scrollY)
   }
 
   return (
@@ -74,6 +102,7 @@ const Cards = ({ pokemons, search }) => {
       next={fetchMoreData}
       hasMore={pokemonChunk.hasMore}
       scrollThreshold={.9}
+      onScroll={handleScrollEvent}
       style={{ height: 'initial', overflow: 'initial' }}
     >
       {pokemonChunk.items.map(pokemon =>

@@ -8,6 +8,10 @@ import {
 const Pokemon = () => {
   const location = useLocation()
   const [pokemon, setPokemon] = useState({})
+
+  useEffect(() => {
+    //window.scrollTo({ top: 0 })
+  }, [])
   
   useEffect(() => {
     pokemonService
@@ -27,7 +31,7 @@ const Pokemon = () => {
     <Container>
       {pokemon.name}
       {pokemon.id}
-      <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>      
+      <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>
     </Container>
   )
 }
