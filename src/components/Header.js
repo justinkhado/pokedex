@@ -1,10 +1,12 @@
 import React from 'react'
-import StyledHeader from './Header.styled'
+import { StyledHeader, StyledLink } from './Header.styled'
 
 const Header = () => {
   return (
     <StyledHeader>
-      <h1>Pok&eacute;dex</h1>
+      <h1>
+        <StyledLink to='/home'>Pok&eacute;dex</StyledLink>
+      </h1>
     </StyledHeader>
   )
 }

@@ -27,24 +27,32 @@ export const SearchBox = styled.div`
   height: 3.3rem; 
   
   input {
-    width: 17.5rem;
+    width: 15rem;
+    height: 3.3rem;
     border: none;
     border-radius: 10rem;
     outline: 2px solid ${props => props.theme.blackLight};    
-    padding: .6rem 0 .6rem 4rem;
-    font-size: 1.8rem;
+    padding: .6rem 3rem .6rem 4rem;
+    font-size: 1.6rem;
     color: ${props => props.theme.blackLight};
     transition: all .2s;
 
+    @media only screen and (${device.sm}) {
+        width: 17.5rem;
+        font-size: 1.8rem;
+      }
+
     &:hover {
-      outline-offset: .4rem;
+      @media only screen and (${device.md}) {
+        outline-offset: .4rem;
+      }
     }
 
     &:focus {
       outline: 2px solid ${props => props.theme.primary};
-      outline-offset: .4rem;
       
       @media only screen and (${device.md}) {
+        outline-offset: .4rem;
         width: 20rem;
       }
     }
@@ -88,7 +96,7 @@ export const Clear = styled.button`
   border-radius: 50%;
   background: transparent;
   color: ${props => props.theme.blackLight};
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 900;
   cursor: pointer;
   transition: all .2s;

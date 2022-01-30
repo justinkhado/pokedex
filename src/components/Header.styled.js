@@ -1,14 +1,20 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { device } from '../sharedStyles/breakpoints'
 
-const StyledHeader = styled.header`
+export const StyledHeader = styled.header`
   display: flex;
   align-items: center;
 
   position: sticky;
   top: 0;
   z-index: 99;
-  background-color: ${props => props.theme.white}e1;
+  ${props => props.theme.type ? `
+    background-color: ${props.theme.white};    
+    background-image: linear-gradient(${props.theme.type}60 0 0);` : `
+    background-color: ${props.theme.white}e1;
+    `
+  }
   height: 7rem;
   margin: 0 auto 3rem;
   box-shadow: 0 .5rem 2rem;
@@ -25,18 +31,17 @@ const StyledHeader = styled.header`
 
   h1 {
     margin-left: 1rem;
-    font-size: 4rem;
+    font-size: 3.7rem;
     font-weight: 300;
     text-transform: uppercase;
 
     @media only screen and (${device.sm}) { 
-      letter-spacing: .8rem;
       font-size: 5rem;
+      letter-spacing: .5rem;
     }
 
     @media only screen and (${device.md}) { 
       font-size: 6rem;
-      font-weight: 400;
       letter-spacing: 1.5rem;
     }
 
@@ -49,5 +54,12 @@ const StyledHeader = styled.header`
     }
   }
 `
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  cursor: pointer;  
 
-export default StyledHeader
+  &:link,
+  &:visited {
+    color: ${props => props.theme.black};
+  }
+`

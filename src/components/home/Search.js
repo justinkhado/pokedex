@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { Container, Clear, SearchBox } from './Search.styled'
 import { ReactComponent as Pokeball } from '../../assets/icons/pokeball.svg'
 
-const Search = ({ search, setSearch }) => {
+const Search = ({ search, handleSearchChange }) => {
   const inputRef = useRef(null)
 
   useEffect(() => {
@@ -15,14 +15,12 @@ const Search = ({ search, setSearch }) => {
     return () => window.removeEventListener('keydown', handleEscPress)
   }, [])
 
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value)
-    window.sessionStorage.setItem('search', event.target.value)
+  const handleSearchInput = (event) => {
+    handleSearchChange(event.target.value)
   }
 
   const onClearButtonClick = () => {
-    setSearch('')
-    window.sessionStorage.setItem('search', '')
+    handleSearchChange('')
   }
 
   return (
@@ -39,7 +37,7 @@ const Search = ({ search, setSearch }) => {
         <input
           ref={inputRef}
           value={search}
-          onChange={handleSearchChange}
+          onChange={handleSearchInput}
           maxLength={15}
           placeholder='Search'
         />

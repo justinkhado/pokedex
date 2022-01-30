@@ -18,7 +18,7 @@ const Card = ({ pokemon }) => {
             <Type type={pokemon.types[1]}><span>{pokemon.types[1]}</span></Type>
           }
       </Types>
-      <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`} loading='lazy' />
+      <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`} />
       <Name>{`${pokemon.name}`}</Name>
     </StyledCard>
   )
@@ -38,7 +38,7 @@ const Cards = ({ pokemons, search }) => {
 
   useEffect(() => {    
     const scrollPosition = parseInt(window.sessionStorage.getItem('homeScrollPosition')) || 0
-    setTimeout(() => {window.scrollTo({ top: scrollPosition })}, 2)
+    setTimeout(() => {window.scrollTo({ top: scrollPosition, behavior: 'smooth' })}, 2)
 
     const onUnload = (event) => {
       event.preventDefault()

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+import Fallback from '../Fallback'
 import pokemonService from '../../services/pokemon'
+import InfoBlock from './InfoBlock'
 import {
   Container
 } from './Pokemon.styled'
 
-const Pokemon = () => {
+const Pokemon = ({ changeType }) => {
   const location = useLocation()
   const [pokemon, setPokemon] = useState({})
 
@@ -21,17 +23,22 @@ const Pokemon = () => {
       })
   }, [location])
 
+  useEffect(() => {
+    if (pokemon.id) {
+      changeType(pokemon.types[0])
+    }
+  }, [pokemon, changeType])
+
   if (!pokemon.id) {
-    return (<div></div>)
+    return (<Fallback />)
   }
 
   console.log(pokemon)
 
   return (
-    <Container>
-      {pokemon.name}
-      {pokemon.id}
+    <Container>      
       <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>
+      <InfoBlock pokemon={pokemon} />
     </Container>
   )
 }

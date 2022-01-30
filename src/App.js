@@ -12,13 +12,14 @@ import Fallback from './components/Fallback'
 import Header from './components/Header'
 
 const Home = lazy(async () => {
-  await new Promise(resolve => setTimeout(resolve, 1000))
+  await new Promise(resolve => setTimeout(resolve, 500))
   return import('./components/home/Home')
 })
 const Pokemon = lazy(() => import('./components/pokemon/Pokemon'))
 
 const App = () => {
-  const [pokemons, setPokemons] = useState([])  
+  const [pokemons, setPokemons] = useState([])
+  const [typeTheme, setTypeTheme] = useState('')
 
   useEffect(() => {
     pokemonService
@@ -28,14 +29,21 @@ const App = () => {
       })
   }, [])
 
+  const handleTypeThemeChange = (type) => {
+    setTypeTheme(type)
+  }
+
+  console.log(typeTheme)
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={{ ...theme, type: theme[typeTheme] }}>
       <GlobalStyles />
       <Header />
       <Suspense fallback={<Fallback />}>
         <Routes>
-          <Route path='/' element={<Home pokemons={pokemons} />} />
-          <Route path='/pokemon/:id' element={<Pokemon />} />
+          <Route path='/' element={<Home pokemons={pokemons} changeType={handleTypeThemeChange} />} />
+          <Route path='/home' element={<Home pokemons={pokemons} changeType={handleTypeThemeChange} />} />
+          <Route path='/pokemon/:id' element={<Pokemon changeType={handleTypeThemeChange} />} />
         </Routes>
       </Suspense>
     </ThemeProvider>

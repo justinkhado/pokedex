@@ -28,7 +28,3 @@ export const theme = {
   steel: '#696969',
   water: '#165ac0'
 }
-
-export const header = {
-  color: theme.white,
-}
