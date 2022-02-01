@@ -11,7 +11,7 @@ export const StyledHeader = styled.header`
   z-index: 99;
   ${props => props.theme.type ? `
     background-color: ${props.theme.white};    
-    background-image: linear-gradient(${props.theme.type}60 0 0);` : `
+    background-image: linear-gradient(${props.theme.type} 0 0);` : `
     background-color: ${props.theme.white}e1;
     `
   }
@@ -50,7 +50,10 @@ export const StyledHeader = styled.header`
     }
 
     &::first-letter {
-      color: ${props => props.theme.primary}
+      ${props => props.theme.type ? `
+      color: ${props.theme.white};` : `
+      color: ${props.theme.primary};
+      `}
     }
   }
 `
@@ -60,6 +63,10 @@ export const StyledLink = styled(Link)`
 
   &:link,
   &:visited {
-    color: ${props => props.theme.black};
+    ${props => props.theme.type ? `
+    color: ${props.theme.white};
+    text-shadow: 1px 1px .3rem ${props.theme.black}` : `
+    color: ${props.theme.black};
+    `}
   }
 `

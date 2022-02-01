@@ -19,10 +19,6 @@ export const Type = styled.div`
   letter-spacing: 0.05rem;
   box-shadow: inset 1px 1px ${props => props.theme.white}a1;
 
-  &:not(:last-child) {
-    margin-bottom: 1px;
-  }
-
   span {
     margin-top: 1px;
   }
@@ -31,9 +27,5 @@ export const Type = styled.div`
     font-size: 1.2rem;
     border-radius: 0.5rem;
     box-shadow: inset 1.5px 1px ${props => props.theme.white}a1;
-
-    &:not(:last-child) {
-      margin-bottom: .2rem;
-    }
   }  
 `

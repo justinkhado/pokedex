@@ -12,7 +12,7 @@ const Pokemon = ({ changeType }) => {
   const [pokemon, setPokemon] = useState({})
 
   useEffect(() => {
-    //window.scrollTo({ top: 0 })
+    window.scrollTo({ top: 0 })
   }, [])
   
   useEffect(() => {

@@ -30,10 +30,8 @@ const App = () => {
   }, [])
 
   const handleTypeThemeChange = (type) => {
-    setTypeTheme(type)
+    setTypeTheme(`${type}`)
   }
-
-  console.log(typeTheme)
 
   return (
     <ThemeProvider theme={{ ...theme, type: theme[typeTheme] }}>

@@ -98,6 +98,18 @@ export const Types = styled.div`
     top: 1.6rem;
     right: 1.2rem;
   }
+
+  div {
+    &:not(:last-child) {
+      margin-bottom: 1px;
+    }
+
+    @media only screen and (${device.sm}) {
+      &:not(:last-child) {
+        margin-bottom: .2rem;
+      }
+    }  
+  }
 `
 
 export const Name = styled.div`
