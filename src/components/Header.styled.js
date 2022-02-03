@@ -10,12 +10,12 @@ export const StyledHeader = styled.header`
   top: 0;
   z-index: 99;
   ${props => props.theme.type ? `
-    background-image: linear-gradient(${props.theme[`${props.theme.type}Light`]} 0 0);` : `
+    background-image: linear-gradient(${props.theme[`${props.theme.type}`]} 0 0);` : `
     background-color: ${props.theme.white}e1;
     `
   }
   height: 7rem;
-  margin: 0 auto 3rem;
+  margin: 0 auto;
   box-shadow: 0 .5rem 2rem;
 
   @media only screen and (${device.sm}) { 
@@ -50,7 +50,7 @@ export const StyledHeader = styled.header`
 
     &::first-letter {
       ${props => props.theme.type ?
-        `color: ${props.theme.black};` : 
+        `color: ${props.theme.white};` : 
         `color: ${props.theme.primary};`
       }
     }
@@ -62,6 +62,9 @@ export const StyledLink = styled(Link)`
 
   &:link,
   &:visited {
-    color: ${props => props.theme.black};
+    ${props => props.theme.type ?
+        `color: ${props.theme.white};` : 
+        `color: ${props.theme.black};`
+      }
   }
 `

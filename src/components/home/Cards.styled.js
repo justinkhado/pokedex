@@ -8,7 +8,7 @@ export const StyledCards = styled(InfiniteScroll)`
   grid-template-columns: repeat(auto-fill, min(29vw, 22rem));
   justify-content: space-around;
   padding-bottom: 10rem;
-  margin: 0 1rem;  
+  margin: 3rem 1rem 0;  
   gap: 1.5rem 1rem;
 
   @media only screen and (${device.sm}) {

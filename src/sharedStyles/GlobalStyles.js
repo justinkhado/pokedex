@@ -40,7 +40,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     &::-webkit-scrollbar-thumb {
-      background: ${props => props.theme.primaryLight};
+      background: ${props => props.theme.primary}c5;
       border-radius: .5rem;
     }
 

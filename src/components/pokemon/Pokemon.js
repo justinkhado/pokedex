@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import Fallback from '../Fallback'
 import pokemonService from '../../services/pokemon'
 import InfoBlock from './InfoBlock'
+import StatBlock from './StatBlock'
 import {
   Container
 } from './Pokemon.styled'
@@ -39,6 +40,8 @@ const Pokemon = ({ changeType }) => {
     <Container>      
       <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>
       <InfoBlock pokemon={pokemon} />
+      <StatBlock stats={pokemon.stats} />
+      <div>TypeEffectiveness</div>
     </Container>
   )
 }
