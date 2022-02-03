@@ -30,21 +30,21 @@ const GlobalStyles = createGlobalStyle`
 
     overflow-y: scroll;
 
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
       width: .8em;
     }
 
-    ::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
       background: ${props => props.theme.white};      
       margin-top: .5rem;
     }
 
-    ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
       background: ${props => props.theme.primaryLight};
       border-radius: .5rem;
     }
 
-    ::-webkit-scrollbar-thumb:hover {
+    &::-webkit-scrollbar-thumb:hover {
       background: ${props => props.theme.primary};
     }
   }

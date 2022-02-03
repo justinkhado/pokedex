@@ -1,4 +1,5 @@
 export const theme = {
+  // colors
   primary: '#AB1E00',
   white: '#FFFFFF',
   grey: '#b3b3b3',
@@ -7,76 +8,79 @@ export const theme = {
   black: '#000000',
   blackLight: '#1d1d1d',
 
+  // shadows
+  shadowSmall: '.3rem .4rem .8rem',
+
   // types
   bug: '#8baf61',
-  bugLight: '#A3C082',
+  bugLight: '#c5dbab',
   bugDark: '#3B4D27',
 
-  dark: '#272727',
-  darkLight: '#454545',
-  darkDark: '#1B1B1B',
+  dark: '#2e2e2e',
+  darkLight: '#a8a8a8',
+  darkDark: '#161616',
 
   dragon: '#2d2bb8',
-  dragonLight: '#4F4CD5',
-  dragonDark: '#0b095a',
+  dragonLight: '#aaaae4',
+  dragonDark: '#0d0c46',
 
   electric: '#e7c52a',
-  electricLight: '#EDD259',
+  electricLight: '#faedb3',
   electricDark: '#9F8512',
 
   fairy: '#ff81d5',
-  fairyLight: '#FFA4E1',
-  fairyDark: '#BF007F',
+  fairyLight: '#ffd1f0',
+  fairyDark: '#9b186f',
 
   fighting: '#80280e',
-  fightingLight: '#B03814',
-  fightingDark: '#531A09',
+  fightingLight: '#f0aa95',
+  fightingDark: '#331209',
 
   fire: '#ff5e00',
-  fireLight: '#ffab7b',
-  fireDark: '#802F00',
+  fireLight: '#fcb58c',
+  fireDark: '#582403',
 
   flying: '#698eb9',
-  flyingLight: '#7F9FC3',
-  flyingDark: '#3C5B7F',
+  flyingLight: '#aebac7',
+  flyingDark: '#2d3844',
 
   ghost: '#3a2969',
-  ghostLight: '#4F3890',
-  ghostDark: '#22183D',
+  ghostLight: '#ac9fce',
+  ghostDark: '#1a152b',
 
   grass: '#16771b',
-  grassLight: '#22BB2A',
+  grassLight: '#96cf99',
   grassDark: '#082B0A',
 
   ground: '#977222',
-  groundLight: '#D4A541',
+  groundLight: '#e0c68d',
   groundDark: '#40300F',
 
   ice: '#54d3c8',
-  iceLight: '#9EE6E0',
+  iceLight: '#caf8f4',
   iceDark: '#0D322F',
 
   normal: '#b6b0a6',
-  normalLight: '#D5D1CC',
+  normalLight: '#e7e4e0',
   normalDark: '#36332D',
 
   poison: '#662d81',
-  poisonLight: '#9040B6',
+  poisonLight: '#c7aed3',
   poisonDark: '#2C1337',
 
   psychic: '#db217e',
-  psychicLight: '#E96EAB',
+  psychicLight: '#f3bbd7',
   psychicDark: '#4E0C2D',
 
   rock: '#503b01',
-  rockLight: '#6F5201',
-  rockDark: '#2E2200',
+  rockLight: '#c7b37e',
+  rockDark: '#291e00',
 
   steel: '#696969',
-  steelLight: '#9E9E9E',
+  steelLight: '#c4c4c4',
   steelDark: '#343434',
 
   water: '#165ac0',
-  waterLight: '#689DED',
+  waterLight: '#b6cef5',
   waterDark: '#082044'
 }

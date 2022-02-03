@@ -34,7 +34,7 @@ const App = () => {
   }
 
   return (
-    <ThemeProvider theme={{ ...theme, type: theme[typeTheme] }}>
+    <ThemeProvider theme={{ ...theme, type: typeTheme }}>
       <GlobalStyles />
       <Header />
       <Suspense fallback={<Fallback />}>

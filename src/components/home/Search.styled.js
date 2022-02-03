@@ -48,7 +48,7 @@ export const SearchBox = styled.div`
       }
     }
 
-    &:focus {
+    &:focus-within {
       outline: 2px solid ${props => props.theme.primary};
       
       @media only screen and (${device.md}) {
@@ -108,9 +108,5 @@ export const Clear = styled.button`
   &:active,
   &:hover {
     background-color: ${props => props.theme.grey};
-  }
-
-  &:hover + input {
-    outline-offset: .4rem;
   }
 `

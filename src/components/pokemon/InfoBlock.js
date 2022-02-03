@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { 
   InfoContainer,
   NameTag,
@@ -10,13 +10,19 @@ import {
 import { Type } from '../../sharedStyles/Type.styled'
 
 const InfoBlock = ({ pokemon }) => {
+  const [ability, setAbility] = useState(0)
+
+  const handleAbilityChange = (event) => {
+    setAbility(event.target.value)
+  }
+
   return (
     <InfoContainer>
-      <NameTag type={pokemon.types[0]}>
-        <span>{pokemon.id}</span>
+      <NameTag>
+        <span>#{pokemon.id}</span>
         <span>{pokemon.name}</span>
       </NameTag>
-      <Attributes type={pokemon.types[0]}>
+      <Attributes>
         <p className='attr'>Type</p>
         <Types>
           <Type type={pokemon.types[0]}><span>{pokemon.types[0]}</span></Type>
@@ -29,13 +35,18 @@ const InfoBlock = ({ pokemon }) => {
         <p className='attr'>Weight</p>
         <p>{pokemon.weight}</p>
       </Attributes>
-      <Abilities type={pokemon.types[0]}>
-        <AbilitiesHeader type={pokemon.types[0]}>
-          <div>Abilities</div>
-          <div>{pokemon.abilities[0].name}</div>
+      <Abilities>
+        <AbilitiesHeader>
+          <span>Abilities</span>
+          <select onChange={handleAbilityChange}>
+            {pokemon.abilities.map((ability, index) =>
+              <option key={index} value={index}>{ability.name}</option>
+            )}
+          </select>
+          
         </AbilitiesHeader>
         <div>
-          {pokemon.abilities[0].effect}
+          {pokemon.abilities[ability].effect}
         </div>
       </Abilities>
     </InfoContainer>

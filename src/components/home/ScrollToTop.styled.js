@@ -29,9 +29,11 @@ export const ScrollButton = styled.button`
     height: 2.6rem;
   }
 
-  &:active {
+  &:active,
+  &:hover {
     background-color: ${props => props.theme.primary};
     outline: 2px solid ${props => props.theme.greyLight};
+    cursor: pointer;
 
     img {
       filter: invert(95%);

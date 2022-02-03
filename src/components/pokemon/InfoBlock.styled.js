@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const InfoContainer = styled.div`
-  //background-color: ${props => props.theme.white};
-  //box-shadow: .3rem .4rem .8rem ${props => props.theme.blackLight};
+
 `
 
 export const NameTag = styled.div`
@@ -13,25 +12,28 @@ export const NameTag = styled.div`
     120deg,
     ${props => props.theme.blackLight} 0,
     ${props => props.theme.blackLight} 35%,
-    ${props => props.theme.type} 35%
+    ${props => props.theme[props.theme.type]} 35%
   );
+  box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
 
   span {
     color: white;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
   }
 `
-//${props => props.theme[`${props.type}Light`]}
+
 export const Attributes = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 30% 70%;
   padding: 0 1.5rem;
-  margin: .5rem 1rem 0;
+  margin: 1rem 1rem 0;
   font-size: 1.4rem;
+  font-weight: 500;
   text-transform: uppercase;
+  box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
 
   .attr {
     color: white;
@@ -50,7 +52,7 @@ export const Attributes = styled.div`
     right: 0;
     height: 100%;
     width: 65%;
-    background-color: ${props => props.theme[`${props.type}Light`]};
+    background-color: ${props => props.theme[`${props.theme.type}Light`]};
   }
 
   &::before {
@@ -60,7 +62,7 @@ export const Attributes = styled.div`
     left: 0;
     height: 100%;
     width: 35%;
-    background-color: ${props => props.theme[`${props.type}Dark`]};
+    background-color: ${props => props.theme[`${props.theme.type}Dark`]};
   }
 `
 
@@ -80,8 +82,9 @@ export const Types = styled.div`
 `
 
 export const Abilities = styled.div`
-  background: ${props => props.theme[`${props.type}Light`]};
+  background: ${props => props.theme[`${props.theme.type}Light`]};
   margin: .5rem 1rem 0;
+  box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
 
   div:last-child {
     padding: 1rem;
@@ -90,26 +93,37 @@ export const Abilities = styled.div`
 `
 
 export const AbilitiesHeader = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .8rem 1rem;
+  padding: .5rem 1rem;
   background-image: linear-gradient(
     120deg,
-    ${props => props.theme[`${props.type}Dark`]} 0,
-    ${props => props.theme[`${props.type}Dark`]} 45%,
-    ${props => props.theme.type} 45%
+    ${props => props.theme[`${props.theme.type}Dark`]} 0,
+    ${props => props.theme[`${props.theme.type}Dark`]} 38%,
+    ${props => props.theme[props.theme.type]} 38%
   );
   color: ${props => props.theme.white};
   text-transform: uppercase;
   font-size: 1.4rem;
+  font-weight: 500;
 
-  div:last-child {
-    padding: .5rem;
-    border-bottom: 1px solid white;
+  select {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    color: inherit;
 
-    &:hover {
-      cursor: pointer;
+    &:focus-visible {
+      outline: none;
+    }
+    
+    option {
+      background-color: ${props => props.theme[`${props.theme.type}Dark`]};
     }
   }
 `

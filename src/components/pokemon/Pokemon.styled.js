@@ -11,7 +11,7 @@ export const Container = styled.section`
   box-shadow: 0 .5rem 1.5rem;
 
   & > * {
-    //outline: 2px solid black;
+    outline: 2px solid black;
     margin: 3rem;
   }
 `
