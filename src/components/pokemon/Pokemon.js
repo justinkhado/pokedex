@@ -4,6 +4,7 @@ import Fallback from '../Fallback'
 import pokemonService from '../../services/pokemon'
 import InfoBlock from './InfoBlock'
 import StatBlock from './StatBlock'
+import TypeChart from './TypeChart'
 import {
   Container
 } from './Pokemon.styled'
@@ -41,7 +42,7 @@ const Pokemon = ({ changeType }) => {
       <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>
       <InfoBlock pokemon={pokemon} />
       <StatBlock stats={pokemon.stats} />
-      <div>TypeEffectiveness</div>
+      <TypeChart typeChart={pokemon.type_chart} />
     </Container>
   )
 }

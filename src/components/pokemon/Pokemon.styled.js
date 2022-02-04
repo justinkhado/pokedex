@@ -13,5 +13,6 @@ export const Container = styled.section`
   & > * {
     //outline: 2px solid black;
     margin: 5rem 1.2rem;
+    max-width: 45rem;
   }
 `

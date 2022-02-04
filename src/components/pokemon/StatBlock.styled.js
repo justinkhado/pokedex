@@ -15,10 +15,11 @@ export const StatHeader = styled.div`
 `
 
 export const Stats = styled.div`
-  background-color: ${props => props.theme[`${props.theme.type}Light`]};
+  //background-color: ${props => props.theme[`${props.theme.type}Light`]};
   margin: 1rem 1rem 0;
   padding: 2rem 1.5rem;
   box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
+  color: ${props => props.theme[`${props.theme.type}Dark`]};
 
   div:not(:last-child) {
     margin-bottom: 1rem;
@@ -35,7 +36,7 @@ export const StatLine = styled.div`
 
   div {
     position: relative;
-    background-color: ${props => props.theme.white}70;
+    background-color: ${props => props.theme[`${props.theme.type}Light`]};
     width: 100%;
     padding: 2px .5rem;
     border-radius: .5rem;

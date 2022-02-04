@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
     background-image: linear-gradient(
       135deg,
       ${props => props.theme.primary}c1 0%,
-      ${props => props.theme.primary}80 59%,
+      ${props => props.theme.primary}50 59%,
       ${props => props.theme.blackLight}b1 59%,
       ${props => props.theme.blackLight}b1 60%,
       ${props => props.theme.white} 60%,

@@ -25,44 +25,31 @@ export const NameTag = styled.div`
 `
 
 export const Attributes = styled.div`
-  position: relative;
   display: grid;
   grid-template-columns: 30% 70%;
+  
   padding: 0 1.5rem;
   margin: 1rem 1rem 0;
+  color: ${props => props.theme[`${props.theme.type}Dark`]};
   font-size: 1.4rem;
   font-weight: 500;
   text-transform: uppercase;
   box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
+  background-image: linear-gradient(
+    to right,
+    ${props => props.theme[`${props.theme.type}Light`]} 35%,
+    transparent 35%,
+    transparent
+  );
 
   .attr {
-    color: white;
+    color: ${props => props.theme.black};
     margin-right: .5rem;
   }
 
   p {
     z-index: 1;
     text-align: right;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 65%;
-    background-color: ${props => props.theme[`${props.theme.type}Light`]};
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 35%;
-    background-color: ${props => props.theme[`${props.theme.type}Dark`]};
   }
 `
 
@@ -82,7 +69,8 @@ export const Types = styled.div`
 `
 
 export const Abilities = styled.div`
-  background: ${props => props.theme[`${props.theme.type}Light`]};
+  //background: ${props => props.theme[`${props.theme.type}Light`]};
+  color: ${props => props.theme[`${props.theme.type}Dark`]};
   margin: .5rem 1rem 0;
   box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
 
@@ -100,14 +88,17 @@ export const AbilitiesHeader = styled.div`
   padding: .5rem 1rem;
   background-image: linear-gradient(
     120deg,
-    ${props => props.theme[`${props.theme.type}Dark`]} 0,
-    ${props => props.theme[`${props.theme.type}Dark`]} 38%,
-    ${props => props.theme[props.theme.type]} 38%
+    ${props => props.theme[`${props.theme.type}`]} 0,
+    ${props => props.theme[`${props.theme.type}`]} 38%,
+    ${props => props.theme[`${props.theme.type}Light`]} 38%
   );
-  color: ${props => props.theme.white};
   text-transform: uppercase;
   font-size: 1.4rem;
   font-weight: 500;
+
+  span:first-child {
+    color: ${props => props.theme.white};
+  }
 
   select {
     background-color: transparent;
@@ -116,14 +107,14 @@ export const AbilitiesHeader = styled.div`
     font-size: inherit;
     font-weight: inherit;
     text-transform: inherit;
-    color: inherit;
+    color: ${props => props.theme.black};
 
     &:focus-visible {
       outline: none;
     }
     
     option {
-      background-color: ${props => props.theme[`${props.theme.type}Dark`]};
+      background-color: ${props => props.theme[`${props.theme.type}Light`]};
     }
   }
 `
