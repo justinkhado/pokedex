@@ -1,23 +1,14 @@
 import styled from 'styled-components'
 
 export const StatContainer = styled.div`
-  
-`
-
-export const StatHeader = styled.div`
-  background-color: ${props => props.theme[`${props.theme.type}`]};
-  color: ${props => props.theme.white};
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: center;
-  padding: 1rem;
-  box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
+  & > *:not(:first-child) {
+    background-color: ${props => props.theme.sectionBackground};
+  }
 `
 
 export const Stats = styled.div`
-  //background-color: ${props => props.theme[`${props.theme.type}Light`]};
-  margin: 1rem 1rem 0;
-  padding: 2rem 1.5rem;
+  margin: ${props => props.theme.sectionBodyMargin};
+  padding: ${props => props.theme.sectionBodyPadding};
   box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
   color: ${props => props.theme[`${props.theme.type}Dark`]};
 
@@ -41,6 +32,7 @@ export const StatLine = styled.div`
     padding: 2px .5rem;
     border-radius: .5rem;
     color: ${props => props.theme.white};
+    font-size: 1.4rem;
     z-index: 1;
 
     &::after {
@@ -72,9 +64,12 @@ export const StatLine = styled.div`
 export const Total = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr;
+  align-items: center;
   padding-top: 1rem;
+  color: ${props => props.theme.black};
 
   span:first-child {
+    text-transform: uppercase;
     font-weight: 500;
   }
 

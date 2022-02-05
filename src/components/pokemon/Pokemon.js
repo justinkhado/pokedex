@@ -5,6 +5,7 @@ import pokemonService from '../../services/pokemon'
 import InfoBlock from './InfoBlock'
 import StatBlock from './StatBlock'
 import TypeChart from './TypeChart'
+import EvoChain from './EvoChain'
 import {
   Container
 } from './Pokemon.styled'
@@ -28,6 +29,7 @@ const Pokemon = ({ changeType }) => {
   useEffect(() => {
     if (pokemon.id) {
       changeType(pokemon.types[0])
+
     }
   }, [pokemon, changeType])
 
@@ -39,10 +41,11 @@ const Pokemon = ({ changeType }) => {
 
   return (
     <Container>      
-      <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`}/>
+      <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/original/${pokemon.id}.png`} alt={pokemon.name} />
       <InfoBlock pokemon={pokemon} />
       <StatBlock stats={pokemon.stats} />
       <TypeChart typeChart={pokemon.type_chart} />
+      <EvoChain id={pokemon.id} />
     </Container>
   )
 }

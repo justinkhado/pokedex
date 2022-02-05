@@ -1,23 +1,26 @@
 import styled from 'styled-components'
 
 export const InfoContainer = styled.div`
-
+  & > * {
+    background-color: ${props => props.theme.sectionBackground};
+  }
 `
 
 export const NameTag = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
+  padding: 1rem 4rem;
   background-image: linear-gradient(
     120deg,
     ${props => props.theme.blackLight} 0,
     ${props => props.theme.blackLight} 35%,
     ${props => props.theme[props.theme.type]} 35%
   );
-  box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
+  box-shadow: ${props => props.theme.shadowMed} ${props => props.theme.blackLight};
 
   span {
     color: white;
+    font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -28,8 +31,8 @@ export const Attributes = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
   
-  padding: 0 1.5rem;
-  margin: 1rem 1rem 0;
+  padding: 0 3rem;
+  margin: ${props => props.theme.sectionBodyMargin};
   color: ${props => props.theme[`${props.theme.type}Dark`]};
   font-size: 1.4rem;
   font-weight: 500;
@@ -69,13 +72,12 @@ export const Types = styled.div`
 `
 
 export const Abilities = styled.div`
-  //background: ${props => props.theme[`${props.theme.type}Light`]};
   color: ${props => props.theme[`${props.theme.type}Dark`]};
-  margin: .5rem 1rem 0;
+  margin: ${props => props.theme.sectionBodyMargin};
   box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
 
   div:last-child {
-    padding: 1rem;
+    padding: 1.5rem 3rem;
     font-size: 1.4rem;
   }
 `
@@ -85,11 +87,11 @@ export const AbilitiesHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem 1rem;
+  padding: .5rem 2rem .5rem 3.5rem;
   background-image: linear-gradient(
     120deg,
-    ${props => props.theme[`${props.theme.type}`]} 0,
-    ${props => props.theme[`${props.theme.type}`]} 38%,
+    ${props => props.theme[`${props.theme.type}Dark`]} 0,
+    ${props => props.theme[`${props.theme.type}Dark`]} 38%,
     ${props => props.theme[`${props.theme.type}Light`]} 38%
   );
   text-transform: uppercase;
@@ -104,9 +106,10 @@ export const AbilitiesHeader = styled.div`
     background-color: transparent;
     border: none;
     cursor: pointer;
+    text-transform: uppercase;
     font-size: inherit;
-    font-weight: inherit;
-    text-transform: inherit;
+    font-weight: 700;
+    letter-spacing: 1px;
     color: ${props => props.theme.black};
 
     &:focus-visible {

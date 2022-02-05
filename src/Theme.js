@@ -9,7 +9,13 @@ export const theme = {
   blackLight: '#1d1d1d',
 
   // shadows
-  shadowSmall: '.3rem .4rem .8rem',
+  shadowSmall: '',//'.3rem .4rem .8rem',
+  shadowMed: '',//'.4rem .5rem 1rem',
+
+  // section styles
+  sectionBackground: '#FFFFFF',
+  sectionBodyMargin: '',//'1rem 1rem 0',
+  sectionBodyPadding: '2rem 4rem',
 
   // types
   bug: '#8baf61',
@@ -24,9 +30,9 @@ export const theme = {
   dragonLight: '#aaaae4',
   dragonDark: '#0d0c46',
 
-  electric: '#e7c52a',
+  electric: '#d4b113',
   electricLight: '#faedb3',
-  electricDark: '#9F8512',
+  electricDark: '#6d5d00',
 
   fairy: '#ff81d5',
   fairyLight: '#ffd1f0',

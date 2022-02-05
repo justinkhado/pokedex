@@ -11,10 +11,7 @@ import pokemonService from './services/pokemon'
 import Fallback from './components/Fallback'
 import Header from './components/Header'
 
-const Home = lazy(async () => {
-  await new Promise(resolve => setTimeout(resolve, 500))
-  return import('./components/home/Home')
-})
+const Home = lazy(() => import ('./components/home/Home'))
 const Pokemon = lazy(() => import('./components/pokemon/Pokemon'))
 
 const App = () => {

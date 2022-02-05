@@ -15,7 +15,7 @@ export const Type = styled.div`
   color: ${props => props.theme.white};
   text-transform: uppercase;
   font-size: .8rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.05rem;
   box-shadow: inset 1px 1px ${props => props.theme.white}a1;
 

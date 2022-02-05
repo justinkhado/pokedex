@@ -1,16 +1,16 @@
 import React from 'react'
 import {
   StatContainer,
-  StatHeader,
   Stats,
   StatLine,
   Total
 } from './StatBlock.styled'
+import { SectionHeader } from '../../sharedStyles/SectionHeader'
 
 const StatBlock = ({ stats }) => {
   return(
     <StatContainer>
-      <StatHeader>Stats</StatHeader>
+      <SectionHeader>Stats</SectionHeader>
       <Stats>
         {[['hp', 'HP'], ['attack', 'Atk'], ['defense', 'Def'], ['sp. attack', 'SpAtk'], ['sp. defense', 'SpDef'], ['speed', 'Speed']].map(stat =>
           <StatLine 

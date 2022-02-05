@@ -12,15 +12,16 @@ const getPokemon = async (id) => {
   return request.data 
 }
 
-const getPokemonImage = async (id) => {
-  const request = await axios.get(`${baseUrl}/images/original/${id}.png`)
-  return request.data 
+const getEvoChain = async (id) => {
+  const request = await axios.get(`${baseUrl}/evolution_chains/${id}.json`)
+  return request.data
 }
+
 
 const pokemonService = {
   getAll,
   getPokemon,
-  getPokemonImage
+  getEvoChain
 }
 
 export default pokemonService
