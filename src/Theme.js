@@ -13,7 +13,7 @@ export const theme = {
   shadowMed: '',//'.4rem .5rem 1rem',
 
   // section styles
-  sectionBackground: '#FFFFFF',
+  sectionBackground: '#fcfcfc',
   sectionBodyMargin: '',//'1rem 1rem 0',
   sectionBodyPadding: '2rem 4rem',
 

@@ -108,7 +108,7 @@ export const AbilitiesHeader = styled.div`
     cursor: pointer;
     text-transform: uppercase;
     font-size: inherit;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1px;
     color: ${props => props.theme.black};
 

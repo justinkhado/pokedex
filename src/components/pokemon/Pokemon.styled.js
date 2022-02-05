@@ -2,11 +2,12 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
   margin: 0 auto;
+  padding-bottom: 10rem;
   display: flex;  
   flex-direction: column;
   align-items: center;
 
-  background: ${props => props.theme.grey}90;
+  background: ${props => props.theme.greyLight}a1;
   /* width: 90vw;
   border-radius: 1rem; */
   box-shadow: 0 .5rem 1.5rem;
@@ -14,5 +15,9 @@ export const Container = styled.section`
   & > * {
     margin: 1rem 0;
     width: min(45rem, 100%)
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
   }
 `

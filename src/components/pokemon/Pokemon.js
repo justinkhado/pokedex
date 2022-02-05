@@ -16,7 +16,7 @@ const Pokemon = ({ changeType }) => {
 
   useEffect(() => {
     window.scrollTo({ top: 0 })
-  }, [])
+  }, [location])
   
   useEffect(() => {
     pokemonService
