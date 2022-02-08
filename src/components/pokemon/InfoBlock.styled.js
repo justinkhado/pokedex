@@ -1,29 +1,38 @@
 import styled from 'styled-components'
 
-export const InfoContainer = styled.div`
+export const InfoContainer = styled.section`
   & > * {
     background-color: ${props => props.theme.sectionBackground};
   }
 `
 
 export const NameTag = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 1rem 4rem;
+  align-items: center;
+  padding: 2rem 3.5rem;
   background-image: linear-gradient(
     120deg,
     ${props => props.theme.blackLight} 0,
     ${props => props.theme.blackLight} 35%,
     ${props => props.theme[props.theme.type]} 35%
   );
-  box-shadow: ${props => props.theme.shadowMed} ${props => props.theme.blackLight};
 
-  span {
+  span, h1 {
     color: white;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2.2rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+  }
+
+  span {
+    font-weight: 400;
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 700;
   }
 `
 
@@ -31,13 +40,12 @@ export const Attributes = styled.div`
   display: grid;
   grid-template-columns: 30% 70%;
   
-  padding: 0 3rem;
+  padding: 1rem 3rem;
   margin: ${props => props.theme.sectionBodyMargin};
   color: ${props => props.theme[`${props.theme.type}Dark`]};
   font-size: 1.4rem;
   font-weight: 500;
   text-transform: uppercase;
-  box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
   background-image: linear-gradient(
     to right,
     ${props => props.theme[`${props.theme.type}Light`]} 35%,
@@ -87,7 +95,7 @@ export const AbilitiesHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .5rem 2rem .5rem 3.5rem;
+  padding: 1rem 2rem 1rem 3.5rem;
   background-image: linear-gradient(
     120deg,
     ${props => props.theme[`${props.theme.type}Dark`]} 0,
@@ -111,10 +119,6 @@ export const AbilitiesHeader = styled.div`
     font-weight: 500;
     letter-spacing: 1px;
     color: ${props => props.theme.black};
-
-    &:focus-visible {
-      outline: none;
-    }
     
     option {
       background-color: ${props => props.theme[`${props.theme.type}Light`]};

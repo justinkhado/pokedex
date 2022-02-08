@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
   top: 0;
   z-index: 99;
   ${props => props.theme.type ? `
-    background-image: linear-gradient(${props.theme[`${props.theme.type}`]} 0 0);` : `
+    background-color: ${props.theme[`${props.theme.type}`]};` : `
     background-color: ${props.theme.white}e1;
     `
   }
@@ -49,8 +49,7 @@ export const StyledHeader = styled.header`
     }
 
     &::first-letter {
-      ${props => props.theme.type ?
-        `color: ${props.theme.white};` : 
+      ${props => !props.theme.type && 
         `color: ${props.theme.primary};`
       }
     }

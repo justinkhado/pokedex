@@ -20,8 +20,6 @@ const EvoChain = ({ id }) => {
       })
   }, [id])
 
-  console.log(evoChain)
-
   if (!evoChain.id) {
     return (<></>)
   }

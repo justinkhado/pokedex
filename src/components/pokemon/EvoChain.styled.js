@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { ReactComponent as Arrow } from '../../assets/icons/down-arrow.svg'
 
-export const EvolutionContainer = styled.div`
+export const EvolutionContainer = styled.section`
   & > *:not(:first-child) {
     background-color: ${props => props.theme.sectionBackground};
     padding: 3rem 1rem;

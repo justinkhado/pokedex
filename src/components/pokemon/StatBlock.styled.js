@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StatContainer = styled.div`
+export const StatContainer = styled.section`
   & > *:not(:first-child) {
     background-color: ${props => props.theme.sectionBackground};
   }
@@ -74,6 +74,7 @@ export const Total = styled.div`
   }
 
   span:last-child {
+    color: ${props => props.theme.blackLight};
     margin-left: .5rem;
   }
 `

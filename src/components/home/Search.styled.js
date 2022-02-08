@@ -8,17 +8,19 @@ export const Container = styled.div`
 
   position: fixed;
   top: 1.9rem;
-  right: .3rem;
+  right: 1rem;
   z-index: 999;
-  width: 20rem;
 
   @media only screen and (${device.sm}) {
     top: 3.1rem;
-    right: 1rem;
   }
 
   @media only screen and (${device.md}) {
-    right: 7vw;
+    right: 5rem;
+  }
+
+  @media only screen and (${device.lg}) {
+    right: 10rem;
   }
 `
 

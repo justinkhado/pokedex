@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-export const Container = styled.section`
+export const Container = styled.div`
   margin: 0 auto;
-  padding-bottom: 10rem;
+  //padding-bottom: 9rem;
   display: flex;  
   flex-direction: column;
   align-items: center;
 
-  background: ${props => props.theme.greyLight}a1;
+  background: ${props => props.theme.grey}50;
   /* width: 90vw;
   border-radius: 1rem; */
   box-shadow: 0 .5rem 1.5rem;

@@ -9,6 +9,7 @@ import EvoChain from './EvoChain'
 import {
   Container
 } from './Pokemon.styled'
+import Moveset from './Moveset'
 
 const Pokemon = ({ changeType }) => {
   const location = useLocation()
@@ -46,6 +47,7 @@ const Pokemon = ({ changeType }) => {
       <StatBlock stats={pokemon.stats} />
       <TypeChart typeChart={pokemon.type_chart} />
       <EvoChain id={pokemon.id} />
+      <Moveset id={pokemon.id} />
     </Container>
   )
 }

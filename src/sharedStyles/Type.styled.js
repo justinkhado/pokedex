@@ -20,7 +20,7 @@ export const Type = styled.div`
   box-shadow: inset 1px 1px ${props => props.theme.white}a1;
 
   span {
-    margin-top: 1px;
+    margin-left: 1px;
   }
 
   @media only screen and (${device.sm}) {

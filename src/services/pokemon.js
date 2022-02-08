@@ -17,11 +17,17 @@ const getEvoChain = async (id) => {
   return request.data
 }
 
+const getMoveset = async (id) => {
+  const request = await axios.get(`${baseUrl}/movesets/${id}.json`)
+  return request.data
+}
+
 
 const pokemonService = {
   getAll,
   getPokemon,
-  getEvoChain
+  getEvoChain,
+  getMoveset
 }
 
 export default pokemonService

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const TypeChartContainer = styled.div`
+export const TypeChartContainer = styled.section`
   & > *:not(:first-child) {
     background-color: ${props => props.theme.sectionBackground};
   }

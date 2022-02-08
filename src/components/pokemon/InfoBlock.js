@@ -20,7 +20,7 @@ const InfoBlock = ({ pokemon }) => {
     <InfoContainer>
       <NameTag>
         <span>#{pokemon.id}</span>
-        <span>{pokemon.name}</span>
+        <h1>{pokemon.name}</h1>
       </NameTag>
       <Attributes>
         <p className='attr'>Type</p>
