@@ -1,14 +1,7 @@
 import styled from 'styled-components'
+import { SectionBody } from '../../sharedStyles/SectionStyles'
 
-export const StatContainer = styled.section`
-  & > *:not(:first-child) {
-    background-color: ${props => props.theme.sectionBackground};
-  }
-`
-
-export const Stats = styled.div`
-  margin: ${props => props.theme.sectionBodyMargin};
-  padding: ${props => props.theme.sectionBodyPadding};
+export const Stats = styled(SectionBody)`
   box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
   color: ${props => props.theme[`${props.theme.type}Dark`]};
 

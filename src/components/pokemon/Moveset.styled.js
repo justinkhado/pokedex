@@ -1,15 +1,9 @@
 import styled from 'styled-components'
 
-export const MovesetContainer = styled.section`
-  min-height: 60rem;
-  padding-bottom: 2rem;
-  background-color: white;
-`
-
 export const MovelistFilter = styled.div`
   display: flex;
   justify-content: space-around;
-  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
 
   select {
     color: ${props => props.theme[`${props.theme.type}Dark`]};
@@ -30,7 +24,6 @@ export const MovelistFilter = styled.div`
 export const Movelist = styled.div`
   display: flex;
   justify-content: center;
-  margin: 2rem 0;
 `
 
 export const MovelistTable = styled.table`
@@ -72,11 +65,16 @@ export const MovelistHeaders = styled.tr`
 export const MovelistBody = styled.tbody`
   font-size: 1.2rem;
 
-  tr {
-    &:hover {
-      background-color: ${props => props.theme[`${props.theme.type}Light`]};
-      cursor: pointer;
-    }
+  div {
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+`
+
+export const MovelistRow = styled.tr`
+  &:hover {
+    background-color: ${props => props.theme[`${props.theme.type}Light`]};
+    cursor: pointer;
   }
 
   td {
@@ -97,11 +95,6 @@ export const MovelistBody = styled.tbody`
   td:last-child {
     padding-right: 1em;
   }
-
-  div {
-    font-size: 1rem;
-    margin: 0 auto;
-  }
 `
 
 export const DamageClass = styled.div`
@@ -118,13 +111,13 @@ export const EmptyMovelist = styled.tr`
   font-size: 1.5rem;
 
   &:hover {
-    background-color: transparent !important;
-    cursor: default !important;
+    background-color: transparent;
+    cursor: default;
   }
 
   td {
-    text-transform: none !important;
-    padding: 3rem !important;
+    text-transform: none;
+    padding: 3rem;
   }
 `
 

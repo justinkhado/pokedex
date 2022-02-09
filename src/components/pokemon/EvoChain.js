@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import pokemonService from '../../services/pokemon'
 import {
-  EvolutionContainer,
   BaseStage,
   EvolutionStage,
   EvolutionArrow
 } from './EvoChain.styled.js'
-import { SectionHeader } from '../../sharedStyles/SectionHeader'
+import { 
+  SectionContainer,
+  SectionHeader
+} from '../../sharedStyles/SectionStyles'
 
 const EvoChain = ({ id }) => {
   const [evoChain, setEvoChain] = useState({})
@@ -25,7 +27,7 @@ const EvoChain = ({ id }) => {
   }
 
   return (
-    <EvolutionContainer>
+    <SectionContainer>
       <SectionHeader>Evolutions</SectionHeader>
       <BaseStage>
         <Link to={`/pokemon/${evoChain.id}`}>
@@ -55,7 +57,7 @@ const EvoChain = ({ id }) => {
           )}
         </EvolutionStage>
       </BaseStage>
-    </EvolutionContainer>
+    </SectionContainer>
   )
 }
 

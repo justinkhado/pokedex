@@ -1,10 +1,5 @@
 import styled from 'styled-components'
-
-export const InfoContainer = styled.section`
-  & > * {
-    background-color: ${props => props.theme.sectionBackground};
-  }
-`
+import { SectionBody } from '../../sharedStyles/SectionStyles'
 
 export const NameTag = styled.div`
   position: relative;
@@ -36,12 +31,11 @@ export const NameTag = styled.div`
   }
 `
 
-export const Attributes = styled.div`
+export const Attributes = styled(SectionBody)`
   display: grid;
   grid-template-columns: 30% 70%;
   
   padding: 1rem 3rem;
-  margin: ${props => props.theme.sectionBodyMargin};
   color: ${props => props.theme[`${props.theme.type}Dark`]};
   font-size: 1.4rem;
   font-weight: 500;
@@ -79,10 +73,9 @@ export const Types = styled.div`
   }
 `
 
-export const Abilities = styled.div`
+export const Abilities = styled(SectionBody)`
   color: ${props => props.theme[`${props.theme.type}Dark`]};
-  margin: ${props => props.theme.sectionBodyMargin};
-  box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
+  padding: 0;
 
   div:last-child {
     padding: 1.5rem 3rem;

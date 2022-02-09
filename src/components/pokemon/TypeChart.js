@@ -1,16 +1,18 @@
 import React from 'react'
 import {
-  TypeChartContainer,
   TypeEffectiveness,
   ChartLine,
   Types
 } from './TypeChart.styled'
 import { Type } from '../../sharedStyles/Type.styled'
-import { SectionHeader } from '../../sharedStyles/SectionHeader'
+import { 
+  SectionContainer,
+  SectionHeader
+} from '../../sharedStyles/SectionStyles'
 
 const TypeChart = ({ typeChart }) => {
   return (
-    <TypeChartContainer>
+    <SectionContainer>
       <SectionHeader>Type Effectiveness</SectionHeader>
       <TypeEffectiveness>
         {['4', '2', '1', '1/2', '1/4'].map(effectiveness =>
@@ -24,7 +26,7 @@ const TypeChart = ({ typeChart }) => {
           </ChartLine> 
         )}
       </TypeEffectiveness>
-    </TypeChartContainer>
+    </SectionContainer>
   )
 }
 

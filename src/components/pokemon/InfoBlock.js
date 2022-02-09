@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { 
-  InfoContainer,
   NameTag,
   Attributes,
   Types,
@@ -8,7 +7,9 @@ import {
   AbilitiesHeader
 } from './InfoBlock.styled'
 import { Type } from '../../sharedStyles/Type.styled'
-
+import { 
+  SectionContainer
+} from '../../sharedStyles/SectionStyles'
 const InfoBlock = ({ pokemon }) => {
   const [ability, setAbility] = useState(0)
 
@@ -17,7 +18,7 @@ const InfoBlock = ({ pokemon }) => {
   }
 
   return (
-    <InfoContainer>
+    <SectionContainer>
       <NameTag>
         <span>#{pokemon.id}</span>
         <h1>{pokemon.name}</h1>
@@ -49,7 +50,7 @@ const InfoBlock = ({ pokemon }) => {
           {pokemon.abilities[ability].effect}
         </div>
       </Abilities>
-    </InfoContainer>
+    </SectionContainer>
   )
 }
 

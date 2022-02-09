@@ -1,14 +1,7 @@
 import styled from 'styled-components'
+import { SectionBody } from '../../sharedStyles/SectionStyles'
 
-export const TypeChartContainer = styled.section`
-  & > *:not(:first-child) {
-    background-color: ${props => props.theme.sectionBackground};
-  }
-`
-
-export const TypeEffectiveness = styled.div`
-  margin: ${props => props.theme.sectionBodyMargin};
-  padding: ${props => props.theme.sectionBodyPadding};
+export const TypeEffectiveness = styled(SectionBody)`
   box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
   color: ${props => props.theme[`${props.theme.type}Dark`]};
 `
@@ -33,7 +26,7 @@ export const Types = styled.div`
   justify-content: center;
   gap: 1rem;
   background-color: ${props => props.theme[`${props.theme.type}Light`]};
-  padding: .5rem;
+  padding: 1rem .5rem;
   border-radius: .5rem;
 
   div {

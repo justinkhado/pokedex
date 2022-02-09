@@ -38,8 +38,6 @@ const Pokemon = ({ changeType }) => {
     return (<Fallback />)
   }
 
-  console.log(pokemon)
-
   return (
     <Container>      
       <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/original/${pokemon.id}.png`} alt={pokemon.name} />
