@@ -6,10 +6,8 @@ import InfoBlock from './InfoBlock'
 import StatBlock from './StatBlock'
 import TypeChart from './TypeChart'
 import EvoChain from './EvoChain'
-import {
-  Container
-} from './Pokemon.styled'
 import Moveset from './Moveset'
+import { Container } from './Pokemon.styled'
 
 const Pokemon = ({ changeType }) => {
   const location = useLocation()
@@ -39,7 +37,7 @@ const Pokemon = ({ changeType }) => {
   }
 
   return (
-    <Container>      
+    <Container>
       <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/original/${pokemon.id}.png`} alt={pokemon.name} />
       <InfoBlock pokemon={pokemon} />
       <StatBlock stats={pokemon.stats} />

@@ -1,36 +1,73 @@
 import styled from 'styled-components'
+import { SectionContainer, SectionBody } from '../../sharedStyles/SectionStyles'
+import { device } from '../../sharedStyles/breakpoints'
+
+export const MoveContainer = styled(SectionContainer)`
+  @media only screen and (${device.lg}) {
+    width: 60%;
+    grid-column: span 2;
+  }
+`
+
+export const Movelist = styled(SectionBody)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
+  padding-right: 0;
+`
 
 export const MovelistFilter = styled.div`
   display: flex;
   justify-content: space-around;
+  width: 100%;
   margin-bottom: 2.5rem;
+
+  @media only screen and (${device.lg}) {
+    justify-content: flex-end;
+    gap: 3rem;
+    margin-right: 40%;
+  }
 
   select {
     color: ${props => props.theme[`${props.theme.type}Dark`]};
     border: none;
     border-bottom: 1px solid ${props => props.theme[`${props.theme.type}Dark`]};
     padding: .5em .5em .3em 0;
-    font-size: 1.5rem;
+    font-size: ${props => props.theme.fontSm};
     text-transform: uppercase;
     cursor: pointer;
+
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontMd};
+      font-weight: 700;
+    }
   }
 
   option {
-    font-size: 1.3rem;
+    font-size: ${props => props.theme.fontXs};
+
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontSm};
+    }
   }
 
 `
 
-export const Movelist = styled.div`
-  display: flex;
-  justify-content: center;
-`
-
 export const MovelistTable = styled.table`
-  min-width: 95%;
+  width: 95%;
   background-color: ${props => props.theme[`${props.theme.type}Light`]}50;
   text-align: right;
   border-collapse: collapse;
+
+  @media only screen and (${device.sm}) {
+    width: 90%;
+  }
+
+  @media only screen and (${device.lg}) {
+    max-width: 70%;
+    box-shadow: .3rem .3rem 1rem ${props => props.theme.blackLight};
+  }
 `
 
 export const MovelistHeaders = styled.tr`
@@ -38,7 +75,11 @@ export const MovelistHeaders = styled.tr`
   top: 0;
   background-color: ${props => props.theme[`${props.theme.type}Dark`]};
   color: ${props => props.theme.white};
-  font-size: 1.5rem;
+  font-size: ${props => props.theme.fontSm};
+
+  @media only screen and (${device.lg}) {
+    font-size: ${props => props.theme.fontLg};
+  }
 
   th {
     padding: 1em .5em;
@@ -63,15 +104,26 @@ export const MovelistHeaders = styled.tr`
 `
 
 export const MovelistBody = styled.tbody`
-  font-size: 1.2rem;
+  font-size: ${props => props.theme.fontXs};
 
+  // selects type
   div {
     font-size: 1rem;
     margin: 0 auto;
+
+    @media only screen and (${device.lg}) {
+      font-size: 1.2rem;
+    }
   }
 `
 
 export const MovelistRow = styled.tr`
+  font-size: ${props => props.theme.fontXs};
+
+  @media only screen and (${device.lg}) {
+    font-size: ${props => props.theme.fontMd};
+  }
+
   &:hover {
     background-color: ${props => props.theme[`${props.theme.type}Light`]};
     cursor: pointer;
@@ -102,7 +154,11 @@ export const DamageClass = styled.div`
   justify-content: center;
   
   img {
-    width: 90%;
+    width: 3.5rem;
+
+    @media only screen and (${device.lg}) {
+      width: 4.5rem;
+    }
   }
 `
 
@@ -131,6 +187,10 @@ export const MoveModal = styled.div`
   box-shadow: .3rem .8rem 1rem ${props => props.theme.black};
   animation: growIntoView .4s forwards ease-out;
 
+  @media only screen and (${device.lg}) {
+    width: 40rem;
+  }
+
   h3 {
     background-color: ${props => props.theme[`${props.type}Dark`]};
     border-radius: 1rem 1rem 0 0;
@@ -148,9 +208,14 @@ export const MoveModal = styled.div`
     border-radius: 1rem;
     margin: 2rem 0 0 0;
     padding: 2rem;
-    font-size: 1.5rem;
+    font-size: ${props => props.theme.fontSm};
     font-weight: 500;
     line-height: 2rem;
+
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontMd};
+      line-height: 2.2rem; 
+    }
   }
 
   @keyframes growIntoView {
@@ -171,12 +236,20 @@ export const MoveModal = styled.div`
 export const MoveInfo = styled.div`
   padding: 2.5rem 3rem;
 
+  @media only screen and (${device.lg}) {
+    padding: 3rem 3rem;
+  }
+
    & > div:first-of-type {
     display: flex;
     justify-content: space-around;
 
     & > div {
-      font-size: 1.4rem;
+      font-size: ${props => props.theme.fontSm};
+
+      @media only screen and (${device.lg}) {
+        font-size: ${props => props.theme.fontMd};
+      }
     }
   }
 `
@@ -185,7 +258,12 @@ export const MoveValues = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
-  font-size: 1.6rem;
+  font-size: ${props => props.theme.fontMd};
+
+  @media only screen and (${device.lg}) {
+    padding: 2rem 0;
+    font-size: ${props => props.theme.fontLg};
+  }
 
   & > div {
     display: flex;
@@ -194,10 +272,14 @@ export const MoveValues = styled.div`
     flex: 1;
 
     span:first-of-type {
-      font-size: 1.8rem;
+      font-size: ${props => props.theme.lg};
       font-weight: 700;
       color: ${props => props.theme[`${props.type}Dark`]};
       margin-bottom: .2em;
+
+      @media only screen and (${device.lg}) {
+        font-size: ${props => props.theme.fontXl};
+      }
     }
   }
 `

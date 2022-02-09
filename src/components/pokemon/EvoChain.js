@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import pokemonService from '../../services/pokemon'
 import {
+  EvolutionContainer,
   BaseStage,
+  PokemonLink,
   EvolutionStage,
   EvolutionArrow
 } from './EvoChain.styled.js'
-import { 
-  SectionContainer,
-  SectionHeader
-} from '../../sharedStyles/SectionStyles'
+import { SectionHeader } from '../../sharedStyles/SectionStyles'
 
 const EvoChain = ({ id }) => {
   const [evoChain, setEvoChain] = useState({})
@@ -27,29 +25,29 @@ const EvoChain = ({ id }) => {
   }
 
   return (
-    <SectionContainer>
+    <EvolutionContainer>
       <SectionHeader>Evolutions</SectionHeader>
       <BaseStage>
-        <Link to={`/pokemon/${evoChain.id}`}>
+        <PokemonLink to={`/pokemon/${evoChain.id}`} onClick={(event) => event.currentTarget.blur()}>
           <img src={require(`../../assets/thumbnails/${evoChain.id}.png`)} alt={`${evoChain.name}`} />
-        </Link>
-        <span>{evoChain.name}</span>
+          <span>{evoChain.name}</span>
+        </PokemonLink>
         {evoChain.evolves_to && <EvolutionArrow />}
         <EvolutionStage>
           {evoChain.evolves_to && evoChain.evolves_to.map(evo1 => 
             <div key={evo1.id}>              
-              <Link to={`/pokemon/${evo1.id}`}>
+              <PokemonLink to={`/pokemon/${evo1.id}`} onClick={(event) => event.currentTarget.blur()}>
                 <img src={require(`../../assets/thumbnails/${evo1.id}.png`)} alt={`${evo1.name}`} />
-              </Link>
-              <span>{evo1.name}</span>
+                <span>{evo1.name}</span>
+              </PokemonLink>
               {evo1.evolves_to && <EvolutionArrow />}
               <EvolutionStage>
                 {evo1.evolves_to && evo1.evolves_to.map(evo2 =>
                   <div key={evo2.id}>
-                    <Link to={`/pokemon/${evo2.id}`}>
+                    <PokemonLink to={`/pokemon/${evo2.id}`} onClick={(event) => event.currentTarget.blur()}>
                       <img src={require(`../../assets/thumbnails/${evo2.id}.png`)} alt={`${evo2.name}`} />
-                    </Link>
-                    <span>{evo2.name}</span>
+                      <span>{evo2.name}</span>
+                    </PokemonLink>
                   </div>
                 )}
               </EvolutionStage>
@@ -57,7 +55,7 @@ const EvoChain = ({ id }) => {
           )}
         </EvolutionStage>
       </BaseStage>
-    </SectionContainer>
+    </EvolutionContainer>
   )
 }
 

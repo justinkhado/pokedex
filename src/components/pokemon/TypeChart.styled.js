@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { SectionBody } from '../../sharedStyles/SectionStyles'
+import { device } from '../../sharedStyles/breakpoints'
 
 export const TypeEffectiveness = styled(SectionBody)`
-  box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
   color: ${props => props.theme[`${props.theme.type}Dark`]};
 `
 
@@ -17,6 +17,10 @@ export const ChartLine = styled.div`
 
   span {
     font-weight: 500;
+
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontLg};
+    }
   }
 `
 
@@ -30,6 +34,10 @@ export const Types = styled.div`
   border-radius: .5rem;
 
   div {
-    font-size: 1.2rem;
+    font-size: ${props => props.theme.fontXs};
+
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontSm}; 
+    }
   }
 `

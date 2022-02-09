@@ -8,9 +8,12 @@ export const theme = {
   black: '#000000',
   blackLight: '#1d1d1d',
 
-  // shadows
-  shadowSmall: '',//'.3rem .4rem .8rem',
-  shadowMed: '',//'.4rem .5rem 1rem',
+  // font sizes
+  fontXs: '1.2rem',
+  fontSm: '1.4rem',
+  fontMd: '1.6rem',
+  fontLg: '1.8rem',
+  fontXl: '2rem',
 
   // types
   bug: '#8baf61',

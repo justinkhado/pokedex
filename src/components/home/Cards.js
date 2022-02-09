@@ -70,7 +70,7 @@ const Cards = ({ pokemons, search }) => {
       }
       else {
         setPokemonChunk({
-          items: filteredPokemons.slice(0, 18),
+          items: filteredPokemons.slice(0, 24),
           hasMore: filteredPokemons.length > 18
         })
       }

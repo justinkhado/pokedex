@@ -15,17 +15,21 @@ export const StyledHeader = styled.header`
     `
   }
   height: 7rem;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
   box-shadow: 0 .5rem 2rem;
 
   @media only screen and (${device.sm}) { 
     height: 9.5rem;
   }
 
+  @media only screen and (${device.md}) {
+    margin-bottom: 5rem;
+  }
+
   @media only screen and (${device.lg}) {
     justify-content: center;
-    margin-bottom: 7rem;
     width: 95%;
+    background-color: ${props => props.theme.white}f1;
   }
 
   h1 {
@@ -64,6 +68,10 @@ export const StyledLink = styled(Link)`
     ${props => props.theme.type ?
         `color: ${props.theme.white};` : 
         `color: ${props.theme.black};`
-      }
+    }
+
+    @media only screen and (${device.lg}) { 
+      color: ${props => props.theme[`${props.theme.type}`]};
+    }
   }
 `

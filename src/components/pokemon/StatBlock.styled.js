@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { SectionBody } from '../../sharedStyles/SectionStyles'
+import { device } from '../../sharedStyles/breakpoints'
 
 export const Stats = styled(SectionBody)`
-  box-shadow: ${props => props.theme.shadowSmall} ${props => props.theme.blackLight};
   color: ${props => props.theme[`${props.theme.type}Dark`]};
 
   div:not(:last-child) {
@@ -15,7 +15,12 @@ export const StatLine = styled.div`
   grid-template-columns: 1fr 4fr;
   
   span {
+    font-size: ${props => props.theme.fontMd};
     font-weight: 500;
+
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontLg}
+    }
   }
 
   div {
@@ -25,8 +30,12 @@ export const StatLine = styled.div`
     padding: 2px .5rem;
     border-radius: .5rem;
     color: ${props => props.theme.white};
-    font-size: 1.4rem;
+    font-size: ${props => props.theme.fontSm};
     z-index: 1;
+
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontMd};
+    }
 
     &::after {
       content: '';
@@ -61,13 +70,25 @@ export const Total = styled.div`
   padding-top: 1rem;
   color: ${props => props.theme.black};
 
+  @media only screen and (${device.lg}) {
+    padding-top: 2rem;
+  }
+
   span:first-child {
     text-transform: uppercase;
     font-weight: 500;
+
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontLg};
+    }
   }
 
   span:last-child {
     color: ${props => props.theme.blackLight};
     margin-left: .5rem;
+    
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontLg}; 
+    }
   }
 `

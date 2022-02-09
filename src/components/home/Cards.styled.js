@@ -5,10 +5,10 @@ import { device } from '../../sharedStyles/breakpoints'
 
 export const StyledCards = styled(InfiniteScroll)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, min(29vw, 22rem));
+  grid-template-columns: repeat(auto-fill, min(28%, 22rem));
   justify-content: space-around;
   padding-bottom: 10rem;
-  margin: 3rem 1rem 0;  
+  margin: 0 1rem;
   gap: 1.5rem 1rem;
 
   @media only screen and (${device.sm}) {
@@ -16,8 +16,12 @@ export const StyledCards = styled(InfiniteScroll)`
   }
 
   @media only screen and (${device.md}) {
-    margin: 0 10rem;
+    margin: 0 3rem;
     gap: 3rem;
+  }
+
+  @media only screen and (${device.lg}) {
+    margin: 0 10rem;
   }
 `
 
@@ -28,7 +32,7 @@ export const StyledCard = styled(Link)`
   align-items: center;
 
   position: relative;
-  width: min(29vw, 22rem);
+  width: min(100%, 22rem);
   aspect-ratio: 11 / 13;
   border-radius: .5rem;
   font-size: min(2vw, 1.6rem);   // this adjusts the font size of children b/c they're em
@@ -49,18 +53,21 @@ export const StyledCard = styled(Link)`
     color: ${props => props.theme.blackLight}
   }
 
-  &:hover {
-    @media only screen and (${device.md}) {
-      transform: scale(1.05);
-      box-shadow: 0.5rem 0.7rem 1.3rem ${props => props.theme.blackLight};
-      background-color: ${props => props.theme.grey};
-      background-image: linear-gradient(
-        to right,
-        ${props => props.theme[props.types[0]]}90 0%,
-        ${props => props.theme[props.types[0]]}90 50%,
-        ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}90 50%
-      );
-    }
+  &:hover,
+  &:focus {    
+    transform: scale(1.05);
+    box-shadow: 0.5rem 0.7rem 1.3rem ${props => props.theme.blackLight};
+    background-color: ${props => props.theme.grey};
+    background-image: linear-gradient(
+      to right,
+      ${props => props.theme[props.types[0]]}90 0%,
+      ${props => props.theme[props.types[0]]}90 50%,
+      ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}90 50%
+    );
+  }
+
+  &:focus {
+    outline: none;
   }
 
   &:active {
