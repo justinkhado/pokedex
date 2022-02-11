@@ -19,7 +19,7 @@ export const Container = styled.div`
     border-radius: 1rem;
     background: ${props => props.theme.white}a1;
     box-shadow: 0 .5rem 1.5rem;
-    margin-bottom: 5rem;
+    padding-bottom: 5rem;
   }
   
   @media only screen and (${device.lg}) {
@@ -28,7 +28,7 @@ export const Container = styled.div`
     box-shadow: none;
     background: none;
     width: 100%;
-    margin-bottom: 10rem;
+    padding-bottom: 10rem;
   }
 
   & > *:last-child {
@@ -45,6 +45,23 @@ export const Container = styled.div`
     @media only screen and (${device.lg}) {
       width: 100%;
       grid-column: span 6;
+    }
+  }
+
+  &::after {
+    @media only screen and (${device.lg}) {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      grid-row: 2 / 3;
+      grid-column: 1 / 13;
+      align-self: center;
+      width: 100%;
+      height: 100%;
+      background: ${props => props.theme[`${props.theme.type}Dark`]};
+      box-shadow: .3rem .6rem 1rem ${props => props.theme.black};
+      z-index: -1;
     }
   }
 `

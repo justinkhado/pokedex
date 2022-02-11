@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import { device } from "./breakpoints"
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -27,8 +28,14 @@ const GlobalStyles = createGlobalStyle`
     );
     background-attachment: fixed;
     min-height: 100vh;
-
     overflow-y: scroll;
+    backdrop-filter: blur(2px);
+
+    @media only screen and (${device.lg}) {
+      ${props => props.theme.type && 
+        `backdrop-filter: brightness(110%) blur(2px);`
+      }
+    }
 
     &::-webkit-scrollbar {
       width: .8em;

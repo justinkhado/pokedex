@@ -39,7 +39,7 @@ const InfoBlock = ({ pokemon }) => {
           <span>Abilities</span>
           <select onChange={handleAbilityChange}>
             {pokemon.abilities.map((ability, index) =>
-              <option key={index} value={index}>{ability.name}</option>
+              <option key={index} value={index}>{ability.name.replace('-', ' ')}</option>
             )}
           </select>
           

@@ -1,5 +1,9 @@
 import styled from 'styled-components'
-import { SectionContainer, SectionBody } from '../../sharedStyles/SectionStyles'
+import {
+  SectionContainer,
+  SectionHeader,
+  SectionBody
+} from '../../sharedStyles/SectionStyles'
 import { device } from '../../sharedStyles/breakpoints'
 
 export const StatContainer = styled(SectionContainer)`
@@ -9,8 +13,23 @@ export const StatContainer = styled(SectionContainer)`
   }
 `
 
+export const StatHeader = styled(SectionHeader)`
+  @media only screen and (${device.lg}) {
+    background-color: ${props => props.theme.white};
+    color: ${props => props.theme[`${props.theme.type}`]};
+    border-radius: 3rem 3rem 0 0;
+  }
+`
+
 export const Stats = styled(SectionBody)`
   color: ${props => props.theme[`${props.theme.type}Dark`]};
+
+  @media only screen and (${device.lg}) {
+    background-color: ${props => props.theme[`${props.theme.type}Light`]};
+    color: ${props => props.theme.black};
+    margin: 0;
+    border-radius: 0 0 3rem 3rem;
+  }
 
   div:not(:last-child) {
     margin-bottom: 1rem;
@@ -46,8 +65,9 @@ export const StatLine = styled.div`
     z-index: 1;
 
     @media only screen and (${device.lg}) {
+      background-color: ${props => props.theme.white};
       font-size: ${props => props.theme.fontMd};
-      padding: .5rem .5rem;
+      padding: .5rem .8rem;
     }
 
     &::after {
@@ -84,16 +104,16 @@ export const Total = styled.div`
   color: ${props => props.theme.black};
 
   @media only screen and (${device.lg}) {
-    padding: 1.3rem 4rem;
-    margin: 3rem auto 0;
-    width: fit-content;
     display: flex;
-    gap: 8rem;
+    justify-content: space-between;
+    padding: 1.3rem 3.5rem;
+    margin: 3rem auto 0;
+    width: 23rem;
     background-image: linear-gradient(
       120deg,
-      ${props => props.theme[`${props.theme.type}Dark`]} 50%,
-      ${props => props.theme[`${props.theme.type}Light`]} 50%,
-      ${props => props.theme[`${props.theme.type}Light`]}
+      ${props => props.theme[`${props.theme.type}`]} 52%,
+      ${props => props.theme.white} 52%,
+      ${props => props.theme.white}
     );
     border-radius: 3rem;
   }
@@ -115,6 +135,8 @@ export const Total = styled.div`
     
     @media only screen and (${device.lg}) {
       font-size: ${props => props.theme.fontLg};
+      font-weight: 500;
+      letter-spacing: 1px;
     }
   }
 `

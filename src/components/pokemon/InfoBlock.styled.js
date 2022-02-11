@@ -135,6 +135,7 @@ export const Abilities = styled(SectionBody)`
     font-size: ${props => props.theme.fontSm};
 
     @media only screen and (${device.lg}) {
+      color: ${props => props.theme.blackLight};
       padding: 2.5rem 4rem;
       font-size: ${props => props.theme.fontLg};
       line-height: 2.3rem;
