@@ -1,18 +1,30 @@
 import styled from 'styled-components'
-import { SectionBody } from '../../sharedStyles/SectionStyles'
+import { SectionContainer, SectionBody } from '../../sharedStyles/SectionStyles'
 import { device } from '../../sharedStyles/breakpoints'
+
+export const StatContainer = styled(SectionContainer)`
+  @media only screen and (${device.lg}) {
+    grid-column: span 6;
+    align-self: center;
+  }
+`
 
 export const Stats = styled(SectionBody)`
   color: ${props => props.theme[`${props.theme.type}Dark`]};
 
   div:not(:last-child) {
     margin-bottom: 1rem;
+
+    @media only screen and (${device.lg}) {
+      margin-bottom: 2rem;
+    }
   }
 `
 
 export const StatLine = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr;
+  align-items: center;
   
   span {
     font-size: ${props => props.theme.fontMd};
@@ -35,6 +47,7 @@ export const StatLine = styled.div`
 
     @media only screen and (${device.lg}) {
       font-size: ${props => props.theme.fontMd};
+      padding: .5rem .5rem;
     }
 
     &::after {
@@ -71,7 +84,18 @@ export const Total = styled.div`
   color: ${props => props.theme.black};
 
   @media only screen and (${device.lg}) {
-    padding-top: 2rem;
+    padding: 1.3rem 4rem;
+    margin: 3rem auto 0;
+    width: fit-content;
+    display: flex;
+    gap: 8rem;
+    background-image: linear-gradient(
+      120deg,
+      ${props => props.theme[`${props.theme.type}Dark`]} 50%,
+      ${props => props.theme[`${props.theme.type}Light`]} 50%,
+      ${props => props.theme[`${props.theme.type}Light`]}
+    );
+    border-radius: 3rem;
   }
 
   span:first-child {
@@ -80,6 +104,8 @@ export const Total = styled.div`
 
     @media only screen and (${device.lg}) {
       font-size: ${props => props.theme.fontLg};
+      color: ${props => props.theme.white};
+      letter-spacing: 1px;
     }
   }
 
@@ -88,7 +114,7 @@ export const Total = styled.div`
     margin-left: .5rem;
     
     @media only screen and (${device.lg}) {
-      font-size: ${props => props.theme.fontLg}; 
+      font-size: ${props => props.theme.fontLg};
     }
   }
 `

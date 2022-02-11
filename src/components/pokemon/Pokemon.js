@@ -40,8 +40,8 @@ const Pokemon = ({ changeType }) => {
     <Container>
       <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/original/${pokemon.id}.png`} alt={pokemon.name} />
       <InfoBlock pokemon={pokemon} />
-      <StatBlock stats={pokemon.stats} />
       <TypeChart typeChart={pokemon.type_chart} />
+      <StatBlock stats={pokemon.stats} />
       <EvoChain id={pokemon.id} />
       <Moveset id={pokemon.id} />
     </Container>

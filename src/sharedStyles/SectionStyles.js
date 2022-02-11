@@ -5,7 +5,7 @@ export const SectionContainer = styled.section`
   width: min(55rem, 100%);
 
   @media only screen and (${device.sm}) {
-    box-shadow: .5rem 1rem 1rem ${props => props.theme.blackLight};    
+    box-shadow: .5rem 1rem 1rem ${props => props.theme.blackLight};
     align-self: center;    
   }
 
@@ -19,7 +19,6 @@ export const SectionContainer = styled.section`
 `
 
 export const SectionHeader = styled.h2`
-  position: relative;
   padding: 1.8rem 0;
   margin: 0;
   background-color: ${props => props.theme.white};
@@ -37,6 +36,7 @@ export const SectionHeader = styled.h2`
   }
 
   @media only screen and (${device.lg}) {
+    box-shadow: .3rem .6rem 1rem ${props => props.theme.blackLight};
     background-color: ${props => props.theme[`${props.theme.type}`]};   
     color: ${props => props.theme.white};
     font-size: 2.6rem;
@@ -56,5 +56,6 @@ export const SectionBody = styled.div`
 
   @media only screen and (${device.lg}) {
     padding: 4rem 5rem 5rem;
+    margin: 0 1px;
   }
 `

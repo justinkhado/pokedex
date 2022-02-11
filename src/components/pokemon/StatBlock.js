@@ -1,17 +1,15 @@
 import React from 'react'
 import {
+  StatContainer,
   Stats,
   StatLine,
   Total
 } from './StatBlock.styled'
-import { 
-  SectionContainer,
-  SectionHeader
-} from '../../sharedStyles/SectionStyles'
+import { SectionHeader } from '../../sharedStyles/SectionStyles'
 
 const StatBlock = ({ stats }) => {
   return(
-    <SectionContainer>
+    <StatContainer>
       <SectionHeader>Stats</SectionHeader>
       <Stats>
         {[['hp', 'HP'], ['attack', 'Atk'], ['defense', 'Def'], ['sp. attack', 'SpAtk'], ['sp. defense', 'SpDef'], ['speed', 'Speed']].map(stat =>
@@ -28,7 +26,7 @@ const StatBlock = ({ stats }) => {
           <span>{stats.total}</span>
         </Total>
       </Stats>
-    </SectionContainer>
+    </StatContainer>
   )
 }
 

@@ -8,7 +8,7 @@ export const EvolutionContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
     width: fit-content;
     max-width: 87vw;
-    grid-column: span 2;
+    grid-column: span 12;
   }
 `
 export const PokemonLink = styled(Link)`

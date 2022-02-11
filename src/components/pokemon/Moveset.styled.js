@@ -5,7 +5,7 @@ import { device } from '../../sharedStyles/breakpoints'
 export const MoveContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
     width: 60%;
-    grid-column: span 2;
+    grid-column: span 12;
   }
 `
 

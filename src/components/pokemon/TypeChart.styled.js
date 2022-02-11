@@ -1,6 +1,13 @@
 import styled from 'styled-components'
-import { SectionBody } from '../../sharedStyles/SectionStyles'
+import { SectionContainer, SectionBody } from '../../sharedStyles/SectionStyles'
 import { device } from '../../sharedStyles/breakpoints'
+
+export const TypeChartContainer = styled(SectionContainer)`
+  @media only screen and (${device.lg}) {
+    grid-column: span 6;
+    align-self: center;
+  }
+`
 
 export const TypeEffectiveness = styled(SectionBody)`
   color: ${props => props.theme[`${props.theme.type}Dark`]};
