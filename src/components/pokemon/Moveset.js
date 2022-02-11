@@ -37,10 +37,12 @@ const Moveset = ({ id }) => {
 
   const handleMethodChange = (event) => {
     setMethod(event.target.value)
+    event.currentTarget.blur()
   }
 
   const handleGenChange = (event) => {
     setGeneration(event.target.value)
+    event.currentTarget.blur()
   }
 
   if (!moveset) {
@@ -100,35 +102,38 @@ const Moveset = ({ id }) => {
             } 
           </MovelistBody>
         </MovelistTable>
-        {selectedMove.name && <MoveModal type={selectedMove.type}>
-          <h3>{selectedMove.name.replace('-', ' ')}</h3>
-          <CloseButton onClick={() => setSelectedMove('')}>&#9932;</CloseButton>
-          <MoveInfo>
-            <div>
-              <Type type={selectedMove.type}>{selectedMove.type}</Type>
-              <DamageClass>
-                {selectedMove.damage_class === 'physical' && <img src={physicalIcon} alt='physical' />}
-                {selectedMove.damage_class === 'special' && <img src={specialIcon} alt='special' />}
-                {selectedMove.damage_class === 'status' && <img src={statusIcon} alt='status' />}
-              </DamageClass>
-            </div>
-            <MoveValues type={selectedMove.type}>
+
+        {selectedMove.name && 
+          <MoveModal type={selectedMove.type}>
+            <h3>{selectedMove.name.replace('-', ' ')}</h3>
+            <CloseButton onClick={() => setSelectedMove('')}>&#9932;</CloseButton>
+            <MoveInfo>
               <div>
-                <span>Power</span>
-                <span>{selectedMove.power || '-'}</span>
+                <Type type={selectedMove.type}>{selectedMove.type}</Type>
+                <DamageClass>
+                  {selectedMove.damage_class === 'physical' && <img src={physicalIcon} alt='physical' />}
+                  {selectedMove.damage_class === 'special' && <img src={specialIcon} alt='special' />}
+                  {selectedMove.damage_class === 'status' && <img src={statusIcon} alt='status' />}
+                </DamageClass>
               </div>
-              <div>
-                <span>Accuracy</span>
-                <span>{selectedMove.accuracy || '-'}</span>
-              </div>
-              <div>
-                <span>PP</span>
-                <span>{selectedMove.pp}</span>
-              </div>
-            </MoveValues>
-            <p>{selectedMove.effect}</p>
-          </MoveInfo>
-        </MoveModal>}        
+              <MoveValues type={selectedMove.type}>
+                <div>
+                  <span>Power</span>
+                  <span>{selectedMove.power || '-'}</span>
+                </div>
+                <div>
+                  <span>Accuracy</span>
+                  <span>{selectedMove.accuracy || '-'}</span>
+                </div>
+                <div>
+                  <span>PP</span>
+                  <span>{selectedMove.pp}</span>
+                </div>
+              </MoveValues>
+              <p>{selectedMove.effect}</p>
+            </MoveInfo>
+          </MoveModal>
+        }        
       </Movelist>
     </MoveContainer>
   )

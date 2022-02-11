@@ -6,10 +6,12 @@ export const MoveContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
     width: 60%;
     grid-column: span 12;
+    align-self: start;
   }
 `
 
 export const Movelist = styled(SectionBody)`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +29,7 @@ export const MovelistFilter = styled.div`
     justify-content: flex-end;
     gap: 3rem;
     margin-right: 40%;
+    margin-bottom: 3rem;
   }
 
   select {
@@ -66,13 +69,12 @@ export const MovelistTable = styled.table`
 
   @media only screen and (${device.lg}) {
     max-width: 70%;
+    margin-bottom: 3rem;
     box-shadow: .3rem .3rem 1rem ${props => props.theme.blackLight};
   }
 `
 
 export const MovelistHeaders = styled.tr`
-  position: sticky;
-  top: 0;
   background-color: ${props => props.theme[`${props.theme.type}Dark`]};
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.fontSm};
@@ -182,7 +184,9 @@ export const MoveModal = styled.div`
   width: 30rem;
   top: 50%;
   left: 50%;
-  background-color: ${props => props.theme.greyLight};
+  z-index: 99;
+  transform: translate(-50%, -50%);
+  background-color: ${props => props.theme.white};
   border-radius: 1rem;
   box-shadow: .3rem .8rem 1rem ${props => props.theme.black};
   animation: growIntoView .4s forwards ease-out;

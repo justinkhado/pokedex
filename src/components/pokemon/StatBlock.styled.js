@@ -10,6 +10,7 @@ export const StatContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
     grid-column: span 6;
     align-self: center;
+    z-index: 1;
   }
 `
 
@@ -62,7 +63,7 @@ export const StatLine = styled.div`
     border-radius: .5rem;
     color: ${props => props.theme.white};
     font-size: ${props => props.theme.fontSm};
-    z-index: 1;
+    z-index: 0;
 
     @media only screen and (${device.lg}) {
       background-color: ${props => props.theme.white};

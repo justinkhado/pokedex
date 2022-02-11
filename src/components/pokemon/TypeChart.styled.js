@@ -10,7 +10,8 @@ export const TypeChartContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
     grid-column: span 6;
     align-self: center;
-    margin: 8rem 0;
+    margin: 15rem 0;
+    z-index: 1;
   }
 `
 

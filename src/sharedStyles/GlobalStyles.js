@@ -1,5 +1,4 @@
-import { createGlobalStyle } from "styled-components"
-import { device } from "./breakpoints"
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -14,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
+    position: relative;
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     margin: 0;
@@ -28,13 +28,17 @@ const GlobalStyles = createGlobalStyle`
     );
     background-attachment: fixed;
     min-height: 100vh;
-    overflow-y: scroll;
-    backdrop-filter: blur(2px);
-
-    @media only screen and (${device.lg}) {
-      ${props => props.theme.type && 
-        `backdrop-filter: brightness(110%) blur(2px);`
-      }
+    overflow-y: scroll;    
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(2px);
+      z-index: -9;
     }
 
     &::-webkit-scrollbar {

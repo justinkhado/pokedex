@@ -18,8 +18,8 @@ export const NameTag = styled.div`
   padding: 2rem 3.5rem;
   background-image: linear-gradient(
     120deg,
-    ${props => props.theme.blackLight} 0,
-    ${props => props.theme.blackLight} 35%,
+    ${props => props.theme.black} 0,
+    ${props => props.theme.black} 35%,
     ${props => props.theme[props.theme.type]} 35%
   );
 
@@ -36,19 +36,16 @@ export const NameTag = styled.div`
     grid-column: span 12;
     grid-row: span 1;
     flex-direction: row-reverse;
-    box-shadow: none;
     padding: 0 5rem;
     background-image: linear-gradient(
       135deg,
       ${props => props.theme[props.theme.type]} 0,
       ${props => props.theme[props.theme.type]} 70%,
-      ${props => props.theme.blackLight} 70%
+      ${props => props.theme.black} 70%
     );
-    z-index: -1;
   }
   
-  span, h1 {
-    color: ${props => props.theme.white};
+  span, h1 {    
     font-size: 2.2rem;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -60,6 +57,7 @@ export const NameTag = styled.div`
   }
 
   h1 {
+    color: ${props => props.theme.white};
     margin: 0;
     font-weight: 700;
 
@@ -69,6 +67,10 @@ export const NameTag = styled.div`
       letter-spacing: 1.3rem;
       transform: scaleY(1.6);
     }
+  }
+
+  span {
+    color: ${props => props.theme.greyLight};
   }
 `
 
@@ -180,6 +182,10 @@ export const AbilitiesHeader = styled.div`
     
     option {
       background-color: ${props => props.theme[`${props.theme.type}Light`]};
+
+      @media only screen and (${device.lg}) {
+        font-size: ${props => props.theme.fontMd};
+      }
     }
   }
 `

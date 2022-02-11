@@ -13,6 +13,7 @@ const InfoBlock = ({ pokemon }) => {
 
   const handleAbilityChange = (event) => {
     setAbility(event.target.value)
+    event.currentTarget.blur()
   }
 
   return (
@@ -37,9 +38,11 @@ const InfoBlock = ({ pokemon }) => {
       <Abilities>
         <AbilitiesHeader>
           <span>Abilities</span>
-          <select onChange={handleAbilityChange}>
+          <select onChange={handleAbilityChange} >
             {pokemon.abilities.map((ability, index) =>
-              <option key={index} value={index}>{ability.name.replace('-', ' ')}</option>
+              <option key={index} value={index}>
+                {ability.name.replace('-', ' ')}
+              </option>
             )}
           </select>
           
