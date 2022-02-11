@@ -33,8 +33,6 @@ export const NameTag = styled.div`
     left: 0;
     height: 23rem;
     width: 100%;
-    grid-column: span 12;
-    grid-row: span 1;
     flex-direction: row-reverse;
     padding: 0 5rem;
     background-image: linear-gradient(
@@ -57,20 +55,37 @@ export const NameTag = styled.div`
   }
 
   h1 {
+    position: relative;
     color: ${props => props.theme.white};
     margin: 0;
     font-weight: 700;
+    max-width: fit-content;
 
-    @media only screen and (${device.lg}) {           
-      font-size: 6vw;
-      font-weight: 800;      
-      letter-spacing: 1.3rem;
-      transform: scaleY(1.6);
+    @media only screen and (${device.lg}) {     
+      font-family: monospace;
+      font-size: 8vw;
+      letter-spacing: .6rem;      
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        background: ${props => props.theme[`${props.theme.type}`]};
+        animation: typing 1.8s .3s forwards steps(${props => props.nameLength}, end);
+      }
     }
   }
 
   span {
     color: ${props => props.theme.greyLight};
+  }
+
+  @keyframes typing {
+    from { width: 100%; }
+    to { width: 0%; }
   }
 `
 

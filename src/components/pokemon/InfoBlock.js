@@ -18,7 +18,7 @@ const InfoBlock = ({ pokemon }) => {
 
   return (
     <InfoContainer>
-      <NameTag>
+      <NameTag nameLength={pokemon.name.length}>
         <span>#{pokemon.id}</span>
         <h1>{pokemon.name}</h1>
       </NameTag>

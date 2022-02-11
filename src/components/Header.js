@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <h1>
-        <StyledLink to='/home'>Pok&eacute;dex</StyledLink>
+        <StyledLink to='/'>Pok&eacute;dex</StyledLink>
       </h1>
     </StyledHeader>
   )
