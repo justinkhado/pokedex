@@ -45,10 +45,12 @@ export const StatLine = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr;
   align-items: center;
+  gap: 2rem;
   
   span {
     font-size: ${props => props.theme.fontMd};
     font-weight: 500;
+    justify-self: end;
 
     @media only screen and (${device.lg}) {
       font-size: ${props => props.theme.fontLg}
@@ -102,6 +104,7 @@ export const Total = styled.div`
   grid-template-columns: 1fr 4fr;
   align-items: center;
   padding-top: 1rem;
+  gap: 2rem;
   color: ${props => props.theme.black};
 
   @media only screen and (${device.lg}) {
@@ -122,6 +125,7 @@ export const Total = styled.div`
   span:first-child {
     text-transform: uppercase;
     font-weight: 500;
+    justify-self: end;
 
     @media only screen and (${device.lg}) {
       font-size: ${props => props.theme.fontLg};

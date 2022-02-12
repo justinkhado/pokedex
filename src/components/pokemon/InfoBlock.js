@@ -44,8 +44,7 @@ const InfoBlock = ({ pokemon }) => {
                 {ability.name.replace('-', ' ')}
               </option>
             )}
-          </select>
-          
+          </select>          
         </AbilitiesHeader>
         <div>
           {pokemon.abilities[ability].effect}

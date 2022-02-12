@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import pokemonService from '../../services/pokemon'
 import {
   MoveContainer,
@@ -22,6 +22,7 @@ import specialIcon from '../../assets/icons/Special.png';
 import statusIcon from '../../assets/icons/Status.png';
 
 const Moveset = ({ id }) => {
+  const isMounted = useRef(true)
   const [moveset, setMoveset] = useState({})
   const [method, setMethod] = useState('level-up')
   const [generation, setGeneration] = useState('vii')
@@ -31,8 +32,12 @@ const Moveset = ({ id }) => {
     pokemonService
       .getMoveset(id)
       .then(returnedMoveset => {
-        setMoveset(returnedMoveset)
+        if (isMounted.current) {
+          setMoveset(returnedMoveset)
+        }
       })
+    
+    return () => { isMounted.current = false }
   }, [id])
 
   const handleMethodChange = (event) => {

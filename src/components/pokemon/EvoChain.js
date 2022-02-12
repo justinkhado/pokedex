@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import pokemonService from '../../services/pokemon'
 import {
   EvolutionContainer,
@@ -10,14 +10,19 @@ import {
 import { SectionHeader } from '../../sharedStyles/SectionStyles'
 
 const EvoChain = ({ id }) => {
+  const isMounted = useRef(true)
   const [evoChain, setEvoChain] = useState({})
 
   useEffect(() => {
     pokemonService
       .getEvoChain(id)
       .then(returnedChain => {
-        setEvoChain(returnedChain)
+        if (isMounted.current) {
+          setEvoChain(returnedChain)
+        }
       })
+    
+    return () => { isMounted.current = false }
   }, [id])
 
   if (!evoChain.id) {

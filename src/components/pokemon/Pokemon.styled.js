@@ -17,7 +17,7 @@ export const Container = styled.div`
   @media only screen and (${device.md}) {
     width: 90vw;
     border-radius: 1rem;
-    background: ${props => props.theme.grey}60;
+    background: ${props => props.theme.white}a1;
     box-shadow: 0 .5rem 1.5rem;
     padding-bottom: 5rem;
   }
@@ -25,8 +25,8 @@ export const Container = styled.div`
   @media only screen and (${device.lg}) {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     row-gap: 15rem;
+    background: none;
     box-shadow: none;
-    //background: none;
     border-radius: 0;
     width: 100%;
     padding-bottom: 10rem;
@@ -38,18 +38,7 @@ export const Container = styled.div`
     @media only screen and (${device.lg}) {
       margin-bottom: 0;
     }
-  }
-
-  & > img {
-    width: min(95%, 45rem);
-    z-index: 1;
-
-    @media only screen and (${device.lg}) {
-      width: 80%;
-      grid-column: span 6;
-      align-self: end;
-    }
-  }
+  } 
 
   &::after {
     @media only screen and (${device.lg}) {

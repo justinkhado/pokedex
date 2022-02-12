@@ -38,8 +38,8 @@ export const NameTag = styled.div`
     background-image: linear-gradient(
       135deg,
       ${props => props.theme[props.theme.type]} 0,
-      ${props => props.theme[props.theme.type]} 70%,
-      ${props => props.theme.black} 70%
+      ${props => props.theme[props.theme.type]} 72.5%,
+      ${props => props.theme.black} 72.5%
     );
   }
   
@@ -61,31 +61,14 @@ export const NameTag = styled.div`
     font-weight: 700;
     max-width: fit-content;
 
-    @media only screen and (${device.lg}) {     
-      font-family: monospace;
-      font-size: 8vw;
-      letter-spacing: .6rem;      
-      
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        background: ${props => props.theme[`${props.theme.type}`]};
-        animation: typing 1.8s .3s forwards steps(${props => props.nameLength}, end);
-      }
+    @media only screen and (${device.lg}) {
+      font-size: 6vw;
+      letter-spacing: .6rem;
     }
   }
 
   span {
     color: ${props => props.theme.greyLight};
-  }
-
-  @keyframes typing {
-    from { width: 100%; }
-    to { width: 0%; }
   }
 `
 
