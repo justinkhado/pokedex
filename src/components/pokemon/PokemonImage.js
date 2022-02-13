@@ -18,11 +18,7 @@ export const PokemonImage = styled.div`
     width: 100%;
     opacity: 0;
     filter: contrast(0) brightness(2);
-    animation: fadeInNoShadow .7s 2.5s ease-in forwards;
-
-    @media only screen and (${device.md}) {
-      animation: fadeIn .7s 2.5s ease-in forwards;
-    }
+    animation: fadeInPokemon .7s 2.5s ease-in forwards;
   }
 
   &::after {
@@ -52,12 +48,12 @@ export const PokemonImage = styled.div`
     }
   }
 
-  @keyframes fadeIn {
+  @keyframes fadeInPokemon {
     75% { 
       filter: 
         contrast(0) 
         brightness(2) 
-        drop-shadow(1rem 1.2rem .6rem ${props => props.theme.blackLight}); 
+        drop-shadow(.6rem .8rem .3rem ${props => props.theme.black}); 
     }
 
     100% {
@@ -65,22 +61,7 @@ export const PokemonImage = styled.div`
       filter:
         contrast(100%)
         brightness(100%)
-        drop-shadow(1.5rem 1.7rem 1.2rem ${props => props.theme.blackLight});
-    }
-  }
-
-  @keyframes fadeInNoShadow {
-    75% { 
-      filter: 
-        contrast(0)
-        brightness(2)
-    }
-
-    100% {
-      opacity: 1;
-      filter:
-        contrast(100%)
-        brightness(100%)
+        drop-shadow(1rem 1.2rem .6rem ${props => props.theme.black});
     }
   }
 `

@@ -8,9 +8,9 @@ import { device } from '../../sharedStyles/breakpoints'
 
 export const TypeChartContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
-    grid-column: span 6;
+    grid-column: 2 / span 5;
     align-self: center;
-    margin: 15rem 0;
+    margin: 13rem 0;
     z-index: 1;
   }
 `
@@ -36,8 +36,9 @@ export const TypeEffectiveness = styled(SectionBody)`
 
 export const ChartLine = styled.div`
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 1fr 5fr;
   align-items: center;
+  gap: 2rem;
 
   &:not(:last-child) {
     margin-bottom: 2rem;
@@ -45,6 +46,8 @@ export const ChartLine = styled.div`
 
   span {
     font-weight: 500;
+    justify-self: end;
+    margin-right: 1rem;
 
     @media only screen and (${device.lg}) {
       font-size: ${props => props.theme.fontLg};
@@ -67,9 +70,15 @@ export const Types = styled.div`
 
   div {
     font-size: ${props => props.theme.fontXs};
+    opacity: 0;
+    ${props => props.visible && `animation: fadeInTypes .5s ease-in forwards;`}
 
     @media only screen and (${device.lg}) {
       font-size: ${props => props.theme.fontSm}; 
     }
+  }
+
+  @keyframes fadeInTypes {
+    to { opacity: 1; }
   }
 `

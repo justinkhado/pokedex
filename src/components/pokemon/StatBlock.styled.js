@@ -8,7 +8,7 @@ import { device } from '../../sharedStyles/breakpoints'
 
 export const StatContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
-    grid-column: span 6;
+    grid-column: 7 / span 5;
     align-self: center;
     z-index: 1;
   }
@@ -83,19 +83,16 @@ export const StatLine = styled.div`
       border-radius: .5rem;
       background-color: ${props => props.theme[`${props.theme.type}Dark`]};
       z-index: -1;
-      animation: grow 1.5s ease-in-out;
+      transform: scaleX(0);
+      ${props => props.visible && 
+        `animation: grow 1.5s ease-in-out forwards;`
+      }
       transform-origin: 0% 50%;
     }
   }
 
   @keyframes grow {
-    0% {
-      transform: scaleX(0);
-    }
-
-    100% {
-      transform: scaleX(1);
-    }
+    to { transform: scaleX(1); }
   }
 `
 

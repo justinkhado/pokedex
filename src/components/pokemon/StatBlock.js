@@ -1,4 +1,5 @@
 import React from 'react'
+import { useInView } from 'react-intersection-observer'
 import {
   StatContainer,
   StatHeader,
@@ -8,14 +9,20 @@ import {
 } from './StatBlock.styled'
 
 const StatBlock = ({ stats }) => {
+  const [ref, inView] = useInView({
+    threshold: .3,
+    triggerOnce: true
+  })
+
   return(
-    <StatContainer>
+    <StatContainer ref={ref}>
       <StatHeader>Stats</StatHeader>
       <Stats>
         {[['hp', 'HP'], ['attack', 'Atk'], ['defense', 'Def'], ['sp. attack', 'SpAtk'], ['sp. defense', 'SpDef'], ['speed', 'Speed']].map(stat =>
           <StatLine 
             key={stat[0]} 
             statValue={stats[stat[0]]}
+            visible={inView}
           >
             <span>{stat[1]}</span>
             <div>{stats[stat[0]]}</div>

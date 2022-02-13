@@ -17,7 +17,7 @@ export const Container = styled.div`
   @media only screen and (${device.md}) {
     width: 90vw;
     border-radius: 1rem;
-    background: ${props => props.theme.white}a1;
+    background: ${props => props.theme.white}80;
     box-shadow: 0 .5rem 1.5rem;
     padding-bottom: 5rem;
   }
@@ -51,7 +51,7 @@ export const Container = styled.div`
       align-self: center;
       width: 100%;
       height: 100%;
-      background: ${props => props.theme[`${props.theme.type}Dark`]};
+      background-color: ${props => props.theme[`${props.theme.type}Dark`]};
       box-shadow: .4rem .6rem 1rem ${props => props.theme.black};
       z-index: 0;
     }
