@@ -16,24 +16,28 @@ const Pokemon = ({ changeType }) => {
   const [pokemon, setPokemon] = useState({})
 
   useEffect(() => {
+    return () => { isMounted.current = false }
+  }, [])
+
+  useEffect(() => {
     const urlParts = location.pathname.split('/')
     if (urlParts[1] === 'pokemon') {
       pokemonService
         .getPokemon(urlParts[2])
         .then(returnedPokemon => {
           if (isMounted.current) {
-            setPokemon(returnedPokemon)
+            setPokemon(returnedPokemon)   
             changeType(returnedPokemon.types[0])
           }
         })
-        .then(() => { window.scrollTo({ top: 0 }) })
-    }
-
-    return () => { isMounted.current = false }
+        .then(() => { 
+          window.scrollTo({ top: 0 })
+        })
+    }    
   }, [location, changeType])
 
   if (!pokemon.id) {
-    return (<Fallback />)
+    return <Fallback />
   }
 
   return (

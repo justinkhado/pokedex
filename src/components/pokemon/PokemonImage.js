@@ -5,11 +5,11 @@ import { device } from '../../sharedStyles/breakpoints'
 export const PokemonImage = styled.div`
   --wobbleDuration: 1.5s;
   position: relative;
-  width: min(95%, 45rem);
+  aspect-ratio: 1 / 1;
+  width: min(95%, 45rem);  
   z-index: 1;
 
-  @media only screen and (${device.lg}) {
-    aspect-ratio: 1 / 1;
+  @media only screen and (${device.lg}) {    
     width: 75%;
     grid-column: span 6;
     align-self: end;    

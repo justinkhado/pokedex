@@ -1,20 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import pokemonService from '../../services/pokemon'
 import Cards from './Cards'
 import Search from './Search'
 import ScrollToTop from './ScrollToTop'
 
-const Home = ({ changeType }) => {
-  const [pokemons, setPokemons] = useState([])
-
-  useEffect(() => {
-    pokemonService
-      .getAll()
-      .then(returnedPokemon => {
-        setPokemons(returnedPokemon.pokemons)
-      })
-  }, [])
-  
+const Home = ({ pokemons, changeType }) => { 
   useEffect(() => {
     changeType('')
   }, [changeType])

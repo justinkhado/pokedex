@@ -9,8 +9,20 @@ import {
 import { Type } from '../../sharedStyles/Type.styled'
 
 const Card = ({ pokemon }) => {
+  const cardRef = useRef(null)
+
+  useEffect(() => {
+    const handleEscPress = (event) => {
+      if (event.key === 'Escape') {
+        cardRef.current.blur()
+      }
+    }    
+    window.addEventListener('keydown', handleEscPress)
+    return () => window.removeEventListener('keydown', handleEscPress)
+  }, [])
+
   return (
-    <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types}>
+    <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types} ref={cardRef}>
       <Number>{`${pokemon.id}`}</Number>      
       <Types>
           <Type type={pokemon.types[0]}><span>{pokemon.types[0]}</span></Type>

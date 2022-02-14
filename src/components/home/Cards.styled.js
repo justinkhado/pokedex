@@ -35,10 +35,14 @@ export const StyledCard = styled(Link)`
   width: min(100%, 22rem);
   aspect-ratio: 11 / 13;
   border-radius: .5rem;
-  font-size: min(2vw, 1.6rem);   // this adjusts the font size of children b/c they're em
+  font-size: min(2vw, 1.6rem);
   text-decoration: none;
   box-shadow: .3rem .5rem 1rem ${props => props.theme.blackLight};
-  transition: all .1s;
+  transition: 
+    transform .1s,
+    box-shadow .1s,
+    background-color .1s,
+    background-image .1s;
 
   background: ${props => props.theme.grey}a1;
   background-image: linear-gradient(
@@ -123,7 +127,7 @@ export const Name = styled.div`
   color: white;
   font-size: 1.7em;
   font-weight: 700;
-  letter-spacing: .05em;    // recall: em of non-font properties refer to font-size of current element
+  letter-spacing: .05em;
   text-transform: uppercase;
   margin-bottom: .5em;
 `

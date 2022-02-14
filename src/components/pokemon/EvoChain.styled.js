@@ -25,11 +25,16 @@ export const PokemonLink = styled(Link)`
   &:hover,
   &:focus {
     box-shadow: .2rem .4rem .5rem ${props => props.theme.black};
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   &:focus {
     outline: none;
+  }
+
+  &:active {
+    box-shadow: .1rem .2rem .3rem ${props => props.theme.black};
+    transform: scale(.95);
   }
 
   img {

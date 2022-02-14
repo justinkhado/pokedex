@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { device } from '../sharedStyles/breakpoints'
 
 export const StyledFallback = styled.div`
   display: flex;
@@ -6,6 +7,10 @@ export const StyledFallback = styled.div`
   margin: 0 auto;
   aspect-ratio: 1 / 1;
   width: 50%;
+
+  @media only screen and (${device.md}) {
+    width: 45rem;
+  }
 
   & > svg {
     animation: 1.5s blink infinite linear;

@@ -70,15 +70,9 @@ export const Types = styled.div`
 
   div {
     font-size: ${props => props.theme.fontXs};
-    opacity: 0;
-    ${props => props.visible && `animation: fadeInTypes .5s ease-in forwards;`}
 
     @media only screen and (${device.lg}) {
       font-size: ${props => props.theme.fontSm}; 
     }
-  }
-
-  @keyframes fadeInTypes {
-    to { opacity: 1; }
   }
 `

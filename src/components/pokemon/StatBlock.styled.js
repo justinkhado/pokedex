@@ -85,7 +85,7 @@ export const StatLine = styled.div`
       z-index: -1;
       transform: scaleX(0);
       ${props => props.visible && 
-        `animation: grow 1.5s ease-in-out forwards;`
+        `animation: grow 1.2s ease-out forwards;`
       }
       transform-origin: 0% 50%;
     }
