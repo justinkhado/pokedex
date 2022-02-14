@@ -3,6 +3,7 @@ import Pokeball from '../../assets/icons/pokeball.svg'
 import { device } from '../../sharedStyles/breakpoints'
 
 export const PokemonImage = styled.div`
+  --wobbleDuration: 1.5s;
   position: relative;
   width: min(95%, 45rem);
   z-index: 1;
@@ -18,7 +19,8 @@ export const PokemonImage = styled.div`
     width: 100%;
     opacity: 0;
     filter: contrast(0) brightness(2);
-    animation: fadeInPokemon .7s 2.5s ease-in forwards;
+    transform: scale(0);
+    animation: fadeInPokemon .7s var(--wobbleDuration) ease-in-out forwards;
   }
 
   &::after {
@@ -30,8 +32,8 @@ export const PokemonImage = styled.div`
     aspect-ratio: 1 / 1;
     width: 30%;
     animation: 
-      wobble 2.5s .3s cubic-bezier(0.72, 0, 0.28, 1) forwards,
-      fadeOut .5s 2.5s forwards;
+      wobble var(--wobbleDuration) .3s cubic-bezier(0.72, 0, 0.28, 1) forwards,
+      fadeOut .5s var(--wobbleDuration) forwards;
   }
 
   @keyframes wobble {
@@ -49,7 +51,8 @@ export const PokemonImage = styled.div`
   }
 
   @keyframes fadeInPokemon {
-    75% { 
+    75% {
+      transform: scale(1);
       filter: 
         contrast(0) 
         brightness(2) 
@@ -57,6 +60,7 @@ export const PokemonImage = styled.div`
     }
 
     100% {
+      transform: scale(1);
       opacity: 1;
       filter:
         contrast(100%)
