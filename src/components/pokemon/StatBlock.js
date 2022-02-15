@@ -10,12 +10,12 @@ import {
 
 const StatBlock = ({ stats }) => {
   const [ref, inView] = useInView({
-    threshold: .3,
+    threshold: .1,
     triggerOnce: true
-  })
+  })  
 
   return(
-    <StatContainer ref={ref}>
+    <StatContainer ref={ref}>      
       <StatHeader>Stats</StatHeader>
       <Stats>
         {[['hp', 'HP'], ['attack', 'Atk'], ['defense', 'Def'], ['sp. attack', 'SpAtk'], ['sp. defense', 'SpDef'], ['speed', 'Speed']].map(stat =>

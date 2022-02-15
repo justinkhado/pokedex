@@ -8,7 +8,8 @@ import { device } from '../../sharedStyles/breakpoints'
 
 export const StatContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
-    grid-column: 7 / span 5;
+    grid-column: 8 / span 5;
+    justify-self: start;
     align-self: center;
     z-index: 1;
   }
@@ -16,9 +17,12 @@ export const StatContainer = styled(SectionContainer)`
 
 export const StatHeader = styled(SectionHeader)`
   @media only screen and (${device.lg}) {
+    padding: .8em 0;
+    z-index: -1;
     background-color: ${props => props.theme.white};
     color: ${props => props.theme[`${props.theme.type}`]};
-    border-radius: 3rem 3rem 0 0;
+    border-radius: 2.5rem 2.5rem 0 0;
+    box-shadow: .3rem .6rem 1rem ${props => props.theme.blackLight};
   }
 `
 
@@ -29,7 +33,7 @@ export const Stats = styled(SectionBody)`
     background-color: ${props => props.theme[`${props.theme.type}Light`]};
     color: ${props => props.theme.black};
     margin: 0;
-    border-radius: 0 0 3rem 3rem;
+    border-radius: 0 0 2.5rem 2.5rem;
   }
 
   div:not(:last-child) {

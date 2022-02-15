@@ -12,6 +12,8 @@ export const InfoContainer = styled(SectionContainer)`
 `
 
 export const NameTag = styled.div`
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,17 +26,19 @@ export const NameTag = styled.div`
   );
 
   @media only screen and (${device.md}) {
-    box-shadow: .5rem .8rem .8rem ${props => props.theme.blackLight};
+    box-shadow: .3rem .6rem .7rem ${props => props.theme.blackLight};
   }
 
   @media only screen and (${device.lg}) {
     position: absolute;
+    z-index: 0;
+    box-shadow: 0 .8rem .8rem ${props => props.theme.blackLight};
     top: 0;
     left: 0;
     height: 23rem;
     width: 100%;
     flex-direction: row-reverse;
-    padding: 0 5rem;
+    padding: 0 3.5em;
     background-image: linear-gradient(
       135deg,
       ${props => props.theme[props.theme.type]} 0,
@@ -49,11 +53,11 @@ export const NameTag = styled.div`
     text-transform: uppercase;
 
     @media only screen and (${device.md}) {
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
     
     @media only screen and (${device.lg}) {
-      font-size: 5vw;
+      font-size: min(5.8vw, 10rem);
       font-weight: 800;
     }
   }
@@ -66,7 +70,7 @@ export const NameTag = styled.div`
     max-width: fit-content;
 
     @media only screen and (${device.lg}) {
-      font-size: 6vw;
+      font-size: min(6vw, 11.5rem);
       letter-spacing: .6rem;
     }
   }

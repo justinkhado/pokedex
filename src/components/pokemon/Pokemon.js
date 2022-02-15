@@ -7,15 +7,24 @@ import StatBlock from './StatBlock'
 import TypeChart from './TypeChart'
 import EvoChain from './EvoChain'
 import Moveset from './Moveset'
-import { PokemonImage } from './PokemonImage'
-import { Container } from './Pokemon.styled'
+import { 
+  Container,
+  PokemonImage,
+  FightingAnimation
+} from './Pokemon.styled'
 
 const Pokemon = ({ changeType }) => {
   const isMounted = useRef(true)
   const location = useLocation()
   const [pokemon, setPokemon] = useState({})
+  const [randomPokemon, setRandomPokemon] = useState(6)
 
   useEffect(() => {
+    // random pokemon id in range {firstPokemon} to {lastPokemon} (Gen 1 to Gen 7)
+    const firstPokemon = 1
+    const lastPokemon = 807
+    setRandomPokemon(Math.floor(Math.random() * (lastPokemon - firstPokemon) + firstPokemon))
+
     return () => { isMounted.current = false }
   }, [])
 
@@ -46,9 +55,13 @@ const Pokemon = ({ changeType }) => {
         <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/original/${pokemon.id}.png`} alt={pokemon.name} />
       </PokemonImage>
       <InfoBlock pokemon={pokemon} />
-      <TypeChart typeChart={pokemon.type_chart} />
-      <StatBlock stats={pokemon.stats} />
       <EvoChain id={pokemon.id} />
+      <TypeChart typeChart={pokemon.type_chart} />
+      <FightingAnimation>
+        <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/sprites/${pokemon.id}.png`} alt={`pokemon ${pokemon.id}`} />
+        <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/sprites/${randomPokemon}.png`} alt={`pokemon ${randomPokemon}`} />
+      </FightingAnimation>
+      <StatBlock stats={pokemon.stats} />
       <Moveset id={pokemon.id} />
     </Container>
   )

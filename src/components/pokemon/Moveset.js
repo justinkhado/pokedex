@@ -95,9 +95,9 @@ const Moveset = ({ id }) => {
                   {move.accuracy ? <td>{move.accuracy}%</td> : <td>-</td>}
                   <td>
                     <DamageClass>
-                      {move.damage_class === 'physical' && <img src={physicalIcon} alt='physical' />}
-                      {move.damage_class === 'special' && <img src={specialIcon} alt='special' />}
-                      {move.damage_class === 'status' && <img src={statusIcon} alt='status' />}
+                      {move.damage_class === 'physical' && <img src={physicalIcon} alt='physical' title='physical' />}
+                      {move.damage_class === 'special' && <img src={specialIcon} alt='special' title='special' />}
+                      {move.damage_class === 'status' && <img src={statusIcon} alt='status' title='status' />}
                     </DamageClass>        
                   </td>
                 </MovelistRow>
@@ -118,9 +118,9 @@ const Moveset = ({ id }) => {
               <div>
                 <Type type={selectedMove.type}>{selectedMove.type}</Type>
                 <DamageClass>
-                  {selectedMove.damage_class === 'physical' && <img src={physicalIcon} alt='physical' />}
-                  {selectedMove.damage_class === 'special' && <img src={specialIcon} alt='special' />}
-                  {selectedMove.damage_class === 'status' && <img src={statusIcon} alt='status' />}
+                  {selectedMove.damage_class === 'physical' && <img src={physicalIcon} alt='physical' title='physical' />}
+                  {selectedMove.damage_class === 'special' && <img src={specialIcon} alt='special' title='special' />}
+                  {selectedMove.damage_class === 'status' && <img src={statusIcon} alt='status' title='status' />}
                 </DamageClass>
               </div>
               <MoveValues type={selectedMove.type}>

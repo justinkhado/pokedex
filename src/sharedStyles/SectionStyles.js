@@ -19,29 +19,31 @@ export const SectionContainer = styled.section`
 `
 
 export const SectionHeader = styled.h2`
-  padding: 1.8rem 0;
+  position: relative;
+  z-index: 1;
+  padding: .7em 0;
   margin: 0;
   background-color: ${props => props.theme.white};
   border-bottom: 1px solid ${props => props.theme.grey};
   color: ${props => props.theme[`${props.theme.type}`]};
   font-size: 2.2rem;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
 
   @media only screen and (${device.md}) {
-    font-size: 2.6rem;
+    font-size: 2.7rem;
     border-bottom: none;
-    box-shadow: .5rem .8rem .8rem ${props => props.theme.blackLight};
+    box-shadow: .3rem .6rem .7rem ${props => props.theme.blackLight};
   }
 
   @media only screen and (${device.lg}) {
-    box-shadow: .3rem .6rem 1rem ${props => props.theme.blackLight};
+    padding: .9em 0;
+    font-size: 3.2rem;
     background-color: ${props => props.theme[`${props.theme.type}`]};   
     color: ${props => props.theme.white};
-    font-weight: 700;
-    letter-spacing: 3px;
+    letter-spacing: .6rem;
   }
 `
 
@@ -50,13 +52,12 @@ export const SectionBody = styled.div`
   padding: 2rem 4rem 3.5rem 4rem;
 
   @media only screen and (${device.md}) {
-    margin: .5rem 2rem 0 2rem;
+    margin: 0 1.1rem;
     padding: 3rem 4rem 4rem;
     box-shadow: .3rem .6rem 1rem ${props => props.theme.blackLight};
   }
 
   @media only screen and (${device.lg}) {
     padding: 4rem 5rem 5rem;
-    margin: 0 1px;
   }
 `

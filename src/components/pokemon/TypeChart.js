@@ -11,7 +11,7 @@ import { Type } from '../../sharedStyles/Type.styled'
 const TypeChart = ({ typeChart }) => {
   return (
     <TypeChartContainer>
-      <TypeChartHeader>Type Effectiveness</TypeChartHeader>
+      <TypeChartHeader>Type Weaknesses</TypeChartHeader>
       <TypeEffectiveness>
         {['4', '2', '1', '1/2', '1/4', '0'].map(effectiveness =>
           <ChartLine key={effectiveness}>
