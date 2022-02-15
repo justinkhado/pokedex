@@ -49,7 +49,7 @@ export const ChartLine = styled.div`
     justify-self: end;
     margin-right: 1rem;
 
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontLg};
     }
   }
@@ -71,7 +71,7 @@ export const Types = styled.div`
   div {
     font-size: ${props => props.theme.fontXs};
 
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontSm}; 
     }
   }

@@ -47,6 +47,10 @@ export const NameTag = styled.div`
     font-size: 2.2rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+
+    @media only screen and (${device.md}) {
+      font-size: 4rem;
+    }
     
     @media only screen and (${device.lg}) {
       font-size: 5vw;
@@ -88,7 +92,7 @@ export const Attributes = styled(SectionBody)`
     transparent
   );
 
-  @media only screen and (${device.lg}) {
+  @media only screen and (${device.md}) {
     font-size: ${props => props.theme.fontLg};
   }
 
@@ -112,7 +116,7 @@ export const Types = styled.div`
   div {    
     font-size: ${props => props.theme.fontXs};
 
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontMd};
     }
 
@@ -134,7 +138,7 @@ export const Abilities = styled(SectionBody)`
     padding: 1.5rem 3rem;
     font-size: ${props => props.theme.fontSm};
 
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       color: ${props => props.theme.blackLight};
       padding: 2.5rem 4rem;
       font-size: ${props => props.theme.fontLg};
@@ -159,7 +163,7 @@ export const AbilitiesHeader = styled.div`
   font-size: ${props => props.theme.fontMd};
   font-weight: 500;
 
-  @media only screen and (${device.lg}) {
+  @media only screen and (${device.md}) {
     padding: 2rem 2rem 2rem 3rem;
     font-size: ${props => props.theme.fontLg};
   }
@@ -181,7 +185,7 @@ export const AbilitiesHeader = styled.div`
     option {
       background-color: ${props => props.theme[`${props.theme.type}Light`]};
 
-      @media only screen and (${device.lg}) {
+      @media only screen and (${device.md}) {
         font-size: ${props => props.theme.fontMd};
       }
     }

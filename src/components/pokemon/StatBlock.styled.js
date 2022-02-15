@@ -52,7 +52,7 @@ export const StatLine = styled.div`
     font-weight: 500;
     justify-self: end;
 
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontLg}
     }
   }
@@ -67,9 +67,12 @@ export const StatLine = styled.div`
     font-size: ${props => props.theme.fontSm};
     z-index: 0;
 
+    @media only screen and (${device.md}) {
+      font-size: ${props => props.theme.fontMd};
+    }
+
     @media only screen and (${device.lg}) {
       background-color: ${props => props.theme.white};
-      font-size: ${props => props.theme.fontMd};
       padding: .5rem .8rem;
     }
 
@@ -124,8 +127,11 @@ export const Total = styled.div`
     font-weight: 500;
     justify-self: end;
 
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontLg};
+    }
+
+    @media only screen and (${device.lg}) {      
       color: ${props => props.theme.white};
       letter-spacing: 1px;
     }
@@ -135,8 +141,11 @@ export const Total = styled.div`
     color: ${props => props.theme.blackLight};
     margin-left: .5rem;
     
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontLg};
+    }
+    
+    @media only screen and (${device.lg}) {
       font-weight: 500;
       letter-spacing: 1px;
     }

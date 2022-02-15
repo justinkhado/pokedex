@@ -31,6 +31,7 @@ export const SectionHeader = styled.h2`
   text-align: center;
 
   @media only screen and (${device.md}) {
+    font-size: 2.6rem;
     border-bottom: none;
     box-shadow: .5rem .8rem .8rem ${props => props.theme.blackLight};
   }
@@ -39,7 +40,6 @@ export const SectionHeader = styled.h2`
     box-shadow: .3rem .6rem 1rem ${props => props.theme.blackLight};
     background-color: ${props => props.theme[`${props.theme.type}`]};   
     color: ${props => props.theme.white};
-    font-size: 2.6rem;
     font-weight: 700;
     letter-spacing: 3px;
   }
@@ -51,6 +51,7 @@ export const SectionBody = styled.div`
 
   @media only screen and (${device.md}) {
     margin: .5rem 2rem 0 2rem;
+    padding: 3rem 4rem 4rem;
     box-shadow: .3rem .6rem 1rem ${props => props.theme.blackLight};
   }
 

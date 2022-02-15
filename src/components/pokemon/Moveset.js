@@ -69,8 +69,9 @@ const Moveset = ({ id }) => {
               <option key={gen} value={gen}>{`gen ${gen}`}</option>
             )}
           </select>
-        </MovelistFilter>        
+        </MovelistFilter>
         <MovelistTable>
+          <table>
           <thead>
             <MovelistHeaders>
               {method === 'level-up' && <th>lvl</th>}
@@ -102,10 +103,11 @@ const Moveset = ({ id }) => {
                 </MovelistRow>
               ) :              
               <EmptyMovelist>
-                <td colSpan={6}>{`No moves for ${method.toUpperCase()} in Generation ${generation.toUpperCase()}`}</td>
+                <td colSpan={6}>{`No ${method.toUpperCase()} moves in Generation ${generation.toUpperCase()}`}</td>
               </EmptyMovelist>
             } 
           </MovelistBody>
+          </table>
         </MovelistTable>
 
         {selectedMove.name && 

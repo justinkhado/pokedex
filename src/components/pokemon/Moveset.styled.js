@@ -4,7 +4,7 @@ import { device } from '../../sharedStyles/breakpoints'
 
 export const MoveContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
-    width: 60%;
+    width: 80rem;
     grid-column: span 12;
     align-self: start;
   }
@@ -23,7 +23,7 @@ export const MovelistFilter = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem;  
 
   @media only screen and (${device.lg}) {
     justify-content: flex-end;
@@ -41,7 +41,7 @@ export const MovelistFilter = styled.div`
     text-transform: uppercase;
     cursor: pointer;
 
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontMd};
       font-weight: 700;
     }
@@ -50,41 +50,91 @@ export const MovelistFilter = styled.div`
   option {
     font-size: ${props => props.theme.fontXs};
 
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontSm};
     }
   }
 
 `
 
-export const MovelistTable = styled.table`
+export const MovelistTable = styled.div`
   width: 95%;
+  height: 50rem;
   background-color: ${props => props.theme[`${props.theme.type}Light`]}50;
-  text-align: right;
-  border-collapse: collapse;
+  overflow-y: overlay;
+
+  &::-webkit-scrollbar {
+    width: .5rem;
+
+    @media only screen and (${device.sm}) {
+      width: .8rem;
+    }
+
+    @media only screen and (${device.lg}) {
+      width: 1rem;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    margin-top: 4.5rem;
+
+    @media only screen and (${device.md}) {
+      margin-top: 5.1rem;
+    }
+
+    @media only screen and (${device.lg}) {
+      margin-top: 5.8rem;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${props => props.theme[`${props.theme.type}`]};
+    border-radius: .5rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${props => props.theme[`${props.theme.type}`]};
+  }
 
   @media only screen and (${device.sm}) {
     width: 90%;
   }
 
   @media only screen and (${device.lg}) {
-    max-width: 70%;
+    width: 60rem;
+    height: 70rem;
     margin-bottom: 3rem;
     box-shadow: .3rem .3rem 1rem ${props => props.theme.blackLight};
+  }
+
+  table {    
+    text-align: right;
+    border-collapse: collapse;
+    width: 100%;
   }
 `
 
 export const MovelistHeaders = styled.tr`
+  position: sticky;
+  top: 0;
   background-color: ${props => props.theme[`${props.theme.type}Dark`]};
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.fontSm};
+
+  @media only screen and (${device.md}) {
+    font-size: ${props => props.theme.fontMd};
+  }
 
   @media only screen and (${device.lg}) {
     font-size: ${props => props.theme.fontLg};
   }
 
   th {
-    padding: 1em .5em;
+    padding: 1em .1em;
+
+    @media only screen and (${device.md}) {
+      padding: 1em .5em;
+    }
   }
 
   th:first-child {
@@ -108,7 +158,7 @@ export const MovelistHeaders = styled.tr`
 export const MovelistBody = styled.tbody`
   font-size: ${props => props.theme.fontXs};
 
-  // selects type
+  // selects type "icons"
   div {
     font-size: 1rem;
     margin: 0 auto;
@@ -122,6 +172,10 @@ export const MovelistBody = styled.tbody`
 export const MovelistRow = styled.tr`
   font-size: ${props => props.theme.fontXs};
 
+  @media only screen and (${device.md}) {
+    font-size: ${props => props.theme.fontSm};
+  }
+
   @media only screen and (${device.lg}) {
     font-size: ${props => props.theme.fontMd};
   }
@@ -132,7 +186,11 @@ export const MovelistRow = styled.tr`
   }
 
   td {
-    padding: 1em .5em;
+    padding: 1em .1em;
+
+    @media only screen and (${device.md}) {
+      padding: 1em .5em;
+    }    
   }
 
   td:first-child {
@@ -166,7 +224,15 @@ export const DamageClass = styled.div`
 
 export const EmptyMovelist = styled.tr`
   text-align: center;
-  font-size: 1.5rem;
+  font-size: ${props => props.theme.fontSm};
+
+  @media only screen and (${device.md}) {
+    font-size: ${props => props.theme.fontMd};
+  }
+
+  @media only screen and (${device.lg}) {
+    font-size: ${props => props.theme.fontLg};
+  }
 
   &:hover {
     background-color: transparent;

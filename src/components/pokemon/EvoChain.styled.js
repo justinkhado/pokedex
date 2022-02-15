@@ -18,6 +18,8 @@ export const PokemonLink = styled(Link)`
   text-decoration: none;
   padding: 1rem;
   margin: .5rem;
+  opacity: 0;
+  ${props => props.$visible && `animation: fadeInEvolution .5s ${props.delay}s forwards;`}
   transition:
     box-shadow .2s linear,
     scale .5s ease-out;
@@ -59,9 +61,13 @@ export const PokemonLink = styled(Link)`
     font-size: ${props => props.theme.fontXs};
     letter-spacing: 1px;
 
-    @media only screen and (${device.lg}) {
+    @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontSm};
     }
+  }
+
+  @keyframes fadeInEvolution {
+    to { opacity: 1; }
   }
 `
 
