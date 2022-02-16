@@ -10,7 +10,7 @@ import {
 
 const StatBlock = ({ stats }) => {
   const [ref, inView] = useInView({
-    threshold: .1,
+    threshold: .2,
     triggerOnce: true
   })  
 

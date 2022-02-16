@@ -24,9 +24,12 @@ export const ScrollButton = styled.button`
     right: 7rem;
   }
   
-  img {
-    filter: invert(17%) sepia(48%) saturate(4544%) hue-rotate(3deg) brightness(99%) contrast(107%);
+  svg {
     height: 2.6rem;
+
+    path {
+      fill: ${props => props.theme.primary};
+    }
   }
 
   &:active,
@@ -35,8 +38,8 @@ export const ScrollButton = styled.button`
     outline: 2px solid ${props => props.theme.greyLight};
     cursor: pointer;
 
-    img {
-      filter: invert(95%);
+    svg path {
+      fill: ${props => props.theme.white};
     }
   }
 

@@ -13,6 +13,7 @@ import { SectionHeader } from '../../sharedStyles/SectionStyles'
 const EvoChain = ({ id }) => {
   const isMounted = useRef(true)
   const [evoChain, setEvoChain] = useState({})
+  const [isEeveelution, setIsEeveelution] = useState(false)
   const [ref, inView] = useInView({
     threshold: .1,
     triggerOnce: true
@@ -26,7 +27,8 @@ const EvoChain = ({ id }) => {
           setEvoChain(returnedChain)
         }
       })
-    
+    setIsEeveelution([133, 134, 135, 136, 196, 197, 470, 471, 700].includes(parseInt(id)))
+
     return () => { isMounted.current = false }
   }, [id])
 
@@ -43,7 +45,7 @@ const EvoChain = ({ id }) => {
           <span>{evoChain.name}</span>
         </PokemonLink>
         {evoChain.evolves_to && <EvolutionArrow />}
-        <EvolutionStage>
+        <EvolutionStage eevee={isEeveelution}>
           {evoChain.evolves_to && evoChain.evolves_to.map(evo1 => 
             <div key={evo1.id}>              
               <PokemonLink to={`/pokemon/${evo1.id}`} delay={.8} $visible={inView} onClick={(event) => event.currentTarget.blur()}>

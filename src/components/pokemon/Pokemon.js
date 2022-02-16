@@ -24,7 +24,7 @@ const Pokemon = ({ changeType }) => {
     const firstPokemon = 1
     const lastPokemon = 807
     setRandomPokemon(Math.floor(Math.random() * (lastPokemon - firstPokemon) + firstPokemon))
-
+    
     return () => { isMounted.current = false }
   }, [])
 
@@ -56,12 +56,12 @@ const Pokemon = ({ changeType }) => {
       </PokemonImage>
       <InfoBlock pokemon={pokemon} />
       <EvoChain id={pokemon.id} />
-      <TypeChart typeChart={pokemon.type_chart} />
+      <StatBlock stats={pokemon.stats} />
       <FightingAnimation>
         <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/sprites/${pokemon.id}.png`} alt={`pokemon ${pokemon.id}`} />
         <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/sprites/${randomPokemon}.png`} alt={`pokemon ${randomPokemon}`} />
       </FightingAnimation>
-      <StatBlock stats={pokemon.stats} />
+      <TypeChart typeChart={pokemon.type_chart} />
       <Moveset id={pokemon.id} />
     </Container>
   )

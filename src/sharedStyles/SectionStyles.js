@@ -27,7 +27,7 @@ export const SectionHeader = styled.h2`
   border-bottom: 1px solid ${props => props.theme.grey};
   color: ${props => props.theme[`${props.theme.type}`]};
   font-size: 2.2rem;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
@@ -38,7 +38,7 @@ export const SectionHeader = styled.h2`
     box-shadow: .3rem .6rem .7rem ${props => props.theme.blackLight};
   }
 
-  @media only screen and (${device.lg}) {
+  @media only screen and (${device.lg}) {    
     padding: .9em 0;
     font-size: 3.2rem;
     background-color: ${props => props.theme[`${props.theme.type}`]};   

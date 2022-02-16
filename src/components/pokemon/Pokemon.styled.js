@@ -55,8 +55,8 @@ export const Container = styled.div`
       align-self: center;
       width: 100%;
       height: 100%;
-      background-color: ${props => props.theme[`${props.theme.type}Dark`]}e6;
-      z-index: 0;
+      background-color: ${props => props.theme[`${props.theme.type}Dark`]}f1;
+      z-index: -1;
     }
   }
 `
@@ -159,14 +159,17 @@ export const FightingAnimation = styled.div`
   }
 
   @keyframes leftSideTackle {
+    // double hop
     0% { transform: translateY(0) scaleX(-1); }
     3% { transform: translateY(-1rem) scaleX(-1); }
     6% { transform: translateY(0rem) scaleX(-1); }
     9% { transform: translateY(-1rem) scaleX(-1); }
     12% { transform: translateY(0rem) scaleX(-1); }
+    // lunge
     23% { transform: translateX(0) scaleX(-1); }
     26% { transform: translateX(7rem) scaleX(-1); }
     29% { transform: translateX(0) scaleX(-1); }
+    // knockback
     76% { transform: translateX(0) scaleX(-1); }
     78% { transform: translateX(-1.5rem) rotate(-15deg) scaleX(-1); }
     83% { transform: translateX(-1.5rem) rotate(-15deg) scaleX(-1); }
@@ -175,16 +178,19 @@ export const FightingAnimation = styled.div`
   }
 
   @keyframes rightSideTackle {    
+    // knockback
     27% { transform: translateX(0); }
     29% { transform: translateX(1.5rem) rotate(15deg); }
     34% { transform: translateX(1.5rem) rotate(15deg); }
     39% { transform: translateX(1.5rem); }
     42% { transform: translateX(0); }
+    // double hop
     49% { transform: translateY(0); }
     52% { transform: translateY(-1rem); }
     55% { transform: translateY(0rem); }
     58% { transform: translateY(-1rem); }
     61% { transform: translateY(0rem); }
+    // lunge
     72% { transform: translateX(0); }
     75% { transform: translateX(-7rem); }
     78% { transform: translateX(0); }

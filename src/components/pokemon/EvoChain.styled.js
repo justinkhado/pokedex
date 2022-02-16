@@ -7,7 +7,7 @@ import { device } from '../../sharedStyles/breakpoints'
 export const EvolutionContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
     width: fit-content;
-    max-width: 87vw;
+    max-width: 120rem;
     grid-column: span 12;
   }
 `
@@ -19,7 +19,7 @@ export const PokemonLink = styled(Link)`
   padding: 1rem;
   margin: .5rem;
   opacity: 0;
-  ${props => props.$visible && `animation: fadeInEvolution .5s ${props.delay}s forwards;`}
+  ${props => props.$visible && `animation: fadeInEvolution .3s ${props.delay}s forwards;`}
   transition:
     box-shadow .2s linear,
     scale .5s ease-out;
@@ -89,7 +89,7 @@ export const EvolutionStage = styled.div`
   justify-content: center;
   
   @media only screen and (${device.lg}) {
-    flex-direction: column;
+    ${props => props.eevee ? `flex-direction: row` : `flex-direction: column`};
   }
 
   & > div {

@@ -8,22 +8,22 @@ import { device } from '../../sharedStyles/breakpoints'
 
 export const TypeChartContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
-    grid-column: 1 / span 5;
-    justify-self: end;
+    grid-column: 8 / span 5;
+    justify-self: start;
     align-self: center;
-    margin: 13rem 0;
-    z-index: 1;
+    margin: 10rem 0;
+    border-radius: 2.5rem;
+    box-shadow: .3rem .6rem 1rem ${props => props.theme.blackLight};
   }
 `
 
 export const TypeChartHeader = styled(SectionHeader)`
   @media only screen and (${device.lg}) {
     padding: .8em 0;
-    z-index: -1;
     background-color: ${props => props.theme.white};
     color: ${props => props.theme[`${props.theme.type}`]};
     border-radius: 2.5rem 2.5rem 0 0;
-    box-shadow: .3rem .6rem 1rem ${props => props.theme.blackLight};
+    box-shadow: none;
   }
 `
 
@@ -35,6 +35,7 @@ export const TypeEffectiveness = styled(SectionBody)`
     color: ${props => props.theme.black};
     margin: 0;
     border-radius: 0 0 2.5rem 2.5rem;
+    box-shadow: none;
   }
 `
 
