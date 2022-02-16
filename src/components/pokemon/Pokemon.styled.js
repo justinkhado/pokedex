@@ -196,3 +196,46 @@ export const FightingAnimation = styled.div`
     78% { transform: translateX(0); }
   }
 `
+
+export const HomeButtom = styled.button`
+  position: fixed;  
+  z-index: 999;
+  top: 1.3rem;
+  right: 5vw;
+  aspect-ratio: 1 / 1;
+  width: 4.3rem;
+  padding: .8rem;
+  border: none;
+  border-radius: 50%;
+  background-color: ${props => props.theme.white};
+  cursor: pointer;
+
+  @media only screen and (${device.sm}) {
+    top: 2rem;
+    right: 8vw;
+    width: 5.5rem;
+    padding: 1rem;
+    background-color: transparent;
+  }
+
+  &:hover {
+    background-color: ${props => props.theme.white};
+    box-shadow: 0 0 .5rem 1px ${props => props.theme.blackLight};
+    animation: pulsate 2s infinite;
+  }
+
+  svg path {
+    fill: ${props => props.theme[`${props.theme.type}`]};
+  }
+
+  @keyframes pulsate {
+    50% { 
+      transform: scale(1.08);
+      box-shadow: 0 0 .8rem 1px ${props => props.theme.blackLight};
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 .5rem 1px ${props => props.theme.blackLight};
+    }
+  }
+`

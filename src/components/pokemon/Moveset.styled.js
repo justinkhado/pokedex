@@ -139,6 +139,7 @@ export const MovelistHeaders = styled.tr`
 
   th:first-child {
     padding-right: 1em;
+    width: 4em;
   }
 
   th:nth-child(2) {
@@ -148,6 +149,11 @@ export const MovelistHeaders = styled.tr`
   th:nth-child(3),
   th:last-child {
     text-align: center;
+  }
+
+  th:nth-child(4),
+  th:nth-child(5) {
+    width: 3.5em;
   }
 
   th:last-child {

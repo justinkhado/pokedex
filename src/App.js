@@ -30,6 +30,10 @@ const App = () => {
     setTypeTheme(`${type}`)
   }
 
+  if (!pokemons.length) {
+    return (<Fallback />)
+  }
+
   return (
     <ThemeProvider theme={{ ...theme, type: typeTheme }}>
       <GlobalStyles />

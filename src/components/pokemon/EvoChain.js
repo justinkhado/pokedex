@@ -15,7 +15,7 @@ const EvoChain = ({ id }) => {
   const [evoChain, setEvoChain] = useState({})
   const [isEeveelution, setIsEeveelution] = useState(false)
   const [ref, inView] = useInView({
-    threshold: .1,
+    threshold: .3,
     triggerOnce: true
   })
 
@@ -40,7 +40,7 @@ const EvoChain = ({ id }) => {
     <EvolutionContainer ref={ref}>
       <SectionHeader>Evolutions</SectionHeader>
       <BaseStage>
-        <PokemonLink to={`/pokemon/${evoChain.id}`} delay={.3} $visible={inView} onClick={(event) => event.currentTarget.blur()}>
+        <PokemonLink to={`/pokemon/${evoChain.id}`} delay={.1} $visible={inView} onClick={(event) => event.currentTarget.blur()}>
           <img src={require(`../../assets/thumbnails/${evoChain.id}.png`)} alt={`${evoChain.name}`} />
           <span>{evoChain.name}</span>
         </PokemonLink>
@@ -48,7 +48,7 @@ const EvoChain = ({ id }) => {
         <EvolutionStage eevee={isEeveelution}>
           {evoChain.evolves_to && evoChain.evolves_to.map(evo1 => 
             <div key={evo1.id}>              
-              <PokemonLink to={`/pokemon/${evo1.id}`} delay={.8} $visible={inView} onClick={(event) => event.currentTarget.blur()}>
+              <PokemonLink to={`/pokemon/${evo1.id}`} delay={.5} $visible={inView} onClick={(event) => event.currentTarget.blur()}>
                 <img src={require(`../../assets/thumbnails/${evo1.id}.png`)} alt={`${evo1.name}`} />
                 <span>{evo1.name}</span>
               </PokemonLink>
@@ -56,7 +56,7 @@ const EvoChain = ({ id }) => {
               <EvolutionStage>
                 {evo1.evolves_to && evo1.evolves_to.map(evo2 =>
                   <div key={evo2.id}>
-                    <PokemonLink to={`/pokemon/${evo2.id}`} delay={1.3} $visible={inView} onClick={(event) => event.currentTarget.blur()}>
+                    <PokemonLink to={`/pokemon/${evo2.id}`} delay={.9} $visible={inView} onClick={(event) => event.currentTarget.blur()}>
                       <img src={require(`../../assets/thumbnails/${evo2.id}.png`)} alt={`${evo2.name}`} />
                       <span>{evo2.name}</span>
                     </PokemonLink>

@@ -1,85 +1,81 @@
 import styled from 'styled-components'
 import { device } from '../../sharedStyles/breakpoints'
 
-export const Container = styled.div`
+export const SearchBox = styled.div`
   display: flex;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-
+  
   position: fixed;
+  width: 15rem;
+  height: 3.3rem;
   top: 1.9rem;
   right: 1rem;
   z-index: 999;
-
+  border-radius: 10rem;
+  outline: 2px solid ${props => props.theme.blackLight};
+  transition: all .2s;
+  
   @media only screen and (${device.sm}) {
     top: 3.1rem;
+    right: 3rem;
   }
-
+  
   @media only screen and (${device.md}) {
-    right: 5rem;
+    right: 5rem;    
+    width: 17.5rem;
   }
-
+  
   @media only screen and (${device.lg}) {
     right: 10rem;
   }
-`
 
-export const SearchBox = styled.div`
-  position: relative;
-  height: 3.3rem; 
+  &:focus-within {
+    outline: 2px solid ${props => props.theme.primary};
+    background-color: ${props => props.theme.white};
+    
+    @media only screen and (${device.md}) {
+      outline-offset: .4rem;
+      width: 20rem;
+    }
+  }
+
+  &:hover {
+    @media only screen and (${device.md}) {
+      outline-offset: .4rem;
+    }
+  }
   
   input {
-    width: 15rem;
-    height: 3.3rem;
+    background: transparent;
     border: none;
-    border-radius: 10rem;
-    outline: 2px solid ${props => props.theme.blackLight};    
-    padding: .6rem 3rem .6rem 4rem;
-    font-size: 1.6rem;
+    width: 100%;
+    font-size: ${props => props.theme.fontMd};
     color: ${props => props.theme.blackLight};
-    transition: all .2s;
+    margin-left: .3rem;
 
-    @media only screen and (${device.sm}) {
-        width: 17.5rem;
-        font-size: 1.8rem;
-      }
-
-    &:hover {
-      @media only screen and (${device.md}) {
-        outline-offset: .4rem;
-      }
+    @media only screen and (${device.md}) {      
+      font-size: ${props => props.theme.fontLg};
     }
 
-    &:focus-within {
-      outline: 2px solid ${props => props.theme.primary};
-      
-      @media only screen and (${device.md}) {
-        outline-offset: .4rem;
-        width: 20rem;
-      }
+    &:focus {
+      outline: none;
     }
 
     &::placeholder {
-      color: ${props => props.theme.grey};
+      color: ${props => props.theme.greyDark};
     }
   }
 
-  div {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    height: inherit;
-    top: 50%;
-    transform: translateY(-50%);
-    left: .5rem;
-
-    & > svg {
-      height: 80%;
-      transition: rotate 5s;
-    }
+  svg {
+    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+    height: 80%;
+    margin-left: .5rem;
   }
 
-  input:focus + div svg {
+  input:focus + svg {
     animation: 2.5s spin infinite cubic-bezier(.6,0,.4,1);
   }
 
@@ -89,22 +85,20 @@ export const SearchBox = styled.div`
 `
 
 export const Clear = styled.button`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: .5rem;
+  flex-shrink: 0;
+  margin-right: .5rem;
   aspect-ratio: 1 / 1;
   border: none;
   border-radius: 50%;
   background: transparent;
   color: ${props => props.theme.blackLight};
-  font-size: 1.5rem;
+  font-size: ${props => props.theme.fontSm};
   font-weight: 900;
   cursor: pointer;
   transition: all .2s;
 
   @media only screen and (${device.md}) {
-    font-size: 1.2rem;
+    font-size: ${props => props.theme.fontXs};
   }
 
   &:active,
