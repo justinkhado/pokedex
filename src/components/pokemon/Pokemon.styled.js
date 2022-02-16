@@ -221,7 +221,7 @@ export const HomeButtom = styled.button`
   &:hover {
     background-color: ${props => props.theme.white};
     box-shadow: 0 0 .5rem 1px ${props => props.theme.blackLight};
-    animation: pulsate 2s infinite;
+    animation: pulsate 1.3s infinite;
   }
 
   svg path {
