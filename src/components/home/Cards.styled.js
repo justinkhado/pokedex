@@ -81,7 +81,11 @@ export const StyledCard = styled(Link)`
 
   & > img {
     z-index: 1;
-    width: 80%;
+    width: 75%;
+
+    @media only screen and (${device.lg}) {
+      width: 80%;
+    }
   }
 `
 

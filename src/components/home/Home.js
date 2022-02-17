@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import Cards from './Cards'
-import Search from './Search'
+import Search from './Search/Search'
 import ScrollToTop from './ScrollToTop'
+
+export const SearchContext = createContext({})
 
 const Home = ({ pokemons, changeType }) => { 
   useEffect(() => {
@@ -9,7 +11,9 @@ const Home = ({ pokemons, changeType }) => {
   }, [changeType])
 
   const [search, setSearch] = useState(window.sessionStorage.getItem('search') || '')
-  const [filter, setFilter] = useState({})
+  const [filter, setFilter] = useState(
+    JSON.parse(window.sessionStorage.getItem('filter')) || { generations: [], types: [] }
+  )
 
   const handleSearchChange = (input) => {
     setSearch(input)
@@ -18,15 +22,15 @@ const Home = ({ pokemons, changeType }) => {
 
   const handleFilterChange = (input) => {
     setFilter(input)
+    window.sessionStorage.setItem('filter', JSON.stringify(input))
   }
   
   return (
     <main>
-      <Search
-        search={search} handleSearchChange={handleSearchChange}
-        filter={filter} handleFilterChange={handleFilterChange}
-      />
-      <Cards pokemons={pokemons} search={search} />
+      <SearchContext.Provider value={{ search, handleSearchChange, filter, handleFilterChange }}>
+        <Search />
+        <Cards pokemons={pokemons} />
+      </SearchContext.Provider>
       <ScrollToTop />
     </main>
   )

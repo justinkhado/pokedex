@@ -24,8 +24,12 @@ export const Type = styled.div`
   }
 
   @media only screen and (${device.sm}) {
+    font-size: 1rem;
+  }
+
+  @media only screen and (${device.md}) {
     font-size: 1.2rem;
     border-radius: 0.5rem;
     box-shadow: inset 1.5px 1px ${props => props.theme.white}a1;
-  }  
+  }
 `

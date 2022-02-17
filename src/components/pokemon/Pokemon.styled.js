@@ -220,22 +220,10 @@ export const HomeButtom = styled.button`
 
   &:hover {
     background-color: ${props => props.theme.white};
-    box-shadow: 0 0 .5rem 1px ${props => props.theme.blackLight};
-    animation: pulsate 1.3s infinite;
+    box-shadow: 0 0 .8rem 1px ${props => props.theme.blackLight};
   }
 
   svg path {
     fill: ${props => props.theme[`${props.theme.type}`]};
-  }
-
-  @keyframes pulsate {
-    50% { 
-      transform: scale(1.08);
-      box-shadow: 0 0 .8rem 1px ${props => props.theme.blackLight};
-    }
-    100% {
-      transform: scale(1);
-      box-shadow: 0 0 .5rem 1px ${props => props.theme.blackLight};
-    }
   }
 `

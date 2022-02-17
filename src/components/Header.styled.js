@@ -14,6 +14,7 @@ export const StyledHeader = styled.header`
     background-color: ${props.theme.white}e1;
     `
   }
+  backdrop-filter: blur(2px);
   height: 7rem;
   margin: 0 auto 3rem;
   box-shadow: 0 .5rem 2rem;
@@ -33,8 +34,8 @@ export const StyledHeader = styled.header`
   }
 
   h1 {
-    margin-left: 1rem;
-    font-size: 3.7rem;
+    margin-left: .5rem;
+    font-size: 3.6rem;
     font-weight: 300;
     text-transform: uppercase;
 

@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
+import { SearchContext } from './Home'
 import {
   Name,
   Number,
@@ -36,7 +37,8 @@ const Card = ({ pokemon }) => {
   )
 }
 
-const Cards = ({ pokemons, search }) => {
+const Cards = ({ pokemons }) => {
+  const { search, filter } = useContext(SearchContext)
   const [filteredPokemons, setFilteredPokemons] = useState([])  
   const [pokemonChunk, setPokemonChunk] = useState({
     items: [],
@@ -63,12 +65,19 @@ const Cards = ({ pokemons, search }) => {
       window.sessionStorage.setItem('pokemonChunk', JSON.stringify(pokemonChunkRef.current))
     }
   }, [])
-
+  
   useEffect(() => {
-    setFilteredPokemons(pokemons.filter(pokemon =>
-      pokemon.name.toLowerCase().includes(search.toLowerCase())  
-    ))
-  }, [pokemons, search])
+    setFilteredPokemons(pokemons.filter(pokemon => {
+      const containsLetters = pokemon.name.toLowerCase().includes(search.toLowerCase())
+      const inGenerations = filter.generations.length > 0 
+        ? filter.generations.includes(pokemon.gen)
+        : true
+      const inTypes = filter.types.length > 0
+        ? filter.types.every(type => pokemon.types.includes(type))
+        : true
+      return containsLetters && inGenerations && inTypes
+    }))
+  }, [pokemons, search, filter])
 
   useEffect(() => {
     if (initialRender.current) {

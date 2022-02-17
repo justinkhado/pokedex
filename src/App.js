@@ -34,8 +34,6 @@ const App = () => {
     return (<Fallback />)
   }
 
-  console.log(pokemons)
-
   return (
     <ThemeProvider theme={{ ...theme, type: typeTheme }}>
       <GlobalStyles />
