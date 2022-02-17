@@ -6,7 +6,7 @@ import InfoBlock from './InfoBlock'
 import StatBlock from './StatBlock'
 import TypeChart from './TypeChart'
 import EvoChain from './EvoChain'
-import Moveset from './Moveset'
+import Moveset from './moveset/Moveset'
 import { 
   Container,
   PokemonImage,
