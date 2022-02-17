@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { SearchContext } from '../Home'
 import {
   FilterContainer,
@@ -11,9 +11,24 @@ import {
 import { Type } from '../../../sharedStyles/Type.styled'
 import { ReactComponent as FilterIcon } from '../../../assets/icons/filter.svg'
 
-const Filter = () => {
+const Filter = () => {  
+  const filterRef = useRef({})
   const { filter, handleFilterChange } = useContext(SearchContext)
-  const [filtering, setFiltering] = useState(false)
+  const [filterOpen, setFilterOpen] = useState(false)  
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        filterRef.current.dropdown && !filterRef.current.dropdown.contains(event.target) && 
+        filterRef.current.button && !filterRef.current.button.contains(event.target)
+      ) {
+        setFilterOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    
+    return (() => document.removeEventListener('mousedown', handleClickOutside))
+  }, [])
 
   const handleGenerationCheck = (event) => {
     if (event.target.checked) {
@@ -50,12 +65,16 @@ const Filter = () => {
 
   return (
     <FilterContainer>
-      <FilterButton filtering={filtering} onClick={() => setFiltering(isFiltering => !isFiltering)}>
+      <FilterButton
+        ref={element => filterRef.current.button = element}
+        filtering={filter.generations.length + filter.types.length > 0}
+        onClick={() => setFilterOpen(isFiltering => !isFiltering)}
+      >
         <FilterIcon />
       </FilterButton>
 
-      {filtering &&
-        <FilterDropdown>
+      {filterOpen &&
+        <FilterDropdown ref={element => filterRef.current.dropdown = element}>
           <div>
             <FilterTitle>Generations</FilterTitle>
             <GenerationFilter>

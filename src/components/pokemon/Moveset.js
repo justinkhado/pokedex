@@ -23,10 +23,22 @@ import statusIcon from '../../assets/icons/Status.png';
 
 const Moveset = ({ id }) => {
   const isMounted = useRef(true)
+  const modalRef = useRef(null)
   const [moveset, setMoveset] = useState({})
   const [method, setMethod] = useState('level-up')
   const [generation, setGeneration] = useState('vii')
   const [selectedMove, setSelectedMove] = useState({})
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setSelectedMove({})
+      }
+    }
+    document.addEventListener('mouseup', handleClickOutside)
+    
+    return (() => document.removeEventListener('mouseup', handleClickOutside))
+  }, [])
 
   useEffect(() => {
     pokemonService
@@ -111,9 +123,9 @@ const Moveset = ({ id }) => {
         </MovelistTable>
 
         {selectedMove.name && 
-          <MoveModal type={selectedMove.type}>
+          <MoveModal type={selectedMove.type} ref={modalRef}>
             <h3>{selectedMove.name.replace('-', ' ')}</h3>
-            <CloseButton onClick={() => setSelectedMove('')}>&#9932;</CloseButton>
+            <CloseButton onClick={() => setSelectedMove({})}>&#9932;</CloseButton>
             <MoveInfo>
               <div>
                 <Type type={selectedMove.type}>{selectedMove.type}</Type>

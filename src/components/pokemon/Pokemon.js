@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import pokemonService from '../../services/pokemon'
 import Fallback from '../Fallback'
 import InfoBlock from './InfoBlock'
@@ -18,7 +18,6 @@ import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg'
 const Pokemon = ({ changeType }) => {
   const isMounted = useRef(true)
   const location = useLocation()
-  const navigate = useNavigate()
   const [pokemon, setPokemon] = useState({})
   const [randomPokemon, setRandomPokemon] = useState(6)
 
@@ -54,7 +53,7 @@ const Pokemon = ({ changeType }) => {
 
   return (
     <Container>
-      <HomeButtom onClick={() => navigate('/')}>
+      <HomeButtom to='/'>
         <HomeIcon />
       </HomeButtom>
       <PokemonImage>

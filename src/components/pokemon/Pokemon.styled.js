@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import Pokeball from '../../assets/icons/pokeball.svg'
 import fightingBackground from '../../assets/misc/fighting-background.png'
 import { device } from '../../sharedStyles/breakpoints'
@@ -197,7 +198,7 @@ export const FightingAnimation = styled.div`
   }
 `
 
-export const HomeButtom = styled.button`
+export const HomeButtom = styled(Link)`
   position: fixed;  
   z-index: 999;
   top: 1.3rem;

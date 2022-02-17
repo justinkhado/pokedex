@@ -16,10 +16,12 @@ export const SearchContainer = styled.div`
   }
   
   @media only screen and (${device.md}) {
+    gap: 1.2rem;
     right: 5rem;
   }
   
   @media only screen and (${device.lg}) {
+    gap: 1.5rem;
     right: 12rem;
   }
 `
@@ -33,7 +35,7 @@ export const SearchBox = styled.div`
   width: 13rem;
   height: 3.3rem;
   border-radius: 10rem;
-  outline: 2px solid ${props => props.theme.greyDark};
+  outline: 1px solid ${props => props.theme.blackLight};
   transition: all .2s;
 
   @media only screen and (${device.sm}) {
@@ -45,7 +47,7 @@ export const SearchBox = styled.div`
   }
 
   &:focus-within {
-    outline: 2px solid ${props => props.theme.primary};
+    outline: 1px solid ${props => props.theme.primary};
     background-color: ${props => props.theme.white};
     
     @media only screen and (${device.md}) {
