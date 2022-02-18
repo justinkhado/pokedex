@@ -21,30 +21,46 @@ export const Movelist = styled(SectionBody)`
 
 export const MovelistFilter = styled.div`
   display: flex;
-  gap: 1.5rem;
-  margin: 0 2rem 2.5rem auto;
+  flex-direction: column-reverse;
+  gap: 2rem;
+  align-items: center;
+  width: 95%;
 
   @media only screen and (${device.sm}) {
-    margin: 0 5rem 2.5rem auto;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    height: 4rem;
   }
 
   @media only screen and (${device.lg}) {
-    gap: 3rem;
-    margin: 0 16rem 2.5rem auto;
+    width: 60rem;
+    height: 5rem;
   }
 
   select {
+    height: fit-content;
+    width: fit-content;
+    padding: .5em .5em .3em 0;
     color: ${props => props.theme[`${props.theme.type}Dark`]};
     border: none;
     border-bottom: 1px solid ${props => props.theme[`${props.theme.type}Dark`]};
-    padding: .5em .5em .3em 0;
     font-size: ${props => props.theme.fontSm};
     text-transform: uppercase;
     cursor: pointer;
 
+    @media only screen and (${device.sm}) {
+      align-self: flex-start;
+      margin-right: 1rem;
+    }
+
     @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontMd};
       font-weight: 700;
+    }
+
+    @media only screen and (${device.lg}) {
+      margin-right: 3rem;
     }
   }
 
@@ -55,6 +71,46 @@ export const MovelistFilter = styled.div`
       font-size: ${props => props.theme.fontSm};
     }
   }
+`
+
+export const Methods = styled.div`
+  display: flex;
+  gap: .4rem;
+
+  @media only screen and (${device.sm}) {
+    align-self: flex-end;
+    margin-left: .2rem;
+  }
+`
+
+export const MethodTab = styled.div`
+  input {
+    position: absolute;
+    left: -100vw;
+  }
+
+  label {
+    position: relative;
+    display: block;
+    border: 1px solid ${props => props.theme[`${props.theme.type}Dark`]};
+    border-bottom: none;
+    border-radius: 1rem 1rem 0 0;
+    padding: .8rem 1rem .3rem;
+    background-color: ${props => props.theme[`${props.theme.type}Light`]}50;
+    font-size: ${props => props.theme.fontSm};
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @media only screen and (${device.md}) {
+      font-size: ${props => props.theme.fontMd};
+    }
+  }
+
+  input:checked + label {
+    background-color: ${props => props.theme[`${props.theme.type}Dark`]};
+    color: ${props => props.theme.white};
+  }
+
 `
 
 export const DamageClass = styled.div`

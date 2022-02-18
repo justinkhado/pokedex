@@ -5,7 +5,9 @@ import pokemonService from '../../../services/pokemon'
 import {
   MoveContainer,
   Movelist,
-  MovelistFilter
+  MovelistFilter,
+  Methods,
+  MethodTab
 } from './Moveset.styled'
 import { SectionHeader } from '../../../sharedStyles/SectionStyles'
 
@@ -51,11 +53,21 @@ const Moveset = ({ id }) => {
       <SectionHeader>Moveset</SectionHeader>
       <Movelist>
         <MovelistFilter>
-          <select onChange={handleMethodChange}>
+          <Methods>
             {['level-up', 'machine', 'tutor', 'egg'].map(methodName =>
-              <option key={methodName} value={methodName}>{methodName}</option>  
+              <MethodTab key={methodName}>
+                <input
+                  type='radio'
+                  id={methodName}
+                  value={methodName}
+                  name='method'
+                  checked={methodName === method || false}
+                  onChange={(event) => setMethod(event.target.value)}
+                />
+                <label htmlFor={methodName}>{methodName}</label>
+              </MethodTab>
             )}
-          </select>
+          </Methods>
           <select onChange={handleGenChange} value={generation}>
             {Object.keys(moveset).map(gen =>
               <option key={gen} value={gen}>{`gen ${gen}`}</option>
