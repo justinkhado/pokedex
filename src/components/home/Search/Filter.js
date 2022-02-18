@@ -4,7 +4,9 @@ import {
   FilterContainer,
   FilterButton,
   FilterDropdown,
+  FilterHeader,
   FilterTitle,
+  FilterClear,
   GenerationFilter,
   TypeList
 } from './Filter.styled'
@@ -63,9 +65,23 @@ const Filter = () => {
   const handleFilterClick = () => {
     if (filterOpen) {
       filterRef.current.button.blur()
-    }
-    
+    }    
     setFilterOpen(isFiltering => !isFiltering)
+  }
+
+  const handleFilterClear = (event) => {
+    if (event.target.value === 'generations') {
+      handleFilterChange({
+        ...filter,
+        generations: []
+      })
+    }
+    else if (event.target.value === 'types') {
+      handleFilterChange({
+        ...filter,
+        types: []
+      })
+    }
   }
 
   const generations = { 1: 'i', 2: 'ii', 3: 'iii', 4: 'iv', 5: 'v', 6: 'vi', 7: 'vii' }
@@ -84,7 +100,12 @@ const Filter = () => {
       {filterOpen &&
         <FilterDropdown ref={element => filterRef.current.dropdown = element}>
           <div>
-            <FilterTitle>Generations</FilterTitle>
+            <FilterHeader>
+              <FilterTitle>Generations</FilterTitle>
+              {filter.generations.length > 0 &&
+                <FilterClear value='generations' onClick={handleFilterClear}>&#9932;</FilterClear>
+              }
+            </FilterHeader>
             <GenerationFilter>
               {Object.entries(generations).map(([num, gen]) =>
                 <React.Fragment key={gen}>
@@ -99,7 +120,12 @@ const Filter = () => {
           </div>
 
           <div>
-            <FilterTitle>Types</FilterTitle>
+            <FilterHeader>
+              <FilterTitle>Types</FilterTitle>
+              {filter.types.length > 0 &&
+                <FilterClear value='types' onClick={handleFilterClear}>&#9932;</FilterClear>
+              }
+            </FilterHeader>
             <TypeList>
               {types.map(type =>
                 <React.Fragment key={type}>

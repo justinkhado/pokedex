@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { ClearButton } from '../../../sharedStyles/ClearButton'
 import { device } from '../../../sharedStyles/breakpoints'
 
 export const FilterContainer = styled.div`
@@ -56,7 +57,14 @@ export const FilterDropdown = styled.div`
   }
 `
 
-export const FilterTitle = styled.p`
+export const FilterHeader = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.8rem;
+`
+
+export const FilterTitle = styled.span`
   margin-top: 0;
   font-size: ${props => props.theme.fontLg};
   font-weight: 500;
@@ -64,6 +72,20 @@ export const FilterTitle = styled.p`
   color: ${props => props.theme.primary};
   text-transform: uppercase;
   letter-spacing: 1px;
+`
+
+export const FilterClear = styled(ClearButton)`
+  position: absolute;
+  top: 50%;
+  right: 4rem;
+  transform: translateY(-50%);
+  font-size: ${props => props.theme.fontXs};
+  opacity: 0;
+  animation: fadeInFilterClear .2s forwards;
+
+  @keyframes fadeInFilterClear {
+    to { opacity: 1; }
+  }
 `
 
 export const GenerationFilter = styled.div`

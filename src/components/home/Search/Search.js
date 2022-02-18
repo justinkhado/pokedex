@@ -3,9 +3,9 @@ import Filter from './Filter'
 import { SearchContext } from '../Home'
 import {
   SearchContainer,
-  SearchBox,
-  Clear,
+  SearchBox
 } from './Search.styled'
+import { ClearButton } from '../../../sharedStyles/ClearButton'
 import { ReactComponent as Pokeball } from '../../../assets/icons/pokeball.svg'
 
 const Search = () => {
@@ -34,9 +34,9 @@ const Search = () => {
     <SearchContainer>
       <SearchBox >
         {search && 
-          <Clear onClick={onClearButtonClick} onMouseDown={(event) => event.preventDefault()}>
+          <ClearButton onClick={onClearButtonClick} onMouseDown={(event) => event.preventDefault()}>
             &#9932;
-          </Clear>
+          </ClearButton>
         }
         <input
           ref={inputRef}
