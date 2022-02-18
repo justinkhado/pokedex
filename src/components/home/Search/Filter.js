@@ -58,7 +58,15 @@ const Filter = () => {
         types: filter.types.filter(type => type !== event.target.value)
       })
     }
-  } 
+  }
+
+  const handleFilterClick = () => {
+    if (filterOpen) {
+      filterRef.current.button.blur()
+    }
+    
+    setFilterOpen(isFiltering => !isFiltering)
+  }
 
   const generations = { 1: 'i', 2: 'ii', 3: 'iii', 4: 'iv', 5: 'v', 6: 'vi', 7: 'vii' }
   const types = ['bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting', 'fire', 'flying', 'ghost', 'grass', 'ground', 'ice', 'normal', 'poison', 'psychic', 'rock', 'steel', 'water']
@@ -68,7 +76,7 @@ const Filter = () => {
       <FilterButton
         ref={element => filterRef.current.button = element}
         filtering={filter.generations.length + filter.types.length > 0}
-        onClick={() => setFilterOpen(isFiltering => !isFiltering)}
+        onClick={handleFilterClick}
       >
         <FilterIcon />
       </FilterButton>

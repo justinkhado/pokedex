@@ -40,12 +40,13 @@ export const StyledHeader = styled.header`
     text-transform: uppercase;
 
     @media only screen and (${device.sm}) { 
-      margin-left: 3rem;
+      margin-left: 2rem;
       font-size: 5rem;
       letter-spacing: .5rem;
     }
 
     @media only screen and (${device.md}) { 
+      margin-left: 3.5rem;
       font-size: 6rem;
       letter-spacing: 1.5rem;
     }

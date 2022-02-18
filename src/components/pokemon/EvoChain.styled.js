@@ -12,6 +12,7 @@ export const EvolutionContainer = styled(SectionContainer)`
   }
 `
 export const PokemonLink = styled(Link)`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,23 +21,44 @@ export const PokemonLink = styled(Link)`
   margin: .5rem;
   opacity: 0;
   ${props => props.$visible && `animation: fadeInEvolution .3s ${props.delay}s forwards;`}
-  transition:
-    box-shadow .2s linear,
-    scale .5s ease-out;
-
-  &:hover,
-  &:focus {
-    box-shadow: .2rem .4rem .5rem ${props => props.theme.black};
-    transform: scale(1.05);
-  }
+  transition: transform .2s;
 
   &:focus {
     outline: none;
   }
 
-  &:active {
+  &:hover,
+  &:focus {    
+    transform: scale(1.05);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:active {    
+    transform: scale(.98);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .2s;
+  }
+
+  &::after {
+    box-shadow: .2rem .4rem .5rem ${props => props.theme.black};
+  }
+
+  &::before {
     box-shadow: .1rem .2rem .3rem ${props => props.theme.black};
-    transform: scale(.95);
   }
 
   img {

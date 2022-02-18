@@ -14,9 +14,17 @@ export const FilterButton = styled.button`
   border-radius: 50%;
   outline: 1px solid ${props => props.filtering ? props.theme.primary : props.theme.greyDark};
   cursor: pointer;
+  transition: outline-offset .1s;
 
   &:hover {    
     filter: brightness(${props => props.filtering ? .8 : .4});
+  }
+
+  &:hover,
+  &:focus-within {
+    @media only screen and (${device.md}) {
+      outline-offset: .2rem;
+    }
   }
 
   svg path {

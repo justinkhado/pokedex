@@ -36,7 +36,10 @@ export const SearchBox = styled.div`
   height: 3.3rem;
   border-radius: 10rem;
   outline: 1px solid ${props => props.theme.blackLight};
-  transition: all .2s;
+  transition: 
+    outline-offset .1s,
+    width .2s,
+    background-color .2s;
 
   @media only screen and (${device.sm}) {
     width: 15.5rem;

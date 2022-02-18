@@ -210,18 +210,36 @@ export const HomeButtom = styled(Link)`
   border-radius: 50%;
   background-color: ${props => props.theme.white};
   cursor: pointer;
+  transition: transform .2s;
 
   @media only screen and (${device.sm}) {
     top: 2rem;
     right: 8vw;
     width: 5.5rem;
     padding: 1rem;
+  }
+
+  @media only screen and (${device.lg}) {
     background-color: transparent;
   }
 
   &:hover {
     background-color: ${props => props.theme.white};
+    transform: scale(1.05);
+
+    &::after {
+      opacity: 1;      
+    }
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
     box-shadow: 0 0 .8rem 1px ${props => props.theme.blackLight};
+    opacity: 0;
+    transition: opacity .2s;
   }
 
   svg path {
