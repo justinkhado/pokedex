@@ -56,7 +56,7 @@ export const Container = styled.div`
       align-self: center;
       width: 100%;
       height: 100%;
-      background-color: ${props => props.theme[`${props.theme.type}Dark`]}f1;
+      background-color: ${props => props.theme[`${props.theme.type}Dark`]}f5;
       z-index: -1;
     }
   }

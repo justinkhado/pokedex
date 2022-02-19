@@ -9,20 +9,22 @@ import { device } from '../../sharedStyles/breakpoints'
 export const TypeChartContainer = styled(SectionContainer)`
   @media only screen and (${device.lg}) {
     grid-column: 8 / span 5;
-    justify-self: start;
-    align-self: center;
+    justify-self: center;
+    align-self: start;
     margin: 10rem 0;
-    border-radius: 2.5rem;
-    box-shadow: .3rem .6rem 1rem ${props => props.theme.blackLight};
+    width: min(60rem, 90%);
   }
 `
 
 export const TypeChartHeader = styled(SectionHeader)`
   @media only screen and (${device.lg}) {
-    padding: .8em 0;
-    background-color: ${props => props.theme.white};
-    color: ${props => props.theme[`${props.theme.type}`]};
-    border-radius: 2.5rem 2.5rem 0 0;
+    padding: 0;
+    padding-left: 10%;
+    background-color: transparent;
+    color: ${props => props.theme.white};
+    font-size: 3.6rem;
+    font-weight: 400;
+    letter-spacing: .7rem;
     box-shadow: none;
   }
 `
@@ -31,28 +33,31 @@ export const TypeEffectiveness = styled(SectionBody)`
   color: ${props => props.theme[`${props.theme.type}Dark`]};
 
   @media only screen and (${device.lg}) {
-    background-color: ${props => props.theme[`${props.theme.type}Light`]};
-    color: ${props => props.theme.black};
+    background-color: transparent;
+    color: ${props => props.theme.white};
+    padding: 4rem 0 0 5rem;
     margin: 0;
-    border-radius: 0 0 2.5rem 2.5rem;
     box-shadow: none;
   }
 `
 
 export const ChartLine = styled.div`
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 4rem 5fr;
   align-items: center;
   gap: 2rem;
 
   &:not(:last-child) {
     margin-bottom: 2rem;
+
+    @media only screen and (${device.lg}) {
+      margin-bottom: 2.5rem;
+    }
   }
 
   span {
     font-weight: 500;
     justify-self: end;
-    margin-right: 1rem;
 
     @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontLg};
@@ -70,7 +75,8 @@ export const Types = styled.div`
   border-radius: .5rem;
 
   @media only screen and (${device.lg}) {
-    background-color: ${props => props.theme.white};
+    max-width: 90%;
+    padding: 1.3rem 1rem;
   }
 
   div {

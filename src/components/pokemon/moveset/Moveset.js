@@ -30,11 +30,6 @@ const Moveset = ({ id }) => {
     return () => { isMounted.current = false }
   }, [id])
 
-  const handleMethodChange = (event) => {
-    setMethod(event.target.value)
-    event.currentTarget.blur()
-  }
-
   const handleGenChange = (event) => {
     setGeneration(event.target.value)
     event.currentTarget.blur()
