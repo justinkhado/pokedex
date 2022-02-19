@@ -10,6 +10,7 @@ import GlobalStyles from './sharedStyles/GlobalStyles'
 import { theme } from './Theme'
 import Fallback from './components/Fallback'
 import Header from './components/Header'
+
 const Home = lazy(() => import ('./components/home/Home'))
 const Pokemon = lazy(() => import('./components/pokemon/Pokemon'))
 
@@ -28,10 +29,6 @@ const App = () => {
   
   const handleTypeThemeChange = (type) => {
     setTypeTheme(`${type}`)
-  }
-
-  if (!pokemons.length) {
-    return (<Fallback />)
   }
 
   return (

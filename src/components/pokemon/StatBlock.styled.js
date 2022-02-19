@@ -24,7 +24,7 @@ export const StatHeader = styled(SectionHeader)`
     color: ${props => props.theme.white};
     font-size: 3.6rem;
     font-weight: 400;
-    letter-spacing: .7rem;
+    letter-spacing: .5rem;
     box-shadow: none;
   }
 `

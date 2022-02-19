@@ -23,9 +23,9 @@ export const SectionHeader = styled.h2`
   z-index: 1;
   padding: .7em 0;
   margin: 0;
-  background-color: ${props => props.theme.white};
   border-bottom: 1px solid ${props => props.theme.grey};
-  color: ${props => props.theme[`${props.theme.type}`]};
+  background-color: ${props => props.theme[`${props.theme.type}`]};   
+  color: ${props => props.theme.white};
   font-size: 2.2rem;
   font-weight: 500;
   text-transform: uppercase;

@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
   top: 0;
   z-index: 99;
   ${props => props.theme.type ? `
-    background-color: ${props.theme[`${props.theme.type}`]};` : `
+    background-color: ${props.theme.white}f1;` : `
     background-color: ${props.theme.white}e1;
     `
   }
@@ -30,7 +30,6 @@ export const StyledHeader = styled.header`
   @media only screen and (${device.lg}) {
     justify-content: center;
     width: 95%;
-    background-color: ${props => props.theme.white}f1;
   }
 
   h1 {
@@ -69,12 +68,8 @@ export const StyledLink = styled(Link)`
   &:link,
   &:visited {
     ${props => props.theme.type ?
-        `color: ${props.theme.white};` : 
+        `color: ${props.theme[`${props.theme.type}`]};` : 
         `color: ${props.theme.black};`
-    }
-
-    @media only screen and (${device.lg}) { 
-      color: ${props => props.theme[`${props.theme.type}`]};
     }
   }
 `

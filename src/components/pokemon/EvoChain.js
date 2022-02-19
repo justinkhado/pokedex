@@ -15,7 +15,7 @@ const EvoChain = ({ id }) => {
   const [evoChain, setEvoChain] = useState({})
   const [isEeveelution, setIsEeveelution] = useState(false)
   const [ref, inView] = useInView({
-    threshold: .3,
+    threshold: .2,
     triggerOnce: true
   })
 

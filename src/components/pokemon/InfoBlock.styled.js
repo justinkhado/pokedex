@@ -138,7 +138,8 @@ export const Abilities = styled(SectionBody)`
     margin-top: 2rem;
   }
 
-  div:last-child {
+  p {
+    margin: 0;
     padding: 1.5rem 3rem;
     font-size: ${props => props.theme.fontSm};
 
@@ -193,5 +194,68 @@ export const AbilitiesHeader = styled.div`
         font-size: ${props => props.theme.fontMd};
       }
     }
+  }
+`
+
+export const AbilitySelect = styled.div`
+  position: relative;
+
+  & > button {
+    position: relative;
+    padding: .5rem 3rem .5rem .2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: inherit;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: ${props => props.theme.black};
+
+    &:hover {
+      border-bottom: 1px solid black;
+      margin-bottom: -1px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 0; 
+      height: 0;
+      top: 50%;
+      transform: translateY(-60%);
+      border-left: .5em solid transparent;
+      border-right: .5em solid transparent;
+      border-top: .6em solid ${props => props.theme.black};
+    }
+  }
+`
+
+export const AbilityOptions = styled.div`
+  position: absolute;
+  right: 1.5rem;
+  width: max-content;
+  min-width: calc(100% - 1.5rem);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid ${props => props.theme[`${props.theme.type}Dark`]};
+`
+
+export const AbilityOption = styled.button`
+  ${props => props.isCurrent && `display: none;`}
+  padding: 1rem 1.5rem;    
+  background-color: ${props => props.theme[`${props.theme.type}Light`]};
+  border: none;
+  cursor: pointer;
+  font-size: ${props => props.theme.fontSm};
+  text-transform: uppercase;
+
+  @media only screen and (${device.md}) {
+    font-size: ${props => props.theme.fontMd};
+  }
+
+  &:hover {
+    filter: brightness(.8);
   }
 `

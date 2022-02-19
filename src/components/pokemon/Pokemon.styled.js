@@ -19,9 +19,6 @@ export const Container = styled.div`
 
   @media only screen and (${device.md}) {
     width: 90vw;
-    border-radius: 1rem;
-    background: ${props => props.theme.greyLight}a1;
-    box-shadow: .3rem .5rem 1.5rem;
     padding-bottom: 4rem;
     margin-bottom: 3rem;
   }
@@ -80,7 +77,9 @@ export const PokemonImage = styled.div`
     opacity: 0;
     filter: contrast(0) brightness(2);
     transform: scale(0);
-    animation: fadeInPokemon .7s var(--wobbleDuration) ease-in-out forwards;
+    ${props => props.loaded && 
+      `animation: fadeInPokemon .7s var(--wobbleDuration) ease-in-out forwards;`
+    }
   }
 
   &::after {
@@ -91,9 +90,11 @@ export const PokemonImage = styled.div`
     transform: translate(-50%, -50%);
     aspect-ratio: 1 / 1;
     width: 30%;
-    animation: 
-      wobble var(--wobbleDuration) .3s cubic-bezier(0.72, 0, 0.28, 1) forwards,
-      fadeOut .5s var(--wobbleDuration) forwards;
+    ${props => props.loaded && `
+      animation: 
+        wobble var(--wobbleDuration) .3s cubic-bezier(0.72, 0, 0.28, 1) forwards,
+        fadeOut .5s var(--wobbleDuration) forwards;`
+    }
   }
 
   @keyframes wobble {
@@ -208,7 +209,7 @@ export const HomeButtom = styled(Link)`
   padding: .8rem;
   border: none;
   border-radius: 50%;
-  background-color: ${props => props.theme.white};
+  background-color: transparent;
   cursor: pointer;
   transition: transform .2s;
 
@@ -217,10 +218,6 @@ export const HomeButtom = styled(Link)`
     right: 8vw;
     width: 5.5rem;
     padding: 1rem;
-  }
-
-  @media only screen and (${device.lg}) {
-    background-color: transparent;
   }
 
   &:hover {

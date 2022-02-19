@@ -20,6 +20,7 @@ const Pokemon = ({ changeType }) => {
   const location = useLocation()
   const [pokemon, setPokemon] = useState({})
   const [randomPokemon, setRandomPokemon] = useState(6)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   useEffect(() => {
     // random pokemon id in range {firstPokemon} to {lastPokemon} (Gen 1 to Gen 7)
@@ -56,8 +57,12 @@ const Pokemon = ({ changeType }) => {
       <HomeButtom to='/'>
         <HomeIcon />
       </HomeButtom>
-      <PokemonImage>
-        <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/original/${pokemon.id}.png`} alt={pokemon.name} />
+      <PokemonImage loaded={imageLoaded}>
+        <img
+          onLoad={() => setImageLoaded(true)}
+          src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/original/${pokemon.id}.png`}
+          alt={pokemon.name}
+        />
       </PokemonImage>
       <InfoBlock pokemon={pokemon} />
       <EvoChain id={pokemon.id} />

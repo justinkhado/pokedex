@@ -5,15 +5,20 @@ import {
   Attributes,
   Types,
   Abilities,
-  AbilitiesHeader
+  AbilitiesHeader,
+  AbilitySelect,
+  AbilityOptions,
+  AbilityOption
 } from './InfoBlock.styled'
 import { Type } from '../../sharedStyles/Type.styled'
+
 const InfoBlock = ({ pokemon }) => {
   const [ability, setAbility] = useState(0)
+  const [selectingAbility, setSelectingAbility] = useState(false)
 
   const handleAbilityChange = (event) => {
-    setAbility(event.target.value)
-    event.currentTarget.blur()
+    setAbility(parseInt(event.target.value))
+    setSelectingAbility(selected => !selected)
   }
 
   return (
@@ -38,16 +43,28 @@ const InfoBlock = ({ pokemon }) => {
       <Abilities>
         <AbilitiesHeader>
           <span>Abilities</span>
-          <select onChange={handleAbilityChange} >
-            {pokemon.abilities.map((ability, index) =>
-              <option key={index} value={index}>
-                {ability.name.replace('-', ' ')}
-              </option>
-            )}
-          </select>          
+          <AbilitySelect>
+            <button onClick={() => setSelectingAbility(selected => !selected)}>
+              {pokemon.abilities[ability].name.replace('-', ' ')}
+            </button>
+            {selectingAbility && 
+              <AbilityOptions>
+                {pokemon.abilities.map((abilityOption, index) =>
+                  <AbilityOption
+                    key={abilityOption.name}
+                    value={index}
+                    onClick={handleAbilityChange}
+                    isCurrent={index === ability}
+                  >
+                    {abilityOption.name.replace('-', ' ')}
+                  </AbilityOption>
+                )}
+              </AbilityOptions>
+            }
+          </AbilitySelect>
         </AbilitiesHeader>
         <div>
-          {pokemon.abilities[ability].effect}
+          <p>{pokemon.abilities[ability].effect}</p>
         </div>
       </Abilities>
     </InfoContainer>

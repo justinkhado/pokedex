@@ -19,12 +19,13 @@ export const TypeChartContainer = styled(SectionContainer)`
 export const TypeChartHeader = styled(SectionHeader)`
   @media only screen and (${device.lg}) {
     padding: 0;
-    padding-left: 10%;
+    padding-left: 2vw;
     background-color: transparent;
     color: ${props => props.theme.white};
     font-size: 3.6rem;
     font-weight: 400;
-    letter-spacing: .7rem;
+    letter-spacing: .5rem;
+    white-space: nowrap;
     box-shadow: none;
   }
 `
