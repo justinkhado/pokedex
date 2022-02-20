@@ -51,6 +51,8 @@ const Pokemon = ({ changeType }) => {
     return <Fallback />
   }
 
+  const imageDirUrl = 'https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images'
+
   return (
     <Container>
       <HomeButtom to='/'>
@@ -59,16 +61,17 @@ const Pokemon = ({ changeType }) => {
       <PokemonImage loaded={imageLoaded}>
         <img
           onLoad={() => setImageLoaded(true)}
-          src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/original/${pokemon.id}.png`}
+          src={`${imageDirUrl}/original/${pokemon.id}.png`}
           alt={pokemon.name}
+          loading='lazy'
         />
       </PokemonImage>
       <InfoBlock pokemon={pokemon} />
       <EvoChain id={pokemon.id} />
       <StatBlock stats={pokemon.stats} />
       <FightingAnimation>
-        <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/sprites/${pokemon.id}.png`} alt={`pokemon ${pokemon.id}`} />
-        <img src={`https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/sprites/${randomPokemon}.png`} alt={`pokemon ${randomPokemon}`} />
+        <img src={`${imageDirUrl}/sprites/${pokemon.id}.png`} alt={`pokemon ${pokemon.id}`} loading='lazy' />
+        <img src={`${imageDirUrl}/sprites/${randomPokemon}.png`} alt={`pokemon ${randomPokemon}`} loading='lazy' />
       </FightingAnimation>
       <TypeChart typeChart={pokemon.type_chart} />
       <Moveset id={pokemon.id} />

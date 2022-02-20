@@ -72,7 +72,7 @@ export const theme = {
   poisonLight: '#c7aed3',
   poisonDark: '#2C1337',
 
-  psychic: '#db217e',
+  psychic: '#c0367b',
   psychicLight: '#f3bbd7',
   psychicDark: '#4E0C2D',
 
