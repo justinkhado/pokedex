@@ -7,7 +7,7 @@ import {
   StyledCard,
   Types
 } from './Cards.styled'
-import { Type } from '../../sharedStyles/Type.styled'
+import { Type } from '../../sharedStyles/Type'
 
 const Card = ({ pokemon }) => {
   const cardRef = useRef(null)
@@ -52,7 +52,7 @@ const Cards = ({ pokemons }) => {
 
   useEffect(() => {    
     const scrollPosition = parseInt(window.sessionStorage.getItem('homeScrollPosition')) || 0
-    setTimeout(() => {window.scrollTo({ top: scrollPosition, behavior: 'smooth' })}, 2)
+    setTimeout(() => { window.scrollTo({ top: scrollPosition, behavior: 'smooth' }) }, 2)
 
     const onUnload = (event) => {
       event.preventDefault()
@@ -102,15 +102,15 @@ const Cards = ({ pokemons }) => {
   const fetchMoreData = () => {
     if (filteredPokemons.length && pokemonChunk.items.length >= filteredPokemons.length) {
       setPokemonChunk({ ...pokemonChunk, hasMore: false })
-      return
     }
-
-    setPokemonChunk({
-      ...pokemonChunk,
-      items: pokemonChunk.items.concat(
-        filteredPokemons.slice(pokemonChunk.items.length, pokemonChunk.items.length + 12)
-      )
-    })    
+    else {
+      setPokemonChunk({
+        ...pokemonChunk,
+        items: pokemonChunk.items.concat(
+          filteredPokemons.slice(pokemonChunk.items.length, pokemonChunk.items.length + 12)
+        )
+      })
+    }
   }
 
   const handleScrollEvent = () => {

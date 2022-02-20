@@ -6,7 +6,7 @@ import {
   ChartLine,
   Types
 } from './TypeChart.styled'
-import { Type } from '../../sharedStyles/Type.styled'
+import { Type } from '../../sharedStyles/Type'
 
 const TypeChart = ({ typeChart }) => {
   return (

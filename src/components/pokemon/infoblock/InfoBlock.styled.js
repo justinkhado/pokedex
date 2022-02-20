@@ -70,6 +70,7 @@ export const NameTag = styled.div`
     max-width: fit-content;
 
     @media only screen and (${device.lg}) {
+      margin-left: 2rem;
       font-size: min(6vw, 11.5rem);
       letter-spacing: .6rem;
     }

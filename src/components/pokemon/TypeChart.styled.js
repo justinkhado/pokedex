@@ -78,6 +78,7 @@ export const Types = styled.div`
   @media only screen and (${device.lg}) {
     max-width: 90%;
     padding: 1.3rem 1rem;
+    background-color: ${props => props.theme.white};
   }
 
   div {

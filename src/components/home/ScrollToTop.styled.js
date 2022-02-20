@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import { device } from '../../sharedStyles/breakpoints'
 
-export const ScrollButton = styled.button`
+export const ScrollButton = styled.button.attrs({
+  type: 'button'
+})`
   transition: all .4s;
   visibility: ${props => props.visible ? 'visible' : 'hidden'};
   opacity: ${props => props.visible ? '100%' : 0};

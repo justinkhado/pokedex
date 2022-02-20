@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
+import { useControllerRef } from '../../hooks/useControllerRef'
 import pokemonService from '../../services/pokemon'
 import {
   EvolutionContainer,
@@ -11,26 +12,27 @@ import {
 import { SectionHeader } from '../../sharedStyles/SectionStyles'
 
 const EvoChain = ({ id }) => {
-  const isMounted = useRef(true)
   const [evoChain, setEvoChain] = useState({})
   const [isEeveelution, setIsEeveelution] = useState(false)
   const [ref, inView] = useInView({
     threshold: .2,
     triggerOnce: true
   })
+  const controllerRef = useControllerRef()
+
+  useEffect(() => {
+    setIsEeveelution([133, 134, 135, 136, 196, 197, 470, 471, 700].includes(parseInt(id)))
+  }, [id])
 
   useEffect(() => {
     pokemonService
-      .getEvoChain(id)
-      .then(returnedChain => {
-        if (isMounted.current) {
-          setEvoChain(returnedChain)
+      .getEvoChain(id, controllerRef.current)
+      .then(returnedEvoChain => {
+        if (!controllerRef.current.signal.aborted) {
+          setEvoChain(returnedEvoChain)
         }
       })
-    setIsEeveelution([133, 134, 135, 136, 196, 197, 470, 471, 700].includes(parseInt(id)))
-
-    return () => { isMounted.current = false }
-  }, [id])
+  }, [id, controllerRef])
 
   if (!evoChain.id) {
     return (<></>)

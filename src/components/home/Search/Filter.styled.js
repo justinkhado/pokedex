@@ -6,7 +6,9 @@ export const FilterContainer = styled.div`
   align-self: center;
 `
 
-export const FilterButton = styled.button`
+export const FilterButton = styled.button.attrs({
+  type: 'button'
+})`
   height: 2.8rem;
   width: 2.8rem;
   padding: .6rem;

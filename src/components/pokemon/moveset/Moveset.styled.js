@@ -37,31 +37,31 @@ export const MovelistFilter = styled.div`
     width: 60rem;
     height: 5rem;
   }
+`
 
-  select {
-    height: fit-content;
-    width: fit-content;
-    padding: .5em .5em .3em 0;
-    color: ${props => props.theme[`${props.theme.type}Dark`]};
-    border: none;
-    border-bottom: 1px solid ${props => props.theme[`${props.theme.type}Dark`]};
-    font-size: ${props => props.theme.fontSm};
-    text-transform: uppercase;
-    cursor: pointer;
+export const GenerationSelect = styled.select`
+  height: fit-content;
+  width: fit-content;
+  padding: .5em .5em .3em 0;
+  color: ${props => props.theme[`${props.theme.type}Dark`]};
+  border: none;
+  border-bottom: 1px solid ${props => props.theme[`${props.theme.type}Dark`]};
+  font-size: ${props => props.theme.fontSm};
+  text-transform: uppercase;
+  cursor: pointer;
 
-    @media only screen and (${device.sm}) {
-      align-self: flex-start;
-      margin-right: 1rem;
-    }
+  @media only screen and (${device.sm}) {
+    align-self: flex-start;
+    margin-right: 1rem;
+  }
 
-    @media only screen and (${device.md}) {
-      font-size: ${props => props.theme.fontMd};
-      font-weight: 700;
-    }
+  @media only screen and (${device.md}) {
+    font-size: ${props => props.theme.fontMd};
+    font-weight: 700;
+  }
 
-    @media only screen and (${device.lg}) {
-      margin-right: 3rem;
-    }
+  @media only screen and (${device.lg}) {
+    margin-right: 3rem;
   }
 
   option {
@@ -84,11 +84,6 @@ export const Methods = styled.div`
 `
 
 export const MethodTab = styled.div`
-  input {
-    position: absolute;
-    left: -100vw;
-  }
-
   label {
     position: relative;
     display: block;
@@ -110,7 +105,16 @@ export const MethodTab = styled.div`
     background-color: ${props => props.theme[`${props.theme.type}Dark`]};
     color: ${props => props.theme.white};
   }
+`
 
+export const MethodInput = styled.input.attrs(props => ({
+  type: 'radio',
+  name: 'method',
+  id: props.methodName,
+  value: props.methodName
+}))`
+  position: absolute;
+  left: -100vw;
 `
 
 export const DamageClass = styled.div`

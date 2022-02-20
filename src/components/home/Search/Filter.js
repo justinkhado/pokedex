@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
+import { useCloseDropdown } from '../../../hooks/useCloseDropdown'
 import { SearchContext } from '../Home'
 import {
   FilterContainer,
@@ -10,7 +11,7 @@ import {
   GenerationFilter,
   TypeList
 } from './Filter.styled'
-import { Type } from '../../../sharedStyles/Type.styled'
+import { Type } from '../../../sharedStyles/Type'
 import { ReactComponent as FilterIcon } from '../../../assets/icons/filter.svg'
 
 const Filter = () => {  
@@ -18,19 +19,7 @@ const Filter = () => {
   const { filter, handleFilterChange } = useContext(SearchContext)
   const [filterOpen, setFilterOpen] = useState(false)  
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        filterRef.current.dropdown && !filterRef.current.dropdown.contains(event.target) && 
-        filterRef.current.button && !filterRef.current.button.contains(event.target)
-      ) {
-        setFilterOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    
-    return (() => document.removeEventListener('mousedown', handleClickOutside))
-  }, [])
+  useCloseDropdown(filterRef, () => { setFilterOpen(false) })
 
   const handleGenerationCheck = (event) => {
     if (event.target.checked) {

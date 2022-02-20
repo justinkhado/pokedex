@@ -1,12 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import pokemonService from '../../services/pokemon'
 import Fallback from '../Fallback'
 import InfoBlock from './infoblock/InfoBlock'
 import StatBlock from './StatBlock'
 import TypeChart from './TypeChart'
 import EvoChain from './EvoChain'
 import Moveset from './moveset/Moveset'
+import pokemonService from '../../services/pokemon'
+import { useControllerRef } from '../../hooks/useControllerRef'
 import { 
   Container,
   PokemonImage,
@@ -16,28 +17,26 @@ import {
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg'
 
 const Pokemon = ({ changeType }) => {
-  const isMounted = useRef(true)
   const location = useLocation()
   const [pokemon, setPokemon] = useState({})
   const [randomPokemon, setRandomPokemon] = useState(6)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const controllerRef = useControllerRef()
 
   useEffect(() => {
     // random pokemon id in range {firstPokemon} to {lastPokemon} (Gen 1 to Gen 7)
     const firstPokemon = 1
     const lastPokemon = 807
     setRandomPokemon(Math.floor(Math.random() * (lastPokemon - firstPokemon) + firstPokemon))
-    
-    return () => { isMounted.current = false }
   }, [])
 
   useEffect(() => {
     const urlParts = location.pathname.split('/')
-    if (urlParts[1] === 'pokemon') {
+    if (urlParts[1] === 'pokemon') {      
       pokemonService
-        .getPokemon(urlParts[2])
+        .getPokemon(urlParts[2], controllerRef.current)
         .then(returnedPokemon => {
-          if (isMounted.current) {
+          if (!controllerRef.current.signal.aborted) {
             setPokemon(returnedPokemon)   
             changeType(returnedPokemon.types[0])
           }
@@ -46,7 +45,7 @@ const Pokemon = ({ changeType }) => {
           window.scrollTo({ top: 0 })
         })
     }    
-  }, [location, changeType])
+  }, [location, controllerRef, changeType])
 
   if (!pokemon.id) {
     return <Fallback />

@@ -7,7 +7,7 @@ import {
   EmptyMovelist
 } from './MoveTable.styled'
 import { DamageClass } from './Moveset.styled';
-import { Type } from '../../../sharedStyles/Type.styled'
+import { Type } from '../../../sharedStyles/Type'
 import physicalIcon from '../../../assets/icons/Physical.png';
 import specialIcon from '../../../assets/icons/Special.png';
 import statusIcon from '../../../assets/icons/Status.png';

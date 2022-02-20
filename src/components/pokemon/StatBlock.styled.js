@@ -40,14 +40,6 @@ export const Stats = styled(SectionBody)`
     margin: 0;
     box-shadow: none;
   }
-
-  div:not(:last-child) {
-    margin-bottom: 1rem;
-
-    @media only screen and (${device.lg}) {
-      margin-bottom: 2.5rem;
-    }
-  }
 `
 
 export const StatLine = styled.div`
@@ -59,6 +51,18 @@ export const StatLine = styled.div`
   @media only screen and (${device.lg}) {
     padding-right: 5rem;
   }
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+
+    @media only screen and (${device.md}) {
+      margin-bottom: 2rem;
+    }
+
+    @media only screen and (${device.lg}) {
+      margin-bottom: 2.5rem;
+    }
+  }
   
   span {
     font-size: ${props => props.theme.fontMd};
@@ -66,7 +70,7 @@ export const StatLine = styled.div`
     justify-self: end;
 
     @media only screen and (${device.md}) {
-      font-size: ${props => props.theme.fontLg}
+      font-size: ${props => props.theme.fontLg};
     }
   }
 
@@ -88,6 +92,7 @@ export const StatLine = styled.div`
       background-color: ${props => props.theme.greyLight};
       color: ${props => props.theme.white};
       padding: .8rem;
+      font-size: ${props => props.theme.fontLg};
     }
 
     &::after {
@@ -107,7 +112,7 @@ export const StatLine = styled.div`
       transform-origin: 0% 50%;
 
       @media only screen and (${device.lg}) {
-        background-color: ${props => props.theme[`${props.theme.type}`]}c1;
+        background-color: ${props => props.theme[`${props.theme.type}`]}e1;
       }
     }
   }
@@ -123,7 +128,6 @@ export const Total = styled.div`
   align-items: center;
   padding-top: 1rem;
   gap: 2rem;
-  color: ${props => props.theme.black};
 
   @media only screen and (${device.lg}) {
     display: flex;
@@ -133,9 +137,9 @@ export const Total = styled.div`
     width: 23rem;
     background-image: linear-gradient(
       120deg,
-      ${props => props.theme[`${props.theme.type}`]} 55%,
-      ${props => props.theme.greyLight} 55%,
-      ${props => props.theme.greyLight}
+      ${props => props.theme[`${props.theme.type}Light`]} 55%,
+      ${props => props.theme.white} 55%,
+      ${props => props.theme.white}
     );
     border-radius: 3rem;
   }
@@ -144,13 +148,13 @@ export const Total = styled.div`
     text-transform: uppercase;
     font-weight: 500;
     justify-self: end;
+    color: ${props => props.theme.black};
 
     @media only screen and (${device.md}) {
       font-size: ${props => props.theme.fontLg};
     }
 
-    @media only screen and (${device.lg}) {      
-      color: ${props => props.theme.white};
+    @media only screen and (${device.lg}) {
       letter-spacing: 1px;
     }
   }

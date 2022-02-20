@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 import { device } from './breakpoints'
 
-export const ClearButton = styled.button`
+export const ClearButton = styled.button.attrs(props => ({
+  type: 'button'
+}))`
   flex-shrink: 0;
   margin-right: .5rem;
   aspect-ratio: 1 / 1;

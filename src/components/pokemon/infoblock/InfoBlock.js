@@ -6,7 +6,7 @@ import {
   Attributes,
   Types
 } from './InfoBlock.styled'
-import { Type } from '../../../sharedStyles/Type.styled'
+import { Type } from '../../../sharedStyles/Type'
 
 const InfoBlock = ({ pokemon }) => {
   return (

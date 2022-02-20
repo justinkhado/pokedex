@@ -16,31 +16,31 @@ export const theme = {
   fontXl: '2rem',
 
   // types
-  bug: '#8baf61',
+  bug: '#799756',
   bugLight: '#c5dbab',
   bugDark: '#3B4D27',
 
-  dark: '#2e2e2e',
-  darkLight: '#a8a8a8',
+  dark: '#444444',
+  darkLight: '#b6b6b6',
   darkDark: '#161616',
 
   dragon: '#2d2bb8',
   dragonLight: '#aaaae4',
   dragonDark: '#0d0c46',
 
-  electric: '#d4b113',
-  electricLight: '#faedb3',
+  electric: '#d4b320',
+  electricLight: '#f1e183',
   electricDark: '#6d5d00',
 
-  fairy: '#ff81d5',
+  fairy: '#e081c1',
   fairyLight: '#ffd1f0',
-  fairyDark: '#9b186f',
+  fairyDark: '#57103f',
 
   fighting: '#80280e',
   fightingLight: '#f0aa95',
   fightingDark: '#331209',
 
-  fire: '#ff5e00',
+  fire: '#ec6416',
   fireLight: '#fcb58c',
   fireDark: '#582403',
 
@@ -48,7 +48,7 @@ export const theme = {
   flyingLight: '#aebac7',
   flyingDark: '#2d3844',
 
-  ghost: '#3a2969',
+  ghost: '#402e74',
   ghostLight: '#ac9fce',
   ghostDark: '#1a152b',
 
@@ -60,12 +60,12 @@ export const theme = {
   groundLight: '#e0c68d',
   groundDark: '#40300F',
 
-  ice: '#54d3c8',
-  iceLight: '#caf8f4',
+  ice: '#48c4b9',
+  iceLight: '#b2e2de',
   iceDark: '#0D322F',
 
-  normal: '#b6b0a6',
-  normalLight: '#e7e4e0',
+  normal: '#aca8a2',
+  normalLight: '#d6d2cb',
   normalDark: '#36332D',
 
   poison: '#662d81',

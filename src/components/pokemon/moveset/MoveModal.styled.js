@@ -110,7 +110,9 @@ export const MoveValues = styled.div`
   }
 `
 
-export const CloseButton = styled.button`
+export const CloseButton = styled.button.attrs({
+  type: 'button'
+})`
   display: flex;
   justify-content: center;
   align-items: center;
