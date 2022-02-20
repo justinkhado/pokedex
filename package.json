@@ -1,6 +1,7 @@
 {
   "name": "pokedex",
   "version": "0.1.0",
+  "homepage": "https://justinkhado.github.io/pokedex",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
@@ -17,6 +18,8 @@
     "web-vitals": "^2.1.3"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -42,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3",
     "source-map-explorer": "^2.5.2"
   }
 }

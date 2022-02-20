@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+<div align="center">
+  <img src="https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/pokeball.svg" alt="Logo" width="80" height="80">
+  <h3 align="center">Pokedex</h3>
+  <p align="center">
+    <i>The encyclopedia of Pokemon</i>
+    <br />
+    <a href="https://justinkhado.github.io/pokedex">View Live Site</a>
+  </p>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-### `npm start`
+<img src="https://raw.githubusercontent.com/justinkhado/pokedex-data/master/screenshots/home.PNG" alt="homepage">
+<img src="https://raw.githubusercontent.com/justinkhado/pokedex-data/master/screenshots/pokemon.PNG" alt="pokemon page">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The Pokedex app is an encyclopedia of Pokemon (up to Generation VII) that offers searching and filtering for convenient lookup. Each Pokemon features 
+information about their basic attributes, abilities, evolutions, stats, type weaknesses, and movesets.
+<br /><br />
+This application is supported by [another repo](https://github.com/justinkhado/pokedex-data) which features curated data and assets from [PokeAPI](https://pokeapi.co/).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Built With
 
-### `npm run build`
+* [React.js](https://reactjs.org/)
+  * [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component)
+  * [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
+  * [react-router-dom](https://reactrouter.com/)
+* [styled components](https://styled-components.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- GETTING STARTED -->
+## Getting Started
 
-### `npm run eject`
+The following presents a guide on how to set up this project locally.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/justinkhado/pokedex.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the React app
+   ```sh
+   npm run dev
+   ```
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- ROADMAP -->
+## Roadmap
 
-### Code Splitting
+- [ ] skeleton loader
+- [ ] more css animations
+    - [ ]  page transitions
+- [ ] optimize event listeners
+- [ ] smoothen infinite scroll
+- [ ] placeholder for images
+- [ ] more Pokemon information
+    - [ ] training values
+    - [ ] egg groups
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- LICENSE -->
+## License
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Distributed under the MIT License. See `LICENSE.txt` for more information.
