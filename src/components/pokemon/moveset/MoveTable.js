@@ -8,9 +8,9 @@ import {
 } from './MoveTable.styled'
 import { DamageClass } from './Moveset.styled';
 import { Type } from '../../../sharedStyles/Type'
-import physicalIcon from '../../../assets/icons/physical.png';
-import specialIcon from '../../../assets/icons/special.png';
-import statusIcon from '../../../assets/icons/status.png';
+import physicalIcon from '../../../assets/icons/Physical.png';
+import specialIcon from '../../../assets/icons/Special.png';
+import statusIcon from '../../../assets/icons/Status.png';
 
 const MoveTable = ({ moveset, method, generation, selectMove }) => {
   return (
