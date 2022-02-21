@@ -122,21 +122,9 @@ export const Types = styled.div`
 
 export const Name = styled.div`
   color: white;
-  font-size: 1.5rem;
+  font-size: min(3vw, 2.6rem);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: .5em;
-
-  @media only screen and (${device.sm}) {
-    font-size: 1.7rem;
-  }
-
-  @media only screen and (${device.md}) {
-    font-size: 2.4rem;
-  }
-
-  @media only screen and (${device.lg}) {
-    font-size: 2.8rem;
-  }
 `

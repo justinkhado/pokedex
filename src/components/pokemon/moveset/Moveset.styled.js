@@ -3,6 +3,10 @@ import { SectionContainer, SectionBody } from '../../../sharedStyles/SectionStyl
 import { device } from '../../../sharedStyles/breakpoints'
 
 export const MoveContainer = styled(SectionContainer)`
+  @media only screen and (${device.md}) {
+    width: min(80rem, 90%);
+  }
+
   @media only screen and (${device.lg}) {
     width: 90rem;
     grid-column: span 12;
@@ -25,6 +29,7 @@ export const MovelistFilter = styled.div`
   gap: 2rem;
   align-items: center;
   width: 95%;
+  max-width: 60rem;
 
   @media only screen and (${device.sm}) {
     flex-direction: row;
@@ -33,8 +38,7 @@ export const MovelistFilter = styled.div`
     height: 4rem;
   }
 
-  @media only screen and (${device.lg}) {
-    width: 60rem;
+  @media only screen and (${device.md}) {
     height: 5rem;
   }
 `

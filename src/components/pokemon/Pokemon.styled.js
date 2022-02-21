@@ -66,6 +66,23 @@ export const PokemonImage = styled.div`
   width: min(95%, 45rem);  
   z-index: 1;
 
+  @media only screen and (${device.sm}) {
+    &::after {
+      position: absolute;
+      content: url(${Pokeball});
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      aspect-ratio: 1 / 1;
+      width: 30%;
+      ${props => props.loaded && `
+        animation: 
+          wobble var(--wobbleDuration) .3s cubic-bezier(0.72, 0, 0.28, 1) forwards,
+          fadeOut .5s var(--wobbleDuration) forwards;`
+      }
+    }
+  }
+
   @media only screen and (${device.lg}) {    
     width: 75%;
     grid-column: span 6;
@@ -74,26 +91,15 @@ export const PokemonImage = styled.div`
 
   img {
     width: 100%;
-    opacity: 0;
-    filter: contrast(0) brightness(2);
-    transform: scale(0);
-    ${props => props.loaded && 
-      `animation: fadeInPokemon .7s var(--wobbleDuration) ease-in-out forwards;`
-    }
-  }
+    opacity: 1;
 
-  &::after {
-    position: absolute;
-    content: url(${Pokeball});
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    aspect-ratio: 1 / 1;
-    width: 30%;
-    ${props => props.loaded && `
-      animation: 
-        wobble var(--wobbleDuration) .3s cubic-bezier(0.72, 0, 0.28, 1) forwards,
-        fadeOut .5s var(--wobbleDuration) forwards;`
+    @media only screen and (${device.sm}) {
+      opacity: 0;
+      filter: contrast(0) brightness(2);
+      transform: scale(0);
+      ${props => props.loaded && 
+        `animation: fadeInPokemon .7s var(--wobbleDuration) ease-in-out forwards;`
+      }
     }
   }
 

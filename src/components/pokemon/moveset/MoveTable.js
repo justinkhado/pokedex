@@ -21,7 +21,7 @@ const MoveTable = ({ moveset, method, generation, selectMove }) => {
             {method === 'level-up' && <th>lvl</th>}
             {method === 'machine' && <th>Num</th>}
             {['egg', 'tutor'].includes(method) && <th>-</th>}
-            {['Name', 'Type', 'Power', 'Acc', 'Class'].map(col => 
+            {['Name', 'Type', 'Class', 'PWR', 'ACC'].map(col => 
               <th key={col}>{col}</th>  
             )}
           </MovelistHeaders>
@@ -35,8 +35,6 @@ const MoveTable = ({ moveset, method, generation, selectMove }) => {
                 {['egg', 'tutor'].includes(method) && <td>-</td>}
                 <td>{move.name.replace('-', ' ')}</td>
                 <td><Type type={move.type}>{move.type}</Type></td>
-                {move.power ? <td>{move.power}</td> : <td>-</td>}
-                {move.accuracy ? <td>{move.accuracy}%</td> : <td>-</td>}
                 <td>
                   <DamageClass>
                     {move.damage_class === 'physical' && <img src={physicalIcon} alt='physical' title='physical' />}
@@ -44,6 +42,8 @@ const MoveTable = ({ moveset, method, generation, selectMove }) => {
                     {move.damage_class === 'status' && <img src={statusIcon} alt='status' title='status' />}
                   </DamageClass>        
                 </td>
+                {move.power ? <td>{move.power}</td> : <td>-</td>}
+                {move.accuracy ? <td>{move.accuracy}%</td> : <td>-</td>}
               </MovelistRow>
             ) :              
             <EmptyMovelist>

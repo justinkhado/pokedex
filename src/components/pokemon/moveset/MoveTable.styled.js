@@ -2,10 +2,21 @@ import styled from 'styled-components'
 import { device } from '../../../sharedStyles/breakpoints'
 
 export const TableContainer = styled.div`
-  width: 95%;
+  width: 85%;
+  max-width: 60rem;
   height: 50rem;
   background-color: ${props => props.theme[`${props.theme.type}Light`]}50;
   overflow-y: overlay;
+
+  @media only screen and (${device.sm}) {
+    width: 90%;
+  }
+
+  @media only screen and (${device.lg}) {
+    height: 70rem;
+    margin-bottom: 3rem;
+    box-shadow: .3rem .3rem 1rem ${props => props.theme.blackLight};
+  }
 
   &::-webkit-scrollbar {
     width: .5rem;
@@ -38,17 +49,6 @@ export const TableContainer = styled.div`
 
   &::-webkit-scrollbar-thumb:hover {
     background: ${props => props.theme[`${props.theme.type}`]};
-  }
-
-  @media only screen and (${device.sm}) {
-    width: 90%;
-  }
-
-  @media only screen and (${device.lg}) {
-    width: 60rem;
-    height: 70rem;
-    margin-bottom: 3rem;
-    box-shadow: .3rem .3rem 1rem ${props => props.theme.blackLight};
   }
 
   table {    
@@ -91,17 +91,13 @@ export const MovelistHeaders = styled.tr`
   }
 
   th:nth-child(3),
-  th:last-child {
+  th:nth-child(4) {
     text-align: center;
   }
 
-  th:nth-child(4),
-  th:nth-child(5) {
-    width: 3.5em;
-  }
-
-  th:last-child {
-    padding-right: 1em;
+  
+  th:nth-child(6) {
+    padding-right: 1.5em;
   }
 `
 
@@ -152,10 +148,12 @@ export const MovelistRow = styled.tr`
     text-transform: capitalize;
     text-align: start;
     font-weight: 500;
+    width: 10em;
   }
 
-  td:last-child {
-    padding-right: 1em;
+  
+  td:nth-child(6) {
+    padding-right: 1.5em;
   }
 `
 
