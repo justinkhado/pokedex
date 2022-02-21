@@ -16,7 +16,7 @@ const EvolutionImage = ({ id, name }) => {
 
   return (
     <picture>
-      <source type='image/webp' srcSet={require(`../../assets/thumbnails/${id}.webp`)} />
+      <source type='image/webp' srcSet={`${imageUrl}.webp`} />
       <source type='image/png' srcSet={`${imageUrl}.png`} />
       <img src={`${imageUrl}.png`} alt={name} />
     </picture>
