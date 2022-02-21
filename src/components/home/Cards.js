@@ -34,7 +34,7 @@ const Card = ({ pokemon }) => {
           }
       </Types>
       <picture>
-        <source type='image/webp' srcSet={`${imageUrl}.webp`} />
+        <source type='image/webp' srcSet={require(`../../assets/thumbnails/${pokemon.id}.webp`)} />
         <source type='image/png' srcSet={`${imageUrl}.png`} />
         <img src={`${imageUrl}.png`} alt={pokemon.name} />
       </picture>
