@@ -59,12 +59,11 @@ const Pokemon = ({ changeType }) => {
         <HomeIcon />
       </HomeButtom>
       <PokemonImage loaded={imageLoaded}>
-        <img
-          onLoad={() => setImageLoaded(true)}
-          src={`${imageDirUrl}/original/${pokemon.id}.png`}
-          alt={pokemon.name}
-          loading='lazy'
-        />
+        <picture onLoad={() => setImageLoaded(true)}>
+          <source type='image/webp' srcSet={`${imageDirUrl}/original/${pokemon.id}.webp`} />
+          <source type='image/png' srcSet={`${imageDirUrl}/original/${pokemon.id}.png`} />
+          <img src={`${imageDirUrl}/original/${pokemon.id}.png`} alt={pokemon.name} />
+        </picture>
       </PokemonImage>
       <InfoBlock pokemon={pokemon} />
       <EvoChain id={pokemon.id} />

@@ -90,6 +90,7 @@ export const PokemonImage = styled.div`
   }
 
   img {
+    aspect-ratio: 1 / 1;
     width: 100%;
     opacity: 1;
 
@@ -205,7 +206,9 @@ export const FightingAnimation = styled.div`
   }
 `
 
-export const HomeButtom = styled(Link)`
+export const HomeButtom = styled(Link).attrs({
+  'aria-label': 'home'
+})`
   position: fixed;  
   z-index: 999;
   top: 1.3rem;

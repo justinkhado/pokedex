@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { device } from '../../sharedStyles/breakpoints'
 
 export const ScrollButton = styled.button.attrs({
-  type: 'button'
+  type: 'button',
+  'aria-label': 'scroll to top'
 })`
   transition: 
     background-color .3s,

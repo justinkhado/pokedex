@@ -7,7 +7,8 @@ export const FilterContainer = styled.div`
 `
 
 export const FilterButton = styled.button.attrs({
-  type: 'button'
+  type: 'button',
+  'aria-label': 'filter'
 })`
   height: 2.8rem;
   width: 2.8rem;

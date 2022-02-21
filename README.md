@@ -62,8 +62,8 @@ The following presents a guide on how to set up this project locally.
 
 
 
-<!-- ROADMAP -->
-## Roadmap
+<!-- To-do List -->
+## To-do List
 
 - [ ] skeleton loader
 - [ ] more css animations

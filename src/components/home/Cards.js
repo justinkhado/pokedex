@@ -22,6 +22,8 @@ const Card = ({ pokemon }) => {
     return () => window.removeEventListener('keydown', handleEscPress)
   }, [])
 
+  const imageUrl = `https://raw.githubusercontent.com/justinkhado/pokedex-data/master/images/thumbnails/${pokemon.id}`
+
   return (
     <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types} ref={cardRef}>
       <Number>{`${pokemon.id}`}</Number>      
@@ -31,7 +33,11 @@ const Card = ({ pokemon }) => {
             <Type type={pokemon.types[1]}><span>{pokemon.types[1]}</span></Type>
           }
       </Types>
-      <img src={require(`../../assets/thumbnails/${pokemon.id}.png`)} alt={`${pokemon.name}`} />
+      <picture>
+        <source type='image/webp' srcSet={`${imageUrl}.webp`} />
+        <source type='image/png' srcSet={`${imageUrl}.png`} />
+        <img src={`${imageUrl}.png`} alt={pokemon.name} />
+      </picture>
       <Name>{`${pokemon.name}`}</Name>
     </StyledCard>
   )

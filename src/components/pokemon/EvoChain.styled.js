@@ -62,6 +62,7 @@ export const PokemonLink = styled(Link)`
   }
 
   img {
+    aspect-ratio: 1 / 1;
     max-width: 10rem;
 
     @media only screen and (${device.md}) {

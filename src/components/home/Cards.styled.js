@@ -72,12 +72,24 @@ export const StyledCard = styled(Link)`
     box-shadow: .2rem .4rem .5rem ${props => props.theme.blackLight};
   }
 
-  & > img {
+  /* picture {
+    display: flex;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    width: fit-content;
+  } */
+
+  picture {
     z-index: 1;
     width: 75%;
 
     @media only screen and (${device.lg}) {
       width: 80%;
+    }
+
+    img {
+      aspect-ratio: 1 / 1;
+      width: 100%;
     }
   }
 `
