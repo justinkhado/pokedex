@@ -4,10 +4,12 @@ import { device } from '../../sharedStyles/breakpoints'
 export const ScrollButton = styled.button.attrs({
   type: 'button'
 })`
-  transition: all .4s;
+  transition: 
+    background-color .3s,
+    outline .3s,
+    opacity .3s;
   visibility: ${props => props.visible ? 'visible' : 'hidden'};
-  opacity: ${props => props.visible ? '100%' : 0};
-
+  opacity: ${props => props.visible ? '1' : '0'};
   position: fixed;
   z-index: 99;
   bottom: 2rem;
@@ -34,8 +36,7 @@ export const ScrollButton = styled.button.attrs({
     }
   }
 
-  &:active,
-  &:hover {
+  &:focus {
     background-color: ${props => props.theme.primary};
     outline: 2px solid ${props => props.theme.greyLight};
     cursor: pointer;
@@ -45,15 +46,15 @@ export const ScrollButton = styled.button.attrs({
     }
   }
 
-  @media only screen and (${device.sm}) {
+  @media (hover: hover) {
     &:hover {
-      cursor: pointer;
       background-color: ${props => props.theme.primary};
       outline: 2px solid ${props => props.theme.greyLight};
+      cursor: pointer;
 
-      img {
-        filter: invert(95%);
-      }
+      svg path {
+        fill: ${props => props.theme.white};
+      } 
     }
   }
 `

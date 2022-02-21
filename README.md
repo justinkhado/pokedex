@@ -4,7 +4,7 @@
   <p align="center">
     <i>The encyclopedia of Pokemon</i>
     <br />
-    <a href="https://justinkhado.github.io/pokedex">View Live Site</a>
+    <a href="https://justinkhado-pokedex.netlify.app/">View Live Site</a>
   </p>
 </div>
 
@@ -74,6 +74,7 @@ The following presents a guide on how to set up this project locally.
 - [ ] more Pokemon information
     - [ ] training values
     - [ ] egg groups
+- [ ] invalid route handling
 
 
 
