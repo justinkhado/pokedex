@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { device } from '../../../sharedStyles/breakpoints'
 
 export const TableContainer = styled.div`
-  width: 85%;
+  width: 86%;
   max-width: 60rem;
   height: 50rem;
   background-color: ${props => props.theme[`${props.theme.type}Light`]}50;
@@ -74,20 +74,32 @@ export const MovelistHeaders = styled.tr`
   }
 
   th {
-    padding: 1em .1em;
+    padding: 1em .2em;
+
+    @media only screen and (${device.sm}) {
+      padding: 1em .5em;
+    }
 
     @media only screen and (${device.md}) {
-      padding: 1em .5em;
+      padding: 1em;
     }
   }
 
   th:first-child {
-    padding-right: 1em;
-    width: 4em;
+    width: 1.8em;
+
+    @media only screen and (${device.sm}) {
+      width: 3.8em;
+    }
   }
 
   th:nth-child(2) {
     text-align: start;
+    width: 6em;
+
+    @media only screen and (${device.sm}) {
+      width: 10em;
+    }
   }
 
   th:nth-child(3),
@@ -132,23 +144,25 @@ export const MovelistRow = styled.tr`
   }
 
   td {
-    padding: 1em .1em;
+    padding: 1em .2em;
+    
+    @media only screen and (${device.sm}) {
+      padding: 1em .5em;
+    }
 
     @media only screen and (${device.md}) {
-      padding: 1em .5em;
-    }    
+      padding: 1em;
+    }
   }
 
   td:first-child {
-    padding-right: 1em;
-    text-transform: uppercase;
+    text-transform: uppercase;    
   }
 
   td:nth-child(2) {    
     text-transform: capitalize;
     text-align: start;
     font-weight: 500;
-    width: 10em;
   }
 
   

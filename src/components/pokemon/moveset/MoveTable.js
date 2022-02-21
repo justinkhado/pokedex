@@ -21,7 +21,7 @@ const MoveTable = ({ moveset, method, generation, selectMove }) => {
             {method === 'level-up' && <th>lvl</th>}
             {method === 'machine' && <th>Num</th>}
             {['egg', 'tutor'].includes(method) && <th>-</th>}
-            {['Name', 'Type', 'Class', 'PWR', 'ACC'].map(col => 
+            {['Name', 'Type', 'Class', 'Pwr', 'Acc'].map(col => 
               <th key={col}>{col}</th>  
             )}
           </MovelistHeaders>

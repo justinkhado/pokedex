@@ -5,11 +5,11 @@ import { device } from '../../sharedStyles/breakpoints'
 
 export const StyledCards = styled(InfiniteScroll)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, min(28%, 22rem));
+  grid-template-columns: repeat(auto-fill, min(30%, 22rem));
   justify-content: space-around;
   padding-bottom: 10rem;
   margin: 0 1rem;
-  gap: 1.5rem 1rem;
+  gap: 1.2rem 1rem;
 
   @media only screen and (${device.sm}) {
     gap: 2rem;
@@ -22,6 +22,7 @@ export const StyledCards = styled(InfiniteScroll)`
 
   @media only screen and (${device.lg}) {
     margin: 0 10rem;
+    gap: 4rem 3rem;
   }
 `
 
@@ -41,9 +42,9 @@ export const StyledCard = styled(Link)`
   background-color: ${props => props.theme.grey}a1;
   background-image: linear-gradient(
     to right,
-    ${props => props.theme[props.types[0]]}70 0%,
-    ${props => props.theme[props.types[0]]}70 50%,
-    ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}70 50%
+    ${props => props.theme[props.types[0]]}80 0%,
+    ${props => props.theme[props.types[0]]}80 50%,
+    ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}80 50%
   );
   transition:
     transform .2s,
@@ -71,13 +72,6 @@ export const StyledCard = styled(Link)`
     transform: scale(0.98);
     box-shadow: .2rem .4rem .5rem ${props => props.theme.blackLight};
   }
-
-  /* picture {
-    display: flex;
-    justify-content: center;
-    aspect-ratio: 1 / 1;
-    width: fit-content;
-  } */
 
   picture {
     z-index: 1;
@@ -111,30 +105,47 @@ export const Number = styled.div`
 
 export const Types = styled.div`
   position: absolute;
-  top: .5rem;
-  right: .5rem;
+  top: .3rem;
+  right: .3rem;
+
+  @media only screen and (${device.sm}) {
+    top: .5rem;
+    right: .5rem;
+  }
 
   @media only screen and (${device.md}) {
-    top: 1.6rem;
+    top: 1.2rem;
     right: 1.2rem;
   }
 
   div {
-    &:not(:last-child) {
-      margin-bottom: 1px;
-    }
+    font-size: .9rem;
 
     @media only screen and (${device.sm}) {
-      &:not(:last-child) {
+      font-size: 1rem;      
+    }
+
+    @media only screen and (${device.md}) {
+      font-size: 1.2rem;
+    }
+
+    @media only screen and (${device.lg}) {
+      font-size: 1.3rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1px;
+
+      @media only screen and (${device.sm}) {
         margin-bottom: .2rem;
       }
-    }  
+    }
   }
 `
 
 export const Name = styled.div`
   color: white;
-  font-size: min(3vw, 2.6rem);
+  font-size: min(3.3vw, 2.6rem);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
