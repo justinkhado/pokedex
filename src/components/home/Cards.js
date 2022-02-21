@@ -26,7 +26,7 @@ const Card = ({ pokemon }) => {
 
   return (
     <StyledCard to={`/pokemon/${pokemon.id}`} types={pokemon.types} ref={cardRef}>
-      <Number>{`${pokemon.id}`}</Number>      
+      <Number>{`${pokemon.id}`}</Number>
       <Types>
           <Type type={pokemon.types[0]}><span>{pokemon.types[0]}</span></Type>
           {pokemon.types[1] && 

@@ -60,7 +60,7 @@ const EvoChain = ({ id }) => {
         </PokemonLink>
         {evoChain.evolves_to && <EvolutionArrow />}
         <EvolutionStage eevee={isEeveelution}>
-          {evoChain.evolves_to && evoChain.evolves_to.map(evo1 => 
+          {evoChain.evolves_to && evoChain.evolves_to.map(evo1 =>
             <div key={evo1.id}>              
               <PokemonLink to={`/pokemon/${evo1.id}`} delay={.5} $visible={inView} onClick={(event) => event.currentTarget.blur()}>
                 <EvolutionImage id={evo1.id} name={evo1.name} />

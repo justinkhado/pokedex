@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Pokeball from '../../assets/icons/pokeball.svg'
-import fightingBackground from '../../assets/misc/fighting-background.png'
+import fightingBackground from '../../assets/misc/rse-background.png'
 import { device } from '../../sharedStyles/breakpoints'
 
 export const Container = styled.div`
