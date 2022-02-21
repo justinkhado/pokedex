@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
 import Cards from './Cards'
-import Search from './search/Search'
+import Search from './search_filter/Search'
 import ScrollToTop from './ScrollToTop'
 
 export const SearchContext = createContext({})
