@@ -6,8 +6,8 @@ export const Type = styled.div`
   justify-content: center;
   align-items: center;
 
-  aspect-ratio: 3.2 / 1;
-  width: 5.1em;
+  aspect-ratio: 3.3 / 1;
+  width: 5.2em;
   border: 1px solid ${props => props.theme.greyDark};
   border-radius: 0.3rem;
   background: ${props => props.theme[props.type]};

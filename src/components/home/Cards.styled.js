@@ -157,9 +157,12 @@ export const Types = styled.div`
 
 export const Name = styled.div`
   color: white;
-  font-size: min(3.3vw, 2.6rem);
+  font-size: min(3.6vw, 2.6rem);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
   margin-bottom: .5em;
+
+  @media only screen and (${device.md}) {
+    letter-spacing: 1px;
+  }
 `
