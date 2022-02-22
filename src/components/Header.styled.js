@@ -9,11 +9,7 @@ export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   z-index: 99;
-  ${props => props.theme.type ? `
-    background-color: ${props.theme.white}f1;` : `
-    background-color: ${props.theme.white}e1;
-    `
-  }
+  background-color: ${props => props.theme.white}f1;
   backdrop-filter: blur(2px);
   height: 7rem;
   margin: 0 auto 3rem;
@@ -33,7 +29,7 @@ export const StyledHeader = styled.header`
   }
 
   h1 {
-    margin-left: .5rem;
+    margin-left: 1rem;
     font-size: 3.6rem;
     font-weight: 300;
     text-transform: uppercase;

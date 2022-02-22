@@ -39,29 +39,41 @@ export const StyledCard = styled(Link)`
   font-size: min(2vw, 1.6rem);
   text-decoration: none;
   box-shadow: .4rem .6rem .8rem ${props => props.theme.blackLight};
-  background-color: ${props => props.theme.grey}a1;
+  background-color: ${props => props.theme.grey};
   background-image: linear-gradient(
     to right,
-    ${props => props.theme[props.types[0]]}80 0%,
-    ${props => props.theme[props.types[0]]}80 50%,
-    ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}80 50%
-  );
+    ${props => props.theme[props.types[0]]}65 0%,
+    ${props => props.theme[props.types[0]]}65 50%,
+    ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}65 50%
+    );
   transition:
     transform .2s,
     background-color .2s,
     box-shadow .2s;
     
+  @media only screen and (${device.md}) {
+    background-color: ${props => props.theme.grey}a1;
+    background-image: linear-gradient(
+      to right,
+      ${props => props.theme[props.types[0]]}80 0%,
+      ${props => props.theme[props.types[0]]}80 50%,
+      ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}80 50%
+    );
+  }
+    
   &:hover,
   &:focus {
     transform: scale(1.05);
-    background-color: ${props => props.theme.grey};
-    background-image: linear-gradient(
-      to right,
-      ${props => props.theme[props.types[0]]}8a 0%,
-      ${props => props.theme[props.types[0]]}8a 50%,
-      ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}8a 50%
-    );
     box-shadow: .5rem .7rem 1.3rem ${props => props.theme.blackLight};
+
+    @media only screen and (${device.md}) {
+      background-color: ${props => props.theme.grey};
+      background-image: linear-gradient(
+        to right,
+        ${props => props.theme[props.types[0]]}8a 0%,
+        ${props => props.theme[props.types[0]]}8a 50%,
+        ${props => props.types.length > 1 ? props.theme[props.types[1]] : props.theme[props.types[0]]}8a 50%);
+    }
   }
 
   &:focus {
@@ -75,7 +87,7 @@ export const StyledCard = styled(Link)`
 
   picture {
     z-index: 1;
-    width: 75%;
+    width: 76%;
 
     @media only screen and (${device.lg}) {
       width: 80%;

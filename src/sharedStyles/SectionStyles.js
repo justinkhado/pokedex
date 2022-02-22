@@ -5,8 +5,9 @@ export const SectionContainer = styled.section`
   width: min(55rem, 100%);
 
   @media only screen and (${device.sm}) {
+    width: min(55rem, 95%);
     box-shadow: .5rem 1rem 1rem ${props => props.theme.blackLight};
-    align-self: center;    
+    align-self: center;
   }
 
   @media only screen and (${device.md}) {

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { device } from './breakpoints'
 
 const GlobalStyles = createGlobalStyle`
   *,
@@ -19,16 +20,28 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     background-image: linear-gradient(
       135deg,
-      ${props => props.theme.primary}c1 0%,
-      ${props => props.theme.primary}50 59%,
+      ${props => props.theme.primary}a1 0%,
+      ${props => props.theme.primary}90 59%,
       ${props => props.theme.blackLight}b1 59%,
       ${props => props.theme.blackLight}b1 60%,
-      ${props => props.theme.white} 60%,
-      ${props => props.theme.grey}b1
+      ${props => props.theme.greyLight} 60%,
+      ${props => props.theme.greyLight}
     );
     background-attachment: fixed;
     min-height: 100vh;
-    overflow-y: scroll;    
+    overflow-y: scroll;
+
+    @media only screen and (${device.md}) {
+      background-image: linear-gradient(
+        135deg,
+        ${props => props.theme.primary}c1 0%,
+        ${props => props.theme.primary}50 59%,
+        ${props => props.theme.blackLight}b1 59%,
+        ${props => props.theme.blackLight}b1 60%,
+        ${props => props.theme.white} 60%,
+        ${props => props.theme.grey}b1
+      );
+    }
     
     &::before {
       content: '';
@@ -36,9 +49,12 @@ const GlobalStyles = createGlobalStyle`
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      backdrop-filter: blur(2px);
+      height: 100%;      
       z-index: -9;
+
+      @media only screen and (${device.md}) {
+        backdrop-filter: blur(3px);
+      }
     }
 
     &::-webkit-scrollbar {
