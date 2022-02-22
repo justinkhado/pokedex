@@ -58,7 +58,7 @@ const Cards = ({ pokemons }) => {
 
   useEffect(() => {    
     const scrollPosition = parseInt(window.sessionStorage.getItem('homeScrollPosition')) || 0
-    setTimeout(() => { window.scrollTo({ top: scrollPosition, behavior: 'smooth' }) }, 2)
+    setTimeout(() => { window.scrollTo({ top: scrollPosition }) }, 2)
 
     const onUnload = (event) => {
       event.preventDefault()
@@ -113,7 +113,7 @@ const Cards = ({ pokemons }) => {
       setPokemonChunk({
         ...pokemonChunk,
         items: pokemonChunk.items.concat(
-          filteredPokemons.slice(pokemonChunk.items.length, pokemonChunk.items.length + 12)
+          filteredPokemons.slice(pokemonChunk.items.length, pokemonChunk.items.length + 18)
         )
       })
     }
@@ -128,7 +128,7 @@ const Cards = ({ pokemons }) => {
       dataLength={pokemonChunk.items.length}
       next={fetchMoreData}
       hasMore={pokemonChunk.hasMore}
-      scrollThreshold={.9}
+      scrollThreshold={.8}
       onScroll={handleScrollEvent}
       style={{ height: 'initial', overflow: 'initial' }}
     >
