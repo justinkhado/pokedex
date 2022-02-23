@@ -36,7 +36,7 @@ const Card = ({ pokemon }) => {
       <picture>
         <source type='image/webp' srcSet={`${imageUrl}.webp`} />
         <source type='image/png' srcSet={`${imageUrl}.png`} />
-        <img src={`${imageUrl}.png`} alt={pokemon.name} />
+        <img src={`${imageUrl}.png`} alt={pokemon.name} loading='lazy' />
       </picture>
       <Name>{`${pokemon.name}`}</Name>
     </StyledCard>
@@ -97,8 +97,8 @@ const Cards = ({ pokemons }) => {
       }
       else {
         setPokemonChunk({
-          items: filteredPokemons.slice(0, 30),
-          hasMore: filteredPokemons.length > 18
+          items: filteredPokemons.slice(0, 36),
+          hasMore: filteredPokemons.length > 60
         })
       }
       window.scrollTo({ top: 0 })
@@ -113,7 +113,7 @@ const Cards = ({ pokemons }) => {
       setPokemonChunk({
         ...pokemonChunk,
         items: pokemonChunk.items.concat(
-          filteredPokemons.slice(pokemonChunk.items.length, pokemonChunk.items.length + 18)
+          filteredPokemons.slice(pokemonChunk.items.length, pokemonChunk.items.length + 60)
         )
       })
     }
@@ -128,7 +128,7 @@ const Cards = ({ pokemons }) => {
       dataLength={pokemonChunk.items.length}
       next={fetchMoreData}
       hasMore={pokemonChunk.hasMore}
-      scrollThreshold={.9}
+      scrollThreshold={.85}
       onScroll={handleScrollEvent}
       style={{ height: 'initial', overflow: 'initial' }}
     >
