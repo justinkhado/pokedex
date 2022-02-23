@@ -17,9 +17,21 @@ const Search = () => {
       if (event.key === 'Escape') {
         inputRef.current.blur()
       }
-    }    
+    }
+    
+    const handleTouchStart = (event) => {
+      if (inputRef.current && !inputRef.current.contains(event.target) && inputRef.current === document.activeElement) {
+        inputRef.current.blur()
+      }
+    }
+
     window.addEventListener('keydown', handleEscPress)
-    return () => window.removeEventListener('keydown', handleEscPress)
+    window.addEventListener('touchstart', handleTouchStart)
+
+    return () => {
+      window.removeEventListener('keydown', handleEscPress)
+      window.removeEventListener('touchstart', handleTouchStart)
+    }
   }, [])
 
   const handleSearchInput = (event) => {
