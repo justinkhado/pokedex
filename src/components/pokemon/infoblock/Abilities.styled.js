@@ -87,9 +87,11 @@ export const SelectButton = styled.button.attrs({
   letter-spacing: 1px;
   color: ${props => props.theme.black};
 
-  &:hover {
-    border-bottom: 1px solid black;
-    margin-bottom: -1px;
+  @media (hover: hover) {
+    &:hover {
+      border-bottom: 1px solid black;
+      margin-bottom: -1px;
+    }
   }
 
   &:focus::after {

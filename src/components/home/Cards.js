@@ -97,7 +97,7 @@ const Cards = ({ pokemons }) => {
       }
       else {
         setPokemonChunk({
-          items: filteredPokemons.slice(0, 24),
+          items: filteredPokemons.slice(0, 30),
           hasMore: filteredPokemons.length > 18
         })
       }
@@ -128,7 +128,7 @@ const Cards = ({ pokemons }) => {
       dataLength={pokemonChunk.items.length}
       next={fetchMoreData}
       hasMore={pokemonChunk.hasMore}
-      scrollThreshold={.8}
+      scrollThreshold={.9}
       onScroll={handleScrollEvent}
       style={{ height: 'initial', overflow: 'initial' }}
     >

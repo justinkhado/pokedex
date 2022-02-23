@@ -19,16 +19,16 @@ export const FilterButton = styled.button.attrs({
   outline: 1px solid ${props => props.filtering ? props.theme.primary : props.theme.greyDark};
   cursor: pointer;
   transition: outline-offset .1s;
-
-  &:hover {    
-    filter: brightness(${props => props.filtering ? .8 : .4});
-  }
-
-  &:hover,
-  &:focus-within {
-    @media only screen and (${device.md}) {
+  
+  @media (hover: hover) {
+    &:hover {    
+      filter: brightness(${props => props.filtering ? .8 : .4});
       outline-offset: .2rem;
     }
+  }
+
+  &:focus-within {
+    outline-offset: .2rem;
   }
 
   svg path {
@@ -82,9 +82,13 @@ export const FilterClear = styled(ClearButton)`
   top: 50%;
   right: 4rem;
   transform: translateY(-50%);
-  font-size: ${props => props.theme.fontXs};
+  font-size: ${props => props.theme.fontSm};
   opacity: 0;
   animation: fadeInFilterClear .2s forwards;
+
+  @media only screen and (${device.md}) {
+    font-size: ${props => props.theme.fontXs};
+  }
 
   @keyframes fadeInFilterClear {
     to { opacity: 1; }
