@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { device } from '../../../sharedStyles/breakpoints'
 
 export const ModalContainer = styled.div`  
-  position: fixed;
+  position: fixed;  
   width: 30rem;
   top: 50%;
   left: 50%;
@@ -27,21 +27,6 @@ export const ModalContainer = styled.div`
     text-transform: uppercase;
     font-size: 2.2rem;
     letter-spacing: .3rem;
-  }
-
-  p {
-    background-color: ${props => props.theme[`${props.type}Light`]};
-    border-radius: 1rem;
-    margin: 2rem 0 0 0;
-    padding: 2rem;
-    font-size: ${props => props.theme.fontSm};
-    font-weight: 500;
-    line-height: 2rem;
-
-    @media only screen and (${device.lg}) {
-      font-size: ${props => props.theme.fontMd};
-      line-height: 2.2rem; 
-    }
   }
 
   @keyframes growIntoView {
@@ -110,6 +95,45 @@ export const MoveValues = styled.div`
   }
 `
 
+export const MoveDescription = styled.div`
+  background-color: ${props => props.theme[`${props.type}Light`]};
+  border-radius: 1rem;
+  margin: 2rem 0 0 0;
+  padding: 2rem;
+
+  p {
+    margin: 0;
+    max-height: 25rem;    
+    font-size: ${props => props.theme.fontSm};
+    font-weight: 500;
+    line-height: 2rem;
+    overflow-y: auto;
+
+    @media only screen and (${device.lg}) {
+      font-size: ${props => props.theme.fontMd};
+      line-height: 2.2rem; 
+    }
+
+    &::-webkit-scrollbar {
+      width: .5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      margin: .5rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${props => props.theme[`${props.type}`]};
+      border-radius: .5rem;      
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: ${props => props.theme[`${props.type}Dark`]};
+    }
+  }
+`
+
 export const CloseButton = styled.button.attrs({
   type: 'button'
 })`
@@ -119,15 +143,19 @@ export const CloseButton = styled.button.attrs({
   position: absolute;
   top: 1rem;
   right: 1rem;
-  height: 1.8rem;
+  aspect-ratio: 1 / 1;
   width: 1.8rem;
   background-color: transparent;
   border: none;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: ${props => props.theme.white};
   transition: scale .2s;
+
+  @media only screen and (${device.md}) {
+    font-size: 1.2rem;
+  }
 
   &:hover {
     transform: scale(1.2);

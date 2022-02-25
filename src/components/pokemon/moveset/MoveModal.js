@@ -3,6 +3,7 @@ import {
   ModalContainer,
   MoveInfo,
   MoveValues,
+  MoveDescription,
   CloseButton
 } from './MoveModal.styled'
 import { DamageClass } from './Moveset.styled';
@@ -13,16 +14,20 @@ import statusIcon from '../../../assets/icons/Status.png';
 
 const MoveModal = ({ move, closeModal }) => {
   const modalRef = useRef(null)
-  
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         closeModal()
       }
     }
-    document.addEventListener('mouseup', handleClickOutside)
+    document.addEventListener('click', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
     
-    return (() => document.removeEventListener('mouseup', handleClickOutside))
+    return (() => {
+      document.removeEventListener('click', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    })
   }, [closeModal])
 
   return (
@@ -52,7 +57,9 @@ const MoveModal = ({ move, closeModal }) => {
             <span>{move.pp}</span>
           </div>
         </MoveValues>
-        <p>{move.effect}</p>
+        <MoveDescription type={move.type}>
+          <p>{move.effect}</p>
+        </MoveDescription>
       </MoveInfo>
     </ModalContainer>
   )

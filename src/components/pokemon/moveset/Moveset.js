@@ -19,7 +19,7 @@ const Moveset = ({ id }) => {
   const [method, setMethod] = useState('level-up')
   const [generation, setGeneration] = useState('vii')
   const [selectedMove, setSelectedMove] = useState({})
-  const controllerRef = useControllerRef()
+  const controllerRef = useControllerRef()  
 
   useEffect(() => {
     pokemonService
@@ -47,7 +47,7 @@ const Moveset = ({ id }) => {
   return (
     <MoveContainer>
       <SectionHeader>Moveset</SectionHeader>
-      <Movelist>
+      <Movelist modalOpen={selectedMove.name}>
         <MovelistFilter>
           <Methods>
             {['level-up', 'machine', 'tutor', 'egg'].map(methodName =>
@@ -68,10 +68,10 @@ const Moveset = ({ id }) => {
           </GenerationSelect>
         </MovelistFilter>
         <MoveTable moveset={moveset} method={method} generation={generation} selectMove={handleSelectMove} />
-        {selectedMove.name && 
-          <MoveModal move={selectedMove} closeModal={() => handleSelectMove({})} />
-        }        
       </Movelist>
+      {selectedMove.name && 
+        <MoveModal move={selectedMove} closeModal={() => handleSelectMove({})} />
+      }        
     </MoveContainer>
   )
 }

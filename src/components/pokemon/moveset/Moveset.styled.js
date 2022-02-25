@@ -21,6 +21,7 @@ export const Movelist = styled(SectionBody)`
   align-items: center;
   padding-left: 0;
   padding-right: 0;
+  ${props => props.modalOpen && 'pointer-events: none;'}
 `
 
 export const MovelistFilter = styled.div`
