@@ -18,15 +18,18 @@ const MoveModal = ({ move, closeModal }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
+        event.preventDefault()
         closeModal()
       }
     }
-    document.addEventListener('click', handleClickOutside)
-    document.addEventListener('touchstart', handleClickOutside)
-    
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchend', handleClickOutside)
+    document.addEventListener('touchmove', handleClickOutside)
+
     return (() => {
-      document.removeEventListener('click', handleClickOutside)
-      document.removeEventListener('touchstart', handleClickOutside)
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchend', handleClickOutside)
+      document.addEventListener('touchmove', handleClickOutside)
     })
   }, [closeModal])
 

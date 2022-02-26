@@ -51,7 +51,7 @@ export const TableContainer = styled.div`
     background: ${props => props.theme[`${props.theme.type}`]};
   }
 
-  table {    
+  table {
     text-align: right;
     border-collapse: collapse;
     width: 100%;
@@ -107,7 +107,7 @@ export const MovelistHeaders = styled.tr`
     text-align: center;
   }
 
-  
+
   th:nth-child(6) {
     padding-right: 1.5em;
   }
@@ -138,14 +138,16 @@ export const MovelistRow = styled.tr`
     font-size: ${props => props.theme.fontMd};
   }
 
-  &:hover {
-    background-color: ${props => props.theme[`${props.theme.type}Light`]};
-    cursor: pointer;
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${props => props.theme[`${props.theme.type}Light`]};
+      cursor: pointer;
+    }
   }
 
   td {
     padding: 1em .2em;
-    
+
     @media only screen and (${device.sm}) {
       padding: 1em .5em;
     }
@@ -156,16 +158,16 @@ export const MovelistRow = styled.tr`
   }
 
   td:first-child {
-    text-transform: uppercase;    
+    text-transform: uppercase;
   }
 
-  td:nth-child(2) {    
+  td:nth-child(2) {
     text-transform: capitalize;
     text-align: start;
     font-weight: 500;
   }
 
-  
+
   td:nth-child(6) {
     padding-right: 1.5em;
   }

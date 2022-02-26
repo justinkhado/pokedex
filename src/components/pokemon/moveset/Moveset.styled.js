@@ -125,7 +125,7 @@ export const MethodInput = styled.input.attrs(props => ({
 export const DamageClass = styled.div`
   display: flex;
   justify-content: center;
-  
+
   img {
     width: 3.5rem;
 
