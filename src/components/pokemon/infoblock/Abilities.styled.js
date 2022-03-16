@@ -57,7 +57,7 @@ export const AbilitiesHeader = styled.div`
     font-weight: 500;
     letter-spacing: 1px;
     color: ${props => props.theme.black};
-    
+
     option {
       background-color: ${props => props.theme[`${props.theme.type}Light`]};
 
@@ -102,7 +102,7 @@ export const SelectButton = styled.button.attrs({
     content: '';
     position: absolute;
     right: -3rem;
-    width: 0; 
+    width: 0;
     height: 0;
     top: 50%;
     transform: translateY(-60%);
@@ -110,6 +110,7 @@ export const SelectButton = styled.button.attrs({
     border-right: .5em solid transparent;
     border-top: .6em solid ${props => props.theme.black};
     transition: transform .2s;
+    pointer-events: none;
   }
 `
 
@@ -137,7 +138,7 @@ export const AbilityOptions = styled.div`
 
 export const AbilityOption = styled.button`
   ${props => props.isCurrent && `display: none;`}
-  padding: 1rem 1.5rem;    
+  padding: 1rem 1.5rem;
   background-color: ${props => props.theme[`${props.theme.type}Light`]};
   border: none;
   cursor: pointer;
